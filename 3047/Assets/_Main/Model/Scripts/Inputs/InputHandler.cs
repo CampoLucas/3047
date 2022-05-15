@@ -12,7 +12,7 @@ public class InputHandler : MonoBehaviour
     public float horizontal;
     public float vertical;
 
-    bool shoot_Input;
+    bool Fire_Input;
     bool boost_Input;
     bool dodge_Input;
 
@@ -24,11 +24,11 @@ public class InputHandler : MonoBehaviour
     }
     private void Update()
     {
-        //HandleInput();
+        HandleInput();
 
         _player.Move(new Vector3(horizontal, vertical));
         _player.Boost(boost_Input);
-        if (shoot_Input)
+        if (Fire_Input)
             _player.Fire();
         if (dodge_Input)
             _player.Dodge();
@@ -52,19 +52,19 @@ public class InputHandler : MonoBehaviour
     private void HandleInput()
     {
         MoveInput();
-        ShootInput();
-        BoostInput();
-        DodgeInput();
+        FireInput();
+        //BoostInput();
+        //DodgeInput();
     }
     private void MoveInput()
     {
         horizontal = _movementInput.x;
         vertical = _movementInput.y;
     }
-    private void ShootInput()
+    private void FireInput()
     {
-        _inputActions.PlayerActions.Shoot.started += i => shoot_Input = true;
-        _inputActions.PlayerActions.Shoot.canceled += i => shoot_Input = false;
+        _inputActions.PlayerActions.Fire.started += i => Fire_Input = true;
+        _inputActions.PlayerActions.Fire.canceled += i => Fire_Input = false;
     }
     private void BoostInput()
     {

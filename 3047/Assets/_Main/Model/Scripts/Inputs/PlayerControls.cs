@@ -155,7 +155,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""id"": ""97089211-7781-4418-9290-f18638a0bc87"",
             ""actions"": [
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""19617099-d3a6-4172-beca-7fa7e3718604"",
                     ""expectedControlType"": ""Button"",
@@ -190,7 +190,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -201,7 +201,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -212,7 +212,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -223,7 +223,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -320,7 +320,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerMovements_Movement = m_PlayerMovements.FindAction("Movement", throwIfNotFound: true);
         // PlayerActions
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
-        m_PlayerActions_Shoot = m_PlayerActions.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerActions_Fire = m_PlayerActions.FindAction("Fire", throwIfNotFound: true);
         m_PlayerActions_Boost = m_PlayerActions.FindAction("Boost", throwIfNotFound: true);
         m_PlayerActions_Dodge = m_PlayerActions.FindAction("Dodge", throwIfNotFound: true);
     }
@@ -415,14 +415,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     // PlayerActions
     private readonly InputActionMap m_PlayerActions;
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
-    private readonly InputAction m_PlayerActions_Shoot;
+    private readonly InputAction m_PlayerActions_Fire;
     private readonly InputAction m_PlayerActions_Boost;
     private readonly InputAction m_PlayerActions_Dodge;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Shoot => m_Wrapper.m_PlayerActions_Shoot;
+        public InputAction @Fire => m_Wrapper.m_PlayerActions_Fire;
         public InputAction @Boost => m_Wrapper.m_PlayerActions_Boost;
         public InputAction @Dodge => m_Wrapper.m_PlayerActions_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
@@ -434,9 +434,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsActionsCallbackInterface != null)
             {
-                @Shoot.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShoot;
+                @Fire.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnFire;
                 @Boost.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBoost;
                 @Boost.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBoost;
                 @Boost.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBoost;
@@ -447,9 +447,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
                 @Boost.started += instance.OnBoost;
                 @Boost.performed += instance.OnBoost;
                 @Boost.canceled += instance.OnBoost;
@@ -484,7 +484,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public interface IPlayerActionsActions
     {
-        void OnShoot(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
     }
