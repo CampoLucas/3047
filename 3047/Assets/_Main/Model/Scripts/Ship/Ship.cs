@@ -9,17 +9,21 @@ public class Ship : Stats
 
     private IMovable _movable;
     private IFireable[] _guns;
+    private IAnimation _anim;
 
     private void Awake()
     {
         _movable = GetComponent<IMovable>();
         _guns = GetComponentsInChildren<IFireable>();
+        _anim = GetComponent<IAnimation>();
     }
 
     public void Move(Vector3 direction)
     {
         if (_movable != null)
             _movable.Move(direction);
+        if (_anim != null)
+            _anim.UpdateAnimValues(direction.x, direction.y);
     }
 
     public void Boost(bool boost)
