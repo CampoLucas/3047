@@ -10,12 +10,12 @@ public class ScreenBoundary : MonoBehaviour, IBound
    private void Awake()
     {
         cam = Camera.main;
+        GetScreenSize();
         
     }
 
     private void Update()
     {
-        GetScreenSize();
         SetBoundary();
     }
     private void GetScreenSize() => screenSize = new Vector2((1 / (cam.WorldToViewportPoint(new Vector3(1, 1, 0)).x - .5f)) / 2, (1 / (cam.WorldToViewportPoint(new Vector3(1, 1, 0)).y - .5f)) / 2);
