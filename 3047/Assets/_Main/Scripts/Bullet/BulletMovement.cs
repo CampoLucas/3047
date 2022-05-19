@@ -16,6 +16,7 @@ public class BulletMovement : MonoBehaviour
     }
     public void Move()
     {
-        _bullet.MovemetCommand.Do();
+        _bullet.MovementCommand.Do();
     }
+    
 }

@@ -10,14 +10,15 @@ public class Bullet : Stats, IProduct<StatsSO>
     public Vector3 MoveDirection => _moveDirection;
     [SerializeField] private Vector3 _moveDirection;
 
-    public CmdMove MovemetCommand => _movementCommand;
+    public CmdMove MovementCommand => _movementCommand;
     private CmdMove _movementCommand;
 
     private void Start()
     {
         InitCmd();
+        Destroy(gameObject,3f);//TODO Cambiar por Pool
     }
-
+    
     public void InitData(Vector3 direction)
     {
         _moveDirection = direction;
