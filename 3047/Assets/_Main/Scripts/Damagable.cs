@@ -6,11 +6,12 @@ using UnityEngine.Events;
 
 public class Damagable : MonoBehaviour, IDamagable
 {
-    [SerializeField] protected int _maxLife;
-    [SerializeField] protected int _currentLife;
+    public StatsSO Data => _stats;
+    [SerializeField] private StatsSO _stats;
     public int CurrentLife => _currentLife;
-    public int MaxLife => _maxLife;
-    public Action<int> OnLifeChange;//HP y barra de vida
+    [SerializeField] protected int _currentLife;
+    //events
+    public Action<int> OnLifeChange;
     public UnityEvent OnDie = new UnityEvent();
     
     protected virtual void Awake()
@@ -34,15 +35,15 @@ public class Damagable : MonoBehaviour, IDamagable
     public virtual void GetHealing(int healnum)
     {
 
-        if (_currentLife == _maxLife)
+        if (_currentLife == _stats.MaxLife)
         {
             return;
         }
         _currentLife += healnum;
         OnLifeChange.Invoke(_currentLife);
-        if (_currentLife > _maxLife)
+        if (_currentLife > _stats.MaxLife)
         {
-            _currentLife = _maxLife;
+            _currentLife = _stats.MaxLife;
         }
     }
     public void DieHandler()
@@ -52,11 +53,11 @@ public class Damagable : MonoBehaviour, IDamagable
     
     public void ResetValues()
     {
-        _currentLife = _maxLife;
+        _currentLife = _stats.MaxLife;
     }
 
     public int GetLifePercentage()
     {
-        return (int)_currentLife / _maxLife;
+        return _currentLife / _stats.MaxLife;
     }
 }

@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Ship : Damagable
 {
-    public StatsSO Data => _stats;
-    [SerializeField] private StatsSO _stats;
-
     private IMovable _movable;
     private IFireable[] _guns;
     private IAnimation _anim;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _movable = GetComponent<IMovable>();
         _guns = GetComponentsInChildren<IFireable>();
         _anim = GetComponent<IAnimation>();
     }
 
-    public void Move(Vector3 direction)
+    public virtual void Move(Vector3 direction)
     {
         if (_movable != null)
             _movable.Move(direction);
