@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
     _maxLife: 30
-    _speed: 0
-    _damage: 0
+    _speed: 2
+    _damage: 10

@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Ship
 {
-
-    //TODO Enemy Behaviour
+    
+    private void Update()
+    {
+        Move(-Vector3.right);;
+    }
 }
