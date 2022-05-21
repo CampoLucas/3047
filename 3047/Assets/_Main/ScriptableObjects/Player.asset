@@ -15,5 +15,5 @@ MonoBehaviour:
   _stats:
     _maxLife: 100
     _speed: 10
-    _speedBoost: 20
+    _speedBoost: 17
     _damage: 0
