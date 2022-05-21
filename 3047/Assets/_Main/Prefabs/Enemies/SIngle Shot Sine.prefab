@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660539873225125982}
-  - component: {fileID: 1660539873225125983}
+  - component: {fileID: 1693698871}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660539873225125953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.56, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9194284572166838159}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1660539873225125983
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1693698871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1660539873225125953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4eb7af1b8f91c419ec4c78f2663d58, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a34208f4a5858a44bdd8e9be0b23e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireRate: 1
   _bulletPrefab: {fileID: 4263982148611847167, guid: 3324cccd34ec45945af8e091b550f5ba, type: 3}
-  _shootDelay: 0.2
 --- !u!1 &1953970452133772532
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194284570850252679}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -238,7 +238,7 @@ Transform:
   - {fileID: 7260403552358860366}
   m_Father: {fileID: 9194284572166838159}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
 --- !u!1 &9194284572166838158
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1660539873091336209}
   - component: {fileID: 228539279}
   m_Layer: 7
-  m_Name: Red Ship
+  m_Name: SIngle Shot Sine
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -301,10 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: f2832731b7749c84f9c674bd53f21711, type: 2}
-  _currentLife: 0
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1660539873091336209
 MonoBehaviour:
   m_ObjectHideFlags: 0
