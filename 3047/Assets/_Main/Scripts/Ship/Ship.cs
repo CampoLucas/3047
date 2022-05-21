@@ -2,31 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : Damagable
+public class Ship : Entity
 {
-    private IMovable _movable;
     private IFireable[] _guns;
-    private IAnimation _anim;
+    private IDamagable _damagable;
 
     protected override void Awake()
     {
         base.Awake();
-        _movable = GetComponent<IMovable>();
         _guns = GetComponentsInChildren<IFireable>();
-        _anim = GetComponent<IAnimation>();
+        _damagable = GetComponent<IDamagable>();
     }
 
-    public virtual void Move(Vector3 direction)
+    public void TakeDamage(int damage)
     {
-        if (_movable != null)
-            _movable.Move(direction);
-        if (_anim != null)
-            _anim.UpdateAnimValues(direction.x, direction.y);
+        _damagable.TakeDamage(damage);
     }
 
-    public void Boost(bool boost)
+    public void AddLife(int life)
     {
-       
+        _damagable.AddLife(life);
     }
 
     public void Fire()
@@ -35,9 +30,5 @@ public class Ship : Damagable
             foreach (IFireable gun in _guns)
                 gun.Fire();
     }
-
-    public void Dodge()
-    {
-       
-    }
+    
 }

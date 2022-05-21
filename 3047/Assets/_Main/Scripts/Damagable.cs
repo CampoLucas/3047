@@ -10,17 +10,21 @@ public class Damagable : MonoBehaviour, IDamagable
     [SerializeField] private StatsSO _stats;
     public int CurrentLife => _currentLife;
     [SerializeField] protected int _currentLife;
+
+    public bool IsInvulnerable;
     //events
     public Action<int> OnLifeChange;
     public UnityEvent OnDie = new UnityEvent();
     
     protected virtual void Awake()
     {
-        ResetValues();
+        if (_stats == null)
+            _stats = GetComponent<Entity>().Data;
+        InitStats();
     }
     
 
-    public virtual void GetDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (_currentLife > 0 )
         {
@@ -32,7 +36,7 @@ public class Damagable : MonoBehaviour, IDamagable
             DieHandler();
         }
     }
-    public virtual void GetHealing(int healnum)
+    public virtual void AddLife(int healnum)
     {
 
         if (_currentLife == _stats.MaxLife)
@@ -51,7 +55,7 @@ public class Damagable : MonoBehaviour, IDamagable
         OnDie.Invoke();
     }
     
-    public void ResetValues()
+    public void InitStats()
     {
         _currentLife = _stats.MaxLife;
     }

@@ -6,7 +6,7 @@ public class InputHandler : MonoBehaviour
 {
     [Header("Components")]
     private PlayerControls _inputActions;
-    private Ship _player;
+    private Player _player;
 
     [Header("Movement")]
     public float horizontal;
@@ -20,13 +20,14 @@ public class InputHandler : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<Ship>();
+        _player = GetComponent<Player>();
     }
     private void Update()
     {
         HandleInput();
-
-        _player.Move(new Vector3(horizontal, vertical));
+        Vector3 dir = new Vector3(horizontal, vertical);
+        _player.Move(dir);
+        _player.UpdateAnimation(dir);
         _player.Boost(boost_Input);
         if (Fire_Input)
             _player.Fire();

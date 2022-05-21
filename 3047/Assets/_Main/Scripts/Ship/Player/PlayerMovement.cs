@@ -17,8 +17,12 @@ public class PlayerMovement : MonoBehaviour, IMovable
     private void Awake()
     {
         if (_stats == null)
-            _stats = GetComponent<Ship>().Data;
+            _stats = GetComponent<Entity>().Data;
+        
+        
         InitStats();
+        if (_stats == null)
+            Debug.Log("null stats");
     }
 
     private void InitStats()
