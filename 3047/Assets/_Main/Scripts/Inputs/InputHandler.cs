@@ -28,9 +28,13 @@ public class InputHandler : MonoBehaviour
         Vector3 dir = new Vector3(horizontal, vertical);
         _player.Move(dir);
         _player.UpdateAnimation(dir);
+
         _player.Boost(boost_Input);
+            
+
         if (Fire_Input)
             _player.Fire();
+
         if (dodge_Input)
             _player.Dodge();
     }
@@ -54,7 +58,7 @@ public class InputHandler : MonoBehaviour
     {
         MoveInput();
         FireInput();
-        //BoostInput();
+        BoostInput();
         //DodgeInput();
     }
     private void MoveInput()

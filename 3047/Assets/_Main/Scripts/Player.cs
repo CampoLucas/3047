@@ -5,16 +5,16 @@ using UnityEngine;
 public class Player : Ship
 {
     private IAnimation _anim;
+
+    public bool IsBoosting => _isBoosting;
+    [SerializeField] private bool _isBoosting; 
     protected override void Awake()
     {
         base.Awake();
         _anim = GetComponent<IAnimation>();
     }
 
-    public void Boost(bool boost)
-    {
-       
-    }
+    public void Boost(bool isBoosting) => _isBoosting = isBoosting;
     public void Dodge()
     {
        

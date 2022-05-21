@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour, IMovable
 {
 
-    public float Speed => _speed;
-    [SerializeField] private float _speed;
+    public float CurrentSpeed => _currentSpeed;
+    [SerializeField] private float _currentSpeed;
 
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;
+
+    private Player _player;
 
     public CmdPlayerMove CmdPlayerMovememt => _cmdPlayerMovememt;
     private CmdPlayerMove _cmdPlayerMovememt;
@@ -18,21 +20,28 @@ public class PlayerMovement : MonoBehaviour, IMovable
     {
         if (_stats == null)
             _stats = GetComponent<Entity>().Data;
-        
+        _player = GetComponent<Player>();
         
         InitStats();
-        if (_stats == null)
-            Debug.Log("null stats");
+    }
+    private void Update()
+    {
+        if (_player.IsBoosting)
+            _currentSpeed = _stats.SpeedBoost;
+        else
+            _currentSpeed = _stats.Speed;
     }
 
     private void InitStats()
     {
-        _speed = _stats.Speed;
+        _currentSpeed = _stats.Speed;
     }
 
     public void Move(Vector3 direction)
     {
-        _cmdPlayerMovememt = new CmdPlayerMove(transform, direction, _speed);
+        _cmdPlayerMovememt = new CmdPlayerMove(transform, direction, _currentSpeed);
         _cmdPlayerMovememt.Do();
     }
+
+    
 }

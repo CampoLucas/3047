@@ -5,6 +5,7 @@ public class StatsSO : ScriptableObject
 {
     public int MaxLife => _stats.MaxLife;
     public float Speed => _stats.Speed;
+    public float SpeedBoost => _stats.SpeedBoost;
     public int Damage => _stats.Damage;
 
     [SerializeField] private StatValues _stats;
@@ -17,6 +18,8 @@ public struct StatValues
 
     public float Speed => _speed;
     [SerializeField] private float _speed;
+    public float SpeedBoost => _speedBoost;
+    [SerializeField] private float _speedBoost;
     public int Damage => _damage;
     [SerializeField] private int _damage;
 }
