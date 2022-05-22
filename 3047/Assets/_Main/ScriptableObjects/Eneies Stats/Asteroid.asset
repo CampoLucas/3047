@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Asteroid
   m_EditorClassIdentifier: 
   _stats:
-    _maxLife: 0
-    _speed: 0
-    _damage: 0
+    _maxLife: 50
+    _speed: 4
+    _damage: 5

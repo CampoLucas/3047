@@ -8,14 +8,14 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     [SerializeField] private float _fireRate = 0.2f;
     private float _lastShootime;
     public Bullet Product => _bulletPrefab;
-    [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] protected Bullet _bulletPrefab;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _lastShootime = 0f;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (_lastShootime > _fireRate)
         {
@@ -26,7 +26,7 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
         _lastShootime += Time.deltaTime;
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         Bullet e = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
         e.InitData(transform.right);
