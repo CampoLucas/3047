@@ -8,6 +8,7 @@ public class Player : Ship
 
     public bool IsBoosting => _isBoosting;
     [SerializeField] private bool _isBoosting; 
+    public float _moveAmount;
     protected override void Awake()
     {
         base.Awake();
@@ -15,13 +16,15 @@ public class Player : Ship
     }
 
     public void Boost(bool isBoosting) => _isBoosting = isBoosting;
+
+    public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
     public void Dodge()
     {
        
     }
-    public void UpdateAnimation(Vector2 direction)
+    public void UpdateAnimation(Vector2 direction, bool isBoosting)
     {
         if (_anim != null)
-            _anim.UpdateAnimValues(direction.x, direction.y);
+            _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
     }
 }

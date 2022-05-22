@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour, IMovable
 {
 
+    private Player _player;
+
     public float CurrentSpeed => _currentSpeed;
     [SerializeField] private float _currentSpeed;
 
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;
 
-    private Player _player;
+    public float MoveAmount => _moveAmount;
+    [SerializeField] private float _moveAmount;
 
     public CmdPlayerMove CmdPlayerMovememt => _cmdPlayerMovememt;
     private CmdPlayerMove _cmdPlayerMovememt;
@@ -29,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, IMovable
         if (_player.IsBoosting)
             _currentSpeed = _stats.SpeedBoost;
         else
-            _currentSpeed = _stats.Speed;
+            _currentSpeed = _stats.Speed * _player._moveAmount;
     }
 
     private void InitStats()
