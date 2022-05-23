@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAnimation
 {
-    void UpdateAnimValues(float verticalMov, float horizontalMov);
+    void UpdateAnimValues(float horizontal, float vertical, bool isBoosting);
 }
