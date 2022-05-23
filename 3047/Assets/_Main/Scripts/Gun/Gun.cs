@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireable : MonoBehaviour, IFireable
+public class Gun : MonoBehaviour, IGun
 {
     public Bullet Product => _bulletPrefab;
     [SerializeField] private Bullet _bulletPrefab;

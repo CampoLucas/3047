@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ship : Entity
 {
-    private IFireable[] _guns;
+    private IGun[] _guns;
     private IDamagable _damagable;
 
     protected override void Awake()
     {
         base.Awake();
-        _guns = GetComponentsInChildren<IFireable>();
+        _guns = GetComponentsInChildren<IGun>();
         _damagable = GetComponent<IDamagable>();
     }
 
@@ -27,7 +27,7 @@ public class Ship : Entity
     public void Fire()
     {
         if (_guns != null)
-            foreach (IFireable gun in _guns)
+            foreach (IGun gun in _guns)
                 gun.Fire();
     }
     
