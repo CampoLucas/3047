@@ -15,5 +15,9 @@ MonoBehaviour:
   _stats:
     _maxLife: 100
     _speed: 10
-    _speedBoost: 17
     _damage: 0
+  _thruster:
+    _fuel: 100
+    _combustionSpeed: 30
+    _rechargeSpeed: 15
+    _thrustBoost: 17
