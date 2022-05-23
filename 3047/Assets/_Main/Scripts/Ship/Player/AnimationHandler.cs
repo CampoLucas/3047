@@ -54,6 +54,8 @@ public class AnimationHandler : MonoBehaviour, IAnimation
 
         if (horizontal > .55f && isBoosting)
             h = 2;
+        else if (horizontal < -.55f && isBoosting)
+            h = -2;
 
         anim.SetFloat(this.vertical, v, 0.1f, Time.deltaTime);
         anim.SetFloat(this.horizontal, h, 0.1f, Time.deltaTime);
