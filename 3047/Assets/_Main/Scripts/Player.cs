@@ -37,30 +37,6 @@ public class Player : Ship
        
     }
 
-    public void CombustFuel()
-    {
-        if (_fuel != null)
-            _fuel.CombustFuel();
-    }
-
-    public void CombustFuel(float speed)
-    {
-        if (_fuel != null)
-            _fuel.CombustFuel(speed);
-    }
-
-    public void RefillFuel()
-    {
-        if (_fuel != null)
-            _fuel.RefillFuel();
-    }
-
-    public void RechargeFuel(float speed)
-    {
-        if (_fuel != null)
-            _fuel.RefillFuel(speed);
-    }
-
     public void UpdateAnimation(Vector2 direction, bool isBoosting)
     {
         if (_anim != null)
