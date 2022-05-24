@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : Ship
+public class Enemy : Ship
 {
     
     private void Update()
     {
-        Move(-Vector3.right);;
+        //Move(-Vector3.right);;
     }
 }

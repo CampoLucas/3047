@@ -8,14 +8,20 @@ public class EnemySineMovement : MonoBehaviour,IMovable
 
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;
-    [SerializeField] private float Amplitude;
-    [SerializeField] private float Frequency;
+    //[SerializeField] private float Amplitude;
+    //[SerializeField] private float Frequency;
+
+    private void Awake()
+    {
+        if (!_stats)
+            _stats = GetComponent<Entity>().Data;
+    }
 
     public void Move(Vector3 direction)//movimiento sin() se mueve solo para arriva
     {
          Vector3 pos = transform.position;
          pos += direction * _stats.Speed * Time.deltaTime;
-         float y = Mathf.Sin(transform.position.x * Frequency) * Amplitude *Time.deltaTime;
+         float y = Mathf.Sin(transform.position.x * _stats.Frequency) * _stats.Amplitude *Time.deltaTime;
          transform.position = pos + Vector3.up * y *_stats.Speed;
     }
 }
