@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 754e24874c77bcc41a646b173cea4596, type: 2}
+  _timeToRecycle: 2
   _moveDirection: {x: 0, y: 0, z: 0}
+  _Pool: {fileID: 0}
 --- !u!114 &3445696142606435907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +125,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 00d03ab868a77074287f59d003f8a3e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

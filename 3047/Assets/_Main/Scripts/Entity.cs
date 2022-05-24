@@ -6,8 +6,9 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public StatsSO Data => _stats;
-    [SerializeField] private StatsSO _stats;
-    private IMovable _movable;
+    [SerializeField] protected StatsSO _stats;
+
+    protected IMovable _movable;
 
     protected virtual void Awake()
     {

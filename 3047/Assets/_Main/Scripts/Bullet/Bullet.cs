@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IProduct<StatsSO>
+public class Bullet : Entity, IProduct<StatsSO>
 {
-    public StatsSO Data => _stats;
-    [SerializeField] private StatsSO _stats;
     [SerializeField] private float _timeToRecycle = 2f;
     private float _recycleTime;
     public Vector3 MoveDirection => _moveDirection;
