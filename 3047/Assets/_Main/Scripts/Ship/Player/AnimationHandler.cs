@@ -15,35 +15,49 @@ public class AnimationHandler : MonoBehaviour, IAnimation
         horizontal = Animator.StringToHash("Horizontal");
     }
 
-    public void UpdateAnimValues(float verticalMov, float horizontalMov)
+    public void UpdateAnimValues(float horizontal, float vertical, bool isBoosting)
     {
-        float v = 0;
+        //float h = 0;
 
-        if (verticalMov > 0 && verticalMov < .55f)
-            v = .5f;
-        else if (verticalMov > .55f)
-            v = 1;
-        else if (verticalMov < 0 && verticalMov > -.55f)
-            v = -.5f;
-        else if (verticalMov < -.55f)
-            v = -1;
-        else 
-            v = 0;
+        //if (horizontal > 0 && horizontal < .55f)
+        //    h = .5f;
+        //else if (horizontal > .55f)
+        //    h = 1;
+        //else if (horizontal < 0 && horizontal > -.55f)
+        //    h = -.5f;
+        //else if (horizontal < -.55f)
+        //    h = -1;
+        //else
+        //    h = 0;
 
-        float h = 0;
+        //float v = 0;
 
-        if (horizontalMov > 0 && horizontalMov < .55f)
-            h = .5f;
-        else if (horizontalMov > .55f)
-            h = 1;
-        else if (horizontalMov < 0 && horizontalMov > -.55f)
-            h = -.5f;
-        else if (horizontalMov < -.55f)
-            h = -1;
-        else
-            h = 0;
+        //if (vertical > 0 && vertical < .55f)
+        //    v = .5f;
+        //else if (vertical > .55f)
+        //    v = 1;
+        //else if (vertical < 0 && vertical > -.55f)
+        //    v = -.5f;
+        //else if (vertical < -.55f)
+        //    v = -1;
+        //else 
+        //    v = 0;
 
-        anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
-        anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
+        //if (isBoosting)
+        //{
+        //    if(horizontal > .55f)
+        //    h = 2;
+        //}
+
+        float h = horizontal;
+        float v = vertical;
+
+        if (horizontal > .55f && isBoosting)
+            h = 2;
+        else if (horizontal < -.55f && isBoosting)
+            h = -2;
+
+        anim.SetFloat(this.vertical, v, 0.1f, Time.deltaTime);
+        anim.SetFloat(this.horizontal, h, 0.1f, Time.deltaTime);
     }
 }
