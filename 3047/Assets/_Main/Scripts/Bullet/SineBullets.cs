@@ -17,8 +17,8 @@ public class SineBullets : MonoBehaviour, IProduct<StatsSO>
     private void Update()
     {
         Vector3 pos = transform.position;
-        pos += Vector3.right * _stats.Speed * Time.deltaTime;
+        pos +=  _stats.Speed * Time.deltaTime * Vector3.right ;
         float y = Mathf.Sin(transform.position.x * Frequency) * Amplitude *Time.deltaTime;
-        transform.position = pos + Vector3.up * y *_stats.Speed;
+        transform.position = pos + y *_stats.Speed * Vector3.up;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,13 @@ public class Gun : MonoBehaviour, IGun
     private float _lastShootime;
 
     private Vector3 _direction;
+    private Pool _pool;
+
+    private void Awake()
+    {
+        _pool = GetComponentInParent<Pool>();
+    }
+
 
     private void Update()
     {
@@ -26,13 +34,13 @@ public class Gun : MonoBehaviour, IGun
 
     public Bullet Create()
     {
-        Bullet e = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-        e.InitData(_direction);
+        Bullet e = _pool.Use().GetComponent<Bullet>();
+        e.InitData(_direction,transform.position,_pool);
 
         return e;
     }
 
-    public Bullet[] Create(int quantity)
+    public Bullet[] Create(int quantity)//TODO remover esto o hacerlo Factory
     {
         Bullet[] bullets = new Bullet[quantity];
 

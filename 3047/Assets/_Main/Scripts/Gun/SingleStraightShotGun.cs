@@ -9,9 +9,11 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     private float _lastShootime;
     public Bullet Product => _bulletPrefab;
     [SerializeField] protected Bullet _bulletPrefab;
-
+    protected Pool _pool;
+    
     protected virtual void Awake()
     {
+        _pool = GetComponentInParent<Pool>();
         _lastShootime = 0f;
     }
 
@@ -28,7 +30,8 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
 
     public virtual void Fire()
     {
-        Bullet e = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-        e.InitData(transform.right);
+        Vector3 position = transform.position;
+        Bullet e = Instantiate(_bulletPrefab, position, Quaternion.identity);
+        e.InitData(transform.right,position,_pool);
     }
 }
