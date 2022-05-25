@@ -20,6 +20,7 @@ public class Ship : Entity
     {
         if(_damagable)
             _damagable.TakeDamage(damage);
+        Debug.Log("damage" + gameObject.name);
     }
 
     public virtual void AddLife(int life)
@@ -35,7 +36,10 @@ public class Ship : Entity
                 gun.Fire();
     }
 
-    public virtual void OnDieListener() => Destroy(gameObject);
+    public virtual void OnDieListener()
+    {
+
+    }
 
 
 }

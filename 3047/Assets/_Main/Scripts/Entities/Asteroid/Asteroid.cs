@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : Entity
+public class Asteroid : Ship
 {
-    private Damageable _damagable;
     protected override void Awake()
     {
         base.Awake();
-        _damagable = GetComponent<Damageable>();
-        if (_damagable)
-            _damagable.OnDie.AddListener(OnDieListener);
     }
-    public virtual void TakeDamage(int damage)
+    public override void OnDieListener()
     {
-        if (_damagable)
-            _damagable.TakeDamage(damage);
+        base.OnDieListener();
+        //Duplicates into anumber between 2 and 3 half of the size of the asteroid, if it is 3 asteroids 3 times smaller
+        Destroy(gameObject);
     }
-    public virtual void OnDieListener() => Destroy(gameObject);
 }
