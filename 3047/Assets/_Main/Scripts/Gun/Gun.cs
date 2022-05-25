@@ -9,10 +9,14 @@ public class Gun : MonoBehaviour, IGun
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
-    [SerializeField] private GameObject bulletsEmptyObject;//este es para setear el parent de las balas para no llenar la hierarchy
+    private GameObject bulletsEmptyObject;//este es para setear el parent de las balas para no llenar la hierarchy
 
     private void Awake()
     {
+        bulletsEmptyObject = new GameObject
+        {
+            name = "Bullets"
+        };
         _pool = GetComponent<Pool>();
         _direction = transform.right;//logro lo mismo disparando a transform. right
     }
