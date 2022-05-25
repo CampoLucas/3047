@@ -7,13 +7,17 @@ public class HelixGun : MonoBehaviour,IGun
 {
     [SerializeField] private float _fireRate = 0.2f;
     private float _lastShootime;
-    public SineBullets Product => _bulletPrefabPlus;
-    [SerializeField] protected SineBullets _bulletPrefabPlus;
-    [SerializeField] protected SineBullets _bulletPrefabMinus;
-
+    [SerializeField] private Pool _plusPool;
+    [SerializeField] private Pool _minusPool;
+    private Vector3 _direction;
+    [SerializeField] private GameObject bulletsEmptyObject;// este es para setear el parent de las
+                                                           // balas para no llenar la hierarchy
+                                                           //Tiene que ser otro game object en la hierarchy base porque
+                                                           // si no las balas se mueven junto al player o junto a dicho objeto
     private void Awake()
     {
         _lastShootime = 0f;
+        _direction = transform.right;
     }
 
     private void Update()
@@ -25,9 +29,25 @@ public class HelixGun : MonoBehaviour,IGun
     {
         if (_lastShootime > _fireRate)
         {
-            Instantiate(_bulletPrefabPlus, transform.position, Quaternion.identity);
-            Instantiate(_bulletPrefabMinus, transform.position, Quaternion.identity);
+            UsePlusPool();
+            UseMinusPool();
             _lastShootime = 0f;
         }
+    }
+
+    private SineBullet UsePlusPool()
+    {
+        SineBullet p = _plusPool.Use().GetComponent<SineBullet>();
+        p.InitData(_direction, transform.position, _plusPool);
+        p.transform.parent = bulletsEmptyObject.transform;
+        return p;
+    }
+
+    private SineBullet UseMinusPool()
+    {
+        SineBullet m = _minusPool.Use().GetComponent<SineBullet>();
+        m.InitData(_direction,transform.position,_minusPool);
+        m.transform.parent = bulletsEmptyObject.transform;
+        return m;
     }
 }

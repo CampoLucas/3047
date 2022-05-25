@@ -10,11 +10,11 @@ public class PlayerMovement : MonoBehaviour, IMovable
     public float CurrentSpeed => _currentSpeed;
     [SerializeField] private float _currentSpeed;
 
-    public StatsSO Stats => _stats;
-    [SerializeField] private StatsSO _stats;
 
     public float MoveAmount => _moveAmount;
     [SerializeField] private float _moveAmount;
+    public StatsSO Stats => _stats;
+    [SerializeField] private StatsSO _stats;
 
     public CmdPlayerMove CmdPlayerMovememt => _cmdPlayerMovememt;
     private CmdPlayerMove _cmdPlayerMovememt;

@@ -12,8 +12,12 @@ public class StatsSO : ScriptableObject
     public float RechargeSpeed => _thruster.RechargeSpeed;
     public float ThrustSpeed => _thruster.ThrustSpeed;
 
+    public float Amplitude => _sinValues.Amplitude;
+    public float Frequency => _sinValues.Frequency;
+
     [SerializeField] private StatValues _stats;
     [SerializeField] private ThrusterValues _thruster;
+    [SerializeField] private SinValues _sinValues;
 }
 [System.Serializable]
 public struct StatValues
@@ -39,4 +43,12 @@ public struct ThrusterValues
     [SerializeField] private float _rechargeSpeed;
     public float ThrustSpeed => _thrustBoost;
     [SerializeField] private float _thrustBoost;
+}
+[System.Serializable]
+public struct SinValues
+{
+    public float Amplitude => _amplitude;
+    [SerializeField] private float _amplitude;
+    public float Frequency => _frequency;
+    [SerializeField] private float _frequency;
 }

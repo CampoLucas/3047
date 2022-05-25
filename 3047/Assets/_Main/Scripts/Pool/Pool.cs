@@ -9,6 +9,7 @@ public class Pool: MonoBehaviour
     [SerializeField] private GameObject prefab;
     public GameObject Use()
     {
+        if (prefab == null) return null;
         GameObject t;
         if (available.Count > 0)
         {

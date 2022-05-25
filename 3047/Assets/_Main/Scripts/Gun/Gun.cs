@@ -5,38 +5,35 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour, IGun
 {
-    public Bullet Product => _bulletPrefab;
-    [SerializeField] private Bullet _bulletPrefab;
-
     [SerializeField] private float _shootDelay = 0.2f;
     private float _lastShootime;
-
     private Vector3 _direction;
     private Pool _pool;
+    [SerializeField] private GameObject bulletsEmptyObject;//este es para setear el parent de las balas para no llenar la hierarchy
 
     private void Awake()
     {
-        _pool = GetComponentInParent<Pool>();
+        _pool = GetComponent<Pool>();
+        _direction = transform.right;//logro lo mismo disparando a transform. right
     }
 
 
     private void Update()
     {
-        _direction = (transform.localRotation * Vector3.right).normalized;
+        //_direction = (transform.localRotation * Vector3.right).normalized;
     }
     public void Fire()
     {
         if (!(_lastShootime + _shootDelay < Time.time)) return;
         _lastShootime = Time.time;
-        if (_bulletPrefab != null)
-            Create();
+        Create();
     }
 
     public Bullet Create()
     {
         Bullet e = _pool.Use().GetComponent<Bullet>();
+        e.transform.parent = bulletsEmptyObject.transform; //To avoid Filling up base Hierarchy with bullets
         e.InitData(_direction,transform.position,_pool);
-
         return e;
     }
 
