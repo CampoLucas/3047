@@ -10,12 +10,13 @@ public class HelixGun : MonoBehaviour,IGun
     [SerializeField] private Pool _plusPool;
     [SerializeField] private Pool _minusPool;
     private Vector3 _direction;
-    [SerializeField] private GameObject bulletsEmptyObject;// este es para setear el parent de las
-                                                           // balas para no llenar la hierarchy
-                                                           //Tiene que ser otro game object en la hierarchy base porque
-                                                           // si no las balas se mueven junto al player o junto a dicho objeto
+    private GameObject bulletsEmptyObject;// este es para setear el parent de las bullets
     private void Awake()
     {
+        bulletsEmptyObject = new GameObject
+        {
+            name = "Bullets"
+        };
         _lastShootime = 0f;
         _direction = transform.right;
     }

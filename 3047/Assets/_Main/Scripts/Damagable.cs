@@ -30,7 +30,7 @@ public class Damagable : MonoBehaviour, IDamagable
         {
             _currentLife -= damage;
         }
-        OnLifeChange.Invoke(_currentLife);
+        OnLifeChange?.Invoke(_currentLife);
         if (_currentLife <= 0)
         {
             DieHandler();
@@ -44,7 +44,7 @@ public class Damagable : MonoBehaviour, IDamagable
             return;
         }
         _currentLife += healnum;
-        OnLifeChange.Invoke(_currentLife);
+        OnLifeChange?.Invoke(_currentLife);
         if (_currentLife > _stats.MaxLife)
         {
             _currentLife = _stats.MaxLife;

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2229321925209572846}
   - component: {fileID: 4263982148611847167}
   - component: {fileID: 4135459005358353772}
-  m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Layer: 6
+  m_Name: PlayerBullet
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664170955843047828}
   - component: {fileID: 4510229777596025538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

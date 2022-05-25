@@ -20,8 +20,8 @@ public class EnemySineMovement : MonoBehaviour,IMovable
     public void Move(Vector3 direction)//movimiento sin() se mueve solo para arriva
     {
          Vector3 pos = transform.position;
-         pos += direction * _stats.Speed * Time.deltaTime;
+         pos += direction * (_stats.Speed * Time.deltaTime);
          float y = Mathf.Sin(transform.position.x * _stats.Frequency) * _stats.Amplitude *Time.deltaTime;
-         transform.position = pos + Vector3.up * y *_stats.Speed;
+         transform.position = pos + Vector3.up * (y * _stats.Speed);
     }
 }
