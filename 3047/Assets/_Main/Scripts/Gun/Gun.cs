@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour, IGun
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
-    private GameObject bulletsEmptyObject;//este es para setear el parent de las balas para no llenar la hierarchy
+    private GameObject bulletsEmptyObject;
 
     private void Awake()
     {

@@ -5,13 +5,13 @@ using UnityEngine;
 public class Ship : Entity
 {
     private IGun[] _guns;
-    private IDamagable _damagable;
+    protected Damagable _damagable;
 
     protected override void Awake()
     {
         base.Awake();
         _guns = GetComponentsInChildren<IGun>();
-        _damagable = GetComponent<IDamagable>();
+        _damagable = GetComponent<Damagable>();
     }
 
     public void TakeDamage(int damage)

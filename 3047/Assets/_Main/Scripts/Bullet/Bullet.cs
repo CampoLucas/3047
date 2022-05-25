@@ -42,4 +42,18 @@ public class Bullet : Entity, IProduct<StatsSO>
     {
         _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
+
+    protected void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<Ship>().TakeDamage(_stats.Damage);
+        }        
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Ship>().TakeDamage(_stats.Damage);
+        }
+        _Pool.Recycle(gameObject);
+        
+    }
 }

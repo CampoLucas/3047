@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class Enemy : Ship
 {
-    
+    protected override void Awake()
+    {
+        base.Awake();
+        _damagable.OnDie.AddListener(OnDieListener);
+    }
+
+    private void OnDieListener()
+    {
+        Destroy(gameObject);
+    }
+
     private void Update()
     {
         //Move(-Vector3.right);;
