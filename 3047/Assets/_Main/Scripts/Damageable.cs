@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Damageable : MonoBehaviour, IDamagable
+public class Damageable : MonoBehaviour, IDamageable
 {
     public StatsSO Data => _stats;
     [SerializeField] private StatsSO _stats;

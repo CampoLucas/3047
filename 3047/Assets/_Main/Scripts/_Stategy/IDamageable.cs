@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public interface IDamagable
+public interface IDamageable
 {
     int CurrentLife { get; }
     bool IsInvulnerable { get; }

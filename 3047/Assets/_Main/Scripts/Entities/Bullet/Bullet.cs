@@ -45,14 +45,24 @@ public class Bullet : Entity, IProduct<StatsSO>
 
     protected void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            other.GetComponent<Ship>().TakeDamage(_stats.Damage);
-        }        
-        if (other.CompareTag("Player"))
+        //Ship ship = other.GetComponent<Ship>();
+
+        //if (ship)
+        //    ship.TakeDamage(_stats.Damage);
+
+        if (!other.CompareTag(tag))
         {
             other.GetComponent<Ship>().TakeDamage(_stats.Damage);
         }
+
+        //if (other.CompareTag("Enemy"))
+        //{
+        //    other.GetComponent<Ship>().TakeDamage(_stats.Damage);
+        //}        
+        //if (other.CompareTag("Player"))
+        //{
+        //    other.GetComponent<Ship>().TakeDamage(_stats.Damage);
+        //}
         _Pool.Recycle(gameObject);
         
     }
