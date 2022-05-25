@@ -5,30 +5,37 @@ using UnityEngine;
 public class Ship : Entity
 {
     private IGun[] _guns;
-    protected Damagable _damagable;
+    protected Damageable _damagable;
 
     protected override void Awake()
     {
         base.Awake();
         _guns = GetComponentsInChildren<IGun>();
-        _damagable = GetComponent<Damagable>();
+        _damagable = GetComponent<Damageable>();
+        if(_damagable)
+            _damagable.OnDie.AddListener(OnDieListener);
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
-        _damagable.TakeDamage(damage);
+        if(_damagable)
+            _damagable.TakeDamage(damage);
     }
 
-    public void AddLife(int life)
+    public virtual void AddLife(int life)
     {
-        _damagable.AddLife(life);
+        if(_damagable)
+            _damagable.AddLife(life);
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         if (_guns != null)
             foreach (IGun gun in _guns)
                 gun.Fire();
     }
-    
+
+    public virtual void OnDieListener() => Destroy(gameObject);
+
+
 }
