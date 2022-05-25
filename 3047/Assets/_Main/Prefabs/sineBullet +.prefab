@@ -105,8 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5959360167798781834}
-  - component: {fileID: 8606228432260743579}
-  - component: {fileID: 8249935560909566159}
+  - component: {fileID: -2568459176327220305}
   m_Layer: 0
   m_Name: sineBullet +
   m_TagString: Untagged
@@ -129,7 +128,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8606228432260743579
+--- !u!114 &-2568459176327220305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,23 +137,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5331237363714601465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5dc1e245cbf7d49a3a5bf93a6edce8, type: 3}
+  m_Script: {fileID: 11500000, guid: 79c901253c8652744b60611669a87ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 754e24874c77bcc41a646b173cea4596, type: 2}
+  _timeToRecycle: 2
   _moveDirection: {x: 0, y: 0, z: 0}
---- !u!114 &8249935560909566159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331237363714601465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb27e410e548ad143ae0122332f2118a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 754e24874c77bcc41a646b173cea4596, type: 2}
-  Amplitude: 1
-  Frequency: 1
+  _Pool: {fileID: 0}
+  _frequency: 1
+  _amplitude: 1

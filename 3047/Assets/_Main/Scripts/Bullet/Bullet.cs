@@ -5,22 +5,23 @@ using UnityEngine;
 
 public class Bullet : Entity, IProduct<StatsSO>
 {
-    [SerializeField] private float _timeToRecycle = 2f;
-    private float _recycleTime;
+    
+    [SerializeField] protected float _timeToRecycle = 2f;
+    protected float _recycleTime;
     public Vector3 MoveDirection => _moveDirection;
-    [SerializeField] private Vector3 _moveDirection;
+    [SerializeField] protected Vector3 _moveDirection;
     public Pool _Pool;
-    public CmdMove MovementCommand => _movementCommand;
-    private CmdMove _movementCommand;
+    protected ICommand _movementCommand;
 
-    private void Start()
+    protected virtual void Start()
     {
         InitCmd();
         _recycleTime = 0f;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
+        _movementCommand.Do(); //tiene mas sentido y es mas legible hacer el do aca que en otra clase
         if (_recycleTime>_timeToRecycle)
         {
             _recycleTime = 0f;
@@ -30,14 +31,14 @@ public class Bullet : Entity, IProduct<StatsSO>
         _recycleTime += Time.deltaTime;
     }
 
-    public void InitData(Vector3 direction,Vector3 initialPosition, Pool pool)
+    public virtual void InitData(Vector3 direction,Vector3 initialPosition, Pool pool)
     {
         _moveDirection = direction;
         transform.position = initialPosition;
         _Pool = pool;
     }
 
-    private void InitCmd()
+    protected virtual void InitCmd()
     {
         _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
