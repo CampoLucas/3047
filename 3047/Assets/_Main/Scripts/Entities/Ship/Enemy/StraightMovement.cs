@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStraightMove : MonoBehaviour,IMovable
+public class StraightMovement : MonoBehaviour,IMovable
 {
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;

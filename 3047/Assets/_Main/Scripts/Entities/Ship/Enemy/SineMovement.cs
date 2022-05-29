@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySineMovement : MonoBehaviour,IMovable
+public class SineMovement : MonoBehaviour,IMovable
 {
 
     public StatsSO Stats => _stats;
