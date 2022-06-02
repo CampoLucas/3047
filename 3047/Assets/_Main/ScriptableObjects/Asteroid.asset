@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Asteroid
   m_EditorClassIdentifier: 
   _stats:
-    _maxLife: 20
+    _maxLife: 50
     _speed: 4
     _damage: 10
   _thruster:

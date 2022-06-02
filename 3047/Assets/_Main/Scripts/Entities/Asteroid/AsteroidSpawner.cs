@@ -12,12 +12,23 @@ public class AsteroidSpawner : MonoBehaviour
     
     [Header("Info")]
     [SerializeField] private int _spawnAmount = 1;
-    [SerializeField] private float _trajectoryVariance = 15f;
     private float _spawnRange;
     
     [Header("Rate")]
     [SerializeField] private float _spawnRate = 2f;
     private float _lastSpawnedTime;
+    
+    [SerializeField] 
+    private float _minSize = .5f;
+    [SerializeField] 
+    private float _maxSize = 2f;
+    [SerializeField] [Range(0, 360)]
+    private float _angleX = 360;
+    [SerializeField] [Range(0, 360)]
+    private float _angleY = 360;
+    [SerializeField] [Range(0, 360)]
+    private float _angleZ = 360;
+    [SerializeField] private float _trajectoryVariance = 15f;
     private void Start()
     {
         //InvokeRepeating(nameof(Spawn), _spawnRate, _spawnRate);
@@ -34,10 +45,18 @@ public class AsteroidSpawner : MonoBehaviour
     {
         Vector3 spawnPoint = new Vector3(transform.position.x, Random.Range(-_spawnRange, _spawnRange), 0f);
 
-        float variance = Random.Range(-_trajectoryVariance, _trajectoryVariance);
+
+
+        float variance;
+        if(spawnPoint.y > 0)
+            variance = Random.Range(-_trajectoryVariance, 0);
+        else
+            variance = Random.Range(0, _trajectoryVariance);
+        
         Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
         
         Asteroid asteroid = Instantiate(_asteroid, spawnPoint, rotation);
+        asteroid.InitData(new Vector3(-1, variance, 0).normalized, Random.Range(_minSize,_maxSize), new Vector3(_angleX, _angleY, _angleZ));
     }
 
     private void Spawn(int spawnAmount)
