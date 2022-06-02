@@ -50,10 +50,10 @@ public class Bullet : Entity, IProduct<StatsSO>
         //if (ship)
         //    ship.TakeDamage(_stats.Damage);
 
-        if (!other.CompareTag(tag))
-        {
-            other.GetComponent<Ship>().TakeDamage(_stats.Damage);
-        }
+        // if (!other.CompareTag(tag))
+        // {
+        //     other.GetComponent<Ship>().TakeDamage(_stats.Damage);
+        // }
 
         //if (other.CompareTag("Enemy"))
         //{
