@@ -20,7 +20,7 @@ public class Ship : Entity
     {
         if(_damagable)
             _damagable.TakeDamage(damage);
-        Debug.Log("damage" + gameObject.name);
+        //Debug.Log("damage" + gameObject.name);
     }
 
     public virtual void AddLife(int life)

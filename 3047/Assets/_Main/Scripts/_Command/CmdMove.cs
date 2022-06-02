@@ -17,6 +17,6 @@ public class CmdMove : ICommand
 
     public void Do()
     {
-        _transform.position += _direction * Time.deltaTime * _speed;
+        _transform.position += Time.deltaTime * _speed * _direction;
     }
 }
