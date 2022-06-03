@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBehabiour : MonoBehaviour
 {
-    [Header("Components")]
     private Enemy _enemy;
     void Awake()
     {

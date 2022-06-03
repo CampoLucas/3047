@@ -18,16 +18,11 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] private float _spawnRate = 2f;
     private float _lastSpawnedTime;
     
-    [SerializeField] 
-    private float _minSize = .5f;
-    [SerializeField] 
-    private float _maxSize = 2f;
-    [SerializeField] [Range(0, 360)]
-    private float _angleX = 360;
-    [SerializeField] [Range(0, 360)]
-    private float _angleY = 360;
-    [SerializeField] [Range(0, 360)]
-    private float _angleZ = 360;
+    [SerializeField] private float _minSize = .5f;
+    [SerializeField] private float _maxSize = 2f;
+    [SerializeField] [Range(0, 360)]  private float _angleX = 360;
+    [SerializeField] [Range(0, 360)]  private float _angleY = 360;
+    [SerializeField] [Range(0, 360)]  private float _angleZ = 360;
     [SerializeField] private float _trajectoryVariance = 15f;
     private void Start()
     {
