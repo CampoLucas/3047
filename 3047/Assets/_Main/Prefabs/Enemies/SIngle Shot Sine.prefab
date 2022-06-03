@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 3427715473676651839}
   - component: {fileID: 1660539873091336209}
   - component: {fileID: 1701291627}
+  - component: {fileID: 8392344571747284965}
   m_Layer: 7
   m_Name: SIngle Shot Sine
   m_TagString: Enemy
@@ -390,3 +391,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8392344571747284965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194284572166838158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee69cf6656df8f047ad93e85dea00d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 0}

@@ -42,4 +42,10 @@ public class Player : Ship
         if (_anim != null)
             _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
     }
+
+    public override void OnDieListener()
+    {
+        base.OnDieListener();
+        Destroy(gameObject);
+    }
 }

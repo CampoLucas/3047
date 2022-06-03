@@ -14,6 +14,6 @@ public class AstBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _asteroid.Move(Vector3.left);
+        _asteroid.Move((_asteroid.MoveDirection).normalized);
     }
 }

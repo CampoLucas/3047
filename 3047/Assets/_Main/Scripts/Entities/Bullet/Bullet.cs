@@ -22,7 +22,7 @@ public class Bullet : Entity, IProduct<StatsSO>
     protected virtual void Update()
     {
         _movementCommand.Do(); //tiene mas sentido y es mas legible hacer el do aca que en otra clase
-        if (_recycleTime>_timeToRecycle)
+        if (_recycleTime > _timeToRecycle)
         {
             _recycleTime = 0f;
             _Pool.Recycle(gameObject);
@@ -45,25 +45,6 @@ public class Bullet : Entity, IProduct<StatsSO>
 
     protected void OnTriggerEnter(Collider other)
     {
-        //Ship ship = other.GetComponent<Ship>();
-
-        //if (ship)
-        //    ship.TakeDamage(_stats.Damage);
-
-        if (!other.CompareTag(tag))
-        {
-            other.GetComponent<Ship>().TakeDamage(_stats.Damage);
-        }
-
-        //if (other.CompareTag("Enemy"))
-        //{
-        //    other.GetComponent<Ship>().TakeDamage(_stats.Damage);
-        //}        
-        //if (other.CompareTag("Player"))
-        //{
-        //    other.GetComponent<Ship>().TakeDamage(_stats.Damage);
-        //}
         _Pool.Recycle(gameObject);
-        
     }
 }
