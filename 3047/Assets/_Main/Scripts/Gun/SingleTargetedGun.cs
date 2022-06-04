@@ -14,10 +14,9 @@ public class SingleTargetedGun : SingleStraightShotGun
 
     public override void Fire()
     {
-        Vector3 position = transform.position;
-        Vector3 dir = _target.position - position;
+        Vector3 dir = _target.position - transform.position;
         Bullet e = _pool.Use().GetComponent<Bullet>();
         e.transform.parent = bulletsEmptyObject.transform; //To avoid Filling up base Hierarchy with bullets
-        e.InitData(dir.normalized ,position, _pool);
+        e.InitData(dir.normalized ,transform.position, _pool);
     }
 }

@@ -34,16 +34,11 @@ public class Bullet : Entity, IProduct<StatsSO>
     public virtual void InitData(Vector3 direction,Vector3 initialPosition, Pool pool)
     {
         _moveDirection = direction;
+        _moveDirection.z = 0f;
         transform.position = initialPosition;
         _Pool = pool;
     } 
-    public virtual void InitData(Vector3 direction, Quaternion rotation, Vector3 initialPosition, Pool pool)
-    {//Sobrecarga para usar Rotation
-        _moveDirection = direction;
-        transform.position = initialPosition;
-        transform.rotation = rotation;
-        _Pool = pool;
-    }
+
 
     protected virtual void InitCmd()
     {
