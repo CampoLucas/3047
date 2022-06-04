@@ -39,7 +39,8 @@ public class TripleGun : MonoBehaviour, IGun
     public void Create()
     {
         Bullet e0 = _pool.Use().GetComponent<Bullet>();
-        e0.transform.parent = bulletsEmptyObject.transform; //To avoid Filling up base Hierarchy with bullets
+        e0.transform.parent = bulletsEmptyObject.transform;
+        _direction = transform.right;//To avoid Filling up base Hierarchy with bullets
         e0.InitData(_direction.normalized,transform.position,_pool);       
         
         Bullet e1 = _pool.Use().GetComponent<Bullet>();

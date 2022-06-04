@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2229321925209572846}
   - component: {fileID: 4263982148611847167}
   - component: {fileID: 4135459005358353772}
+  - component: {fileID: 5761398423617307112}
   m_Layer: 7
   m_Name: EnemyBullet
   m_TagString: Enemy
@@ -62,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.35, z: 0.35}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5761398423617307112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414223584255722397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee69cf6656df8f047ad93e85dea00d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 0}
 --- !u!1 &7612983625729541317
 GameObject:
   m_ObjectHideFlags: 0
