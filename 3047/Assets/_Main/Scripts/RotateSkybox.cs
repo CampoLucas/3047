@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class RotateSkybox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float _rotateSeed = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * _rotateSeed);
     }
 }
