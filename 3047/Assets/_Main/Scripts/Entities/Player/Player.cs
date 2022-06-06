@@ -8,6 +8,7 @@ public class Player : Ship
     private IFuel _fuel;
     private Animator _animator;
     public bool IsBoosting => _isBoosting;
+    public bool IsDead => _damagable.IsDead;
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
     public float _moveAmount;
@@ -51,7 +52,8 @@ public class Player : Ship
     public override void OnDieListener()
     {
         base.OnDieListener();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        //play deadAnimation but dont destroy
     }
 
     public void ResetValues()

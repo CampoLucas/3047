@@ -470,7 +470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268695586
 GameObject:
@@ -920,7 +920,7 @@ RectTransform:
   - {fileID: 71021535}
   - {fileID: 268695587}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1215,7 +1215,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &915945178
 PrefabInstance:
@@ -1279,7 +1279,7 @@ PrefabInstance:
     - target: {fileID: 3412806297412606623, guid: ebabef0d99986904299a24748ec1ab8b, type: 3}
       propertyPath: _target
       value: 
-      objectReference: {fileID: 1157914467}
+      objectReference: {fileID: 1157914463}
     - target: {fileID: 8658322069145061574, guid: ebabef0d99986904299a24748ec1ab8b, type: 3}
       propertyPath: points
       value: 10
@@ -1404,7 +1404,7 @@ RectTransform:
   m_Children:
   - {fileID: 1421613324}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1473,63 +1473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4a72e5334a2c8478210fc81257f020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1157914467 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7535583402478854145, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
-  m_PrefabInstance: {fileID: 7535583401846048796}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1385868074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1385868076}
-  - component: {fileID: 1385868075}
-  m_Layer: 0
-  m_Name: AstSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1385868075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385868074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fe8815d65cc4e44af254b29bbee64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _asteroid: {fileID: 8053128072891643311, guid: bf4001df929d76442927594dbd88c8d4, type: 3}
-  _spawnAmount: 1
-  _spawnRate: 2
-  _minSize: 0.5
-  _maxSize: 2
-  _angleX: 360
-  _angleY: 360
-  _angleZ: 360
-  _trajectoryVariance: 15
---- !u!4 &1385868076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385868074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.02, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421613323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1797,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3566269944937506133, guid: d32d8647a28d4f547bae5d9e71640ae9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3566269944937506133, guid: d32d8647a28d4f547bae5d9e71640ae9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1969,7 +1912,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1918723624, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
 --- !u!4 &8123593451643661694
 Transform:
