@@ -8,14 +8,10 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     [SerializeField] private float _fireRate = 0.2f;
     private float _lastShootime;
     protected Pool _pool;
-    protected GameObject bulletsEmptyObject;
     
     protected virtual void Awake()
     {
-        bulletsEmptyObject = new GameObject
-        {
-            name = "Bullets"
-        };
+
         _pool = GetComponent<Pool>();
         _lastShootime = 0f;
     }
@@ -34,7 +30,7 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     public virtual void Fire()
     {
         Bullet e = _pool.Use().GetComponent<Bullet>();
-        e.transform.parent = bulletsEmptyObject.transform; //To avoid Filling up base Hierarchy with bullets
+        e.transform.parent = GameManager.instance.bullets; //To avoid Filling up base Hierarchy with bullets
         e.InitData(transform.right ,transform.position,_pool);
     }
 }

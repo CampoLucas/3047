@@ -37,6 +37,14 @@ public class Bullet : Entity, IProduct<StatsSO>
         _moveDirection.z = 0f;
         transform.position = initialPosition;
         _Pool = pool;
+    }     
+    public virtual void InitData(Vector3 direction,Vector3 initialPosition, Pool pool, float TimeToRecycle)
+    {
+        _timeToRecycle = TimeToRecycle;
+        _moveDirection = direction;
+        _moveDirection.z = 0f;
+        transform.position = initialPosition;
+        _Pool = pool;
     } 
 
 

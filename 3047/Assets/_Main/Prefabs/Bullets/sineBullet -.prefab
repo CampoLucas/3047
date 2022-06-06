@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4020257048772548955}
   - component: {fileID: -7582149324166719665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sineBullet -
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 4201210489823492378}
   - component: {fileID: 1707639876211887404}
   - component: {fileID: 1325522254855814877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

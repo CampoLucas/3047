@@ -15,6 +15,6 @@ public class StraightMovement : MonoBehaviour,IMovable
 
     public void Move(Vector3 direction)
     {
-        transform.position += direction * _stats.Speed * Time.deltaTime;
+        transform.position +=  _stats.Speed * Time.deltaTime * direction;
     }
 }

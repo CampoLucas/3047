@@ -6,15 +6,17 @@ public class Player : Ship
 {
     private IAnimation _anim;
     private IFuel _fuel;
-
+    private Animator _animator;
     public bool IsBoosting => _isBoosting;
     [SerializeField] private bool _isBoosting; 
+    [SerializeField] private float _invulnerableTime = 2f; 
     public float _moveAmount;
     protected override void Awake()
     {
         base.Awake();
         _anim = GetComponent<IAnimation>();
         _fuel = GetComponent<IFuel>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Boost(bool isBoosting)
@@ -34,10 +36,13 @@ public class Player : Ship
     public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
     public void Dodge()
     {
-       
+       //play dodge anim
+       _animator.SetTrigger("Dodge");//si queres sacarlo no hay problema
+       //set invulnerable for a time in seconds
+       _damagable.SetInvulnerable(_invulnerableTime);
     }
 
-    public void UpdateAnimation(Vector2 direction, bool isBoosting)
+    public void UpdateAnimation(Vector2 direction, bool isBoosting)//TODO preguntar para que esto y why no settrigger / setbool
     {
         if (_anim != null)
             _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
@@ -47,5 +52,10 @@ public class Player : Ship
     {
         base.OnDieListener();
         Destroy(gameObject);
+    }
+
+    public void ResetValues()
+    {
+        _damagable.ResetValues();
     }
 }

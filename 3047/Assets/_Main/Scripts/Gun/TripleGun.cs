@@ -9,17 +9,18 @@ public class TripleGun : MonoBehaviour, IGun
     [SerializeField] private float _fireAngle = 10f;
     [SerializeField] private Transform _shootpoint0;
     [SerializeField] private Transform _shootpoint1;
+    [SerializeField] private float _bulletLifeTime = 1f;
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
-    private GameObject bulletsEmptyObject;
+    //private GameObject bulletsEmptyObject;
 
     private void Awake()
     {
-        bulletsEmptyObject = new GameObject
+        /*bulletsEmptyObject = new GameObject
         {
             name = "Bullets"
-        };
+        };*/
         _pool = GetComponent<Pool>();
         _direction = transform.right;//logro lo mismo disparando a transform. right
     }
@@ -39,19 +40,19 @@ public class TripleGun : MonoBehaviour, IGun
     public void Create()
     {
         Bullet e0 = _pool.Use().GetComponent<Bullet>();
-        e0.transform.parent = bulletsEmptyObject.transform;
-        _direction = transform.right;//To avoid Filling up base Hierarchy with bullets
-        e0.InitData(_direction.normalized,transform.position,_pool);       
+        e0.transform.parent = GameManager.instance.bullets;//To avoid Filling up base Hierarchy with bullets
+        _direction = transform.right;
+        e0.InitData(_direction.normalized,transform.position,_pool,_bulletLifeTime);       
         
         Bullet e1 = _pool.Use().GetComponent<Bullet>();
-        e1.transform.parent = bulletsEmptyObject.transform;
+        e1.transform.parent = GameManager.instance.bullets;
         _direction = _shootpoint0.transform.right;
-        e1.InitData(_direction.normalized, transform.position,_pool);
+        e1.InitData(_direction.normalized, transform.position,_pool,_bulletLifeTime);
         
         Bullet e2 = _pool.Use().GetComponent<Bullet>();
-        e2.transform.parent = bulletsEmptyObject.transform; 
+        e2.transform.parent = GameManager.instance.bullets; 
         _direction = _shootpoint1.transform.right;
-        e2.InitData(_direction.normalized,transform.position,_pool);
+        e2.InitData(_direction.normalized,transform.position,_pool,_bulletLifeTime);
         
         _direction = transform.right;
     }
