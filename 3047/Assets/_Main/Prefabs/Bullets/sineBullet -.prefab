@@ -44,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c901253c8652744b60611669a87ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 754e24874c77bcc41a646b173cea4596, type: 2}
   _timeToRecycle: 2
+  _stats: {fileID: 11400000, guid: 4f4ae410582f0da4a8b80089ba10bf75, type: 2}
   _moveDirection: {x: 0, y: 0, z: 0}
   _Pool: {fileID: 0}
-  _frequency: 1
-  _amplitude: -1
+  _sinValues: {fileID: 11400000, guid: 156dacebc06953144b43eec42ea25800, type: 2}
 --- !u!1 &4655655776851581040
 GameObject:
   m_ObjectHideFlags: 0

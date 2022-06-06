@@ -194,11 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: f4b91b0c9052f464693f7ee8e7d09c55, type: 2}
-  _minSize: 0.5
-  _maxSize: 2
-  _angleX: 5
-  _angleY: 5
-  _angleZ: 360
+  _moveDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &3759166960665353358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,4 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee69cf6656df8f047ad93e85dea00d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
+  _bulletSO: {fileID: 11400000, guid: 7fbcf2bc1166a8c49b117a89e72e3acc, type: 2}

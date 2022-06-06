@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : Entity, IProduct<StatsSO>
+public class Bullet : MonoBehaviour,IProduct<BulletSO>
 {
     
     [SerializeField] protected float _timeToRecycle = 2f;
     protected float _recycleTime;
+    [SerializeField] protected BulletSO _stats;
+    public BulletSO Data => _stats;
     public Vector3 MoveDirection => _moveDirection;
     [SerializeField] protected Vector3 _moveDirection;
     public Pool _Pool;
@@ -55,6 +57,11 @@ public class Bullet : Entity, IProduct<StatsSO>
 
     protected void OnTriggerEnter(Collider other)
     {
+        Ship ship = other.GetComponent<Ship>();
+            if (!other.gameObject.CompareTag(this.tag) && ship)
+                ship.TakeDamage(_stats.Damage);
         _Pool.Recycle(gameObject);
+        
     }
+    
 }

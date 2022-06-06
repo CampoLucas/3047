@@ -9,19 +9,19 @@ public class CollisionDamage : MonoBehaviour
     //When the player ship collides with a enemy ship both ships should take damage.
     //When the player collides with an asteroid the player should take damage and the asteroid should divide itself into 2 or 3 depending its size and should be destroyed (Maybe)
     //Enemies, bosses and asteroids or other projectiles cannot collide between them, just with the player.
-
-    [SerializeField] private StatsSO _stats;
-    private void Awake()
+    //TODO fix this por alguna razon no lo hago hacer andar a este script y ademas es innesesario con las balas pero no con los asteriodes
+    [SerializeField] private BulletSO _bulletSO;
+    private void Start()
     {
-        if (!_stats)
-            _stats = GetComponent<Entity>().Data;
+         if (!_bulletSO)
+             _bulletSO = GetComponent<Bullet>().Data;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Ship ship = other.GetComponent<Ship>();
         if (!other.gameObject.CompareTag(this.tag) && ship)
-            Damage(ship, _stats.Damage);
+            ship.TakeDamage(_bulletSO.Damage);
     }
-    private void Damage(Ship ship, int damage) => ship.TakeDamage(damage);
+   
 }

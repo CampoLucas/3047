@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SineBullet : Bullet
 {
-    [SerializeField] private float _frequency;
-    [SerializeField] private float _amplitude;
-
+    [SerializeField] private SinValuesSO _sinValues;
     protected override void Start()
     {
         InitCmd();
@@ -20,6 +18,7 @@ public class SineBullet : Bullet
 
     protected override void InitCmd()
     {
-        _movementCommand = new CmdSineMove(transform, _moveDirection, _stats.Speed, _frequency, _amplitude);
+        _movementCommand = new CmdSineMove(transform, _moveDirection, _stats.Speed,
+            _sinValues.Frequency, _sinValues.Amplitude);
     }
 }

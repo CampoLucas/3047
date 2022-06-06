@@ -6,6 +6,8 @@ using UnityEngine;
 public class SineMovement : MonoBehaviour,IMovable
 {
 
+    public SinValuesSO SinValues => _sinValues;
+    [SerializeField] private SinValuesSO _sinValues;    
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;
     //[SerializeField] private float Amplitude;
@@ -21,7 +23,7 @@ public class SineMovement : MonoBehaviour,IMovable
     {
          Vector3 pos = transform.position;
          pos += direction * (_stats.Speed * Time.deltaTime);
-         float y = Mathf.Sin(transform.position.x * _stats.Frequency) * _stats.Amplitude *Time.deltaTime;
+         float y = Mathf.Sin(transform.position.x * _sinValues.Frequency) * _sinValues.Amplitude *Time.deltaTime;
          transform.position = pos + Vector3.up * (y * _stats.Speed);
     }
 }

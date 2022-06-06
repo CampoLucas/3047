@@ -10,17 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6a0689d347426e41a8896e388b656b2, type: 3}
-  m_Name: SingleShootSine
+  m_Name: NoGun
   m_EditorClassIdentifier: 
-  _stats:
-    _maxLife: 30
-    _speed: 2
-    _damage: 10
-  _thruster:
-    _fuel: 0
-    _combustionSpeed: 0
-    _rechargeSpeed: 0
-    _thrustBoost: 0
-  _sinValues:
-    _amplitude: 2
-    _frequency: 1
+  _maxLife: 30
+  _speed: 3
+  _slowSpeed: 1
+  _damage: 10
