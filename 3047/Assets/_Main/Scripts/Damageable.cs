@@ -11,7 +11,8 @@ public class Damageable : MonoBehaviour, IDamageable
     [SerializeField] private StatsSO _stats;
     public int CurrentLife => _currentLife;
     [SerializeField] protected int _currentLife;
-
+    public bool IsDead => _isDead;
+    private bool _isDead = false;
     public bool IsInvulnerable => _isInvulnerable; //Quiero que el player tenga unos segundos de inmortalidad cuando le disparen y esquive
     private bool _isInvulnerable;
     private float _invulnerabilityTime;
@@ -30,6 +31,7 @@ public class Damageable : MonoBehaviour, IDamageable
     }
     private void InitStats() //privado porque solo se deveria llamar en Awake, por eso el nombre Initialize Stats
     {
+        _isDead = false;
         _currentLife = _stats.MaxLife;
         _isInvulnerable = false;
     }
@@ -47,6 +49,7 @@ public class Damageable : MonoBehaviour, IDamageable
     public virtual void TakeDamage(int damage)
     {
         if(_isInvulnerable) return;
+        if (_isDead) return;
         
         _currentLife -= damage;
         if(_currentLife <= 0)
@@ -58,6 +61,8 @@ public class Damageable : MonoBehaviour, IDamageable
     }
     public virtual void AddLife(int HP)
     {
+        if(_isDead) return;
+        
         _currentLife += HP;
         if (_currentLife >= _stats.MaxLife)
             _currentLife = _stats.MaxLife;
@@ -66,11 +71,18 @@ public class Damageable : MonoBehaviour, IDamageable
 
     public virtual void SetInvulnerable(float time)
     {
+        if(_isDead) return;
+        
         _invulnerabilityTime = time;
         _isInvulnerable = true;
         _currentTime = 0f;
     }
-    public void Die() => OnDie?.Invoke();
+
+    public void Die()
+    {
+        _isDead = true;
+        OnDie?.Invoke();
+    }
     public int GetLifePercentage() => _currentLife / _stats.MaxLife;
 
     public void ResetValues()
