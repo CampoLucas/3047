@@ -18,15 +18,21 @@ public class GameManager : MonoBehaviour
     //GameTime
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
+    
     public string currentLevel;
-    public Transform bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
+    public GameObject bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
                               //para guardarlo por arma y por enemy
-    public Transform sinebullets;
+    //TODO POOLS globales por cada tipo de bala
     public void Start()
     {
+        bullets = new GameObject()
+        {
+            name = "Bullets"
+        };
         currentLevel = SceneManager.GetActiveScene().name;
         DontDestroyOnLoad(gameObject);
         OnScoreChange?.Invoke(currentScore);
+        OnMultiplierChange?.Invoke(scoreMultiplier);
     }
     
     private void Awake()

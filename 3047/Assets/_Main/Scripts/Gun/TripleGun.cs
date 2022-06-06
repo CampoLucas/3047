@@ -13,14 +13,10 @@ public class TripleGun : MonoBehaviour, IGun
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
-    //private GameObject bulletsEmptyObject;
 
     private void Awake()
     {
-        /*bulletsEmptyObject = new GameObject
-        {
-            name = "Bullets"
-        };*/
+
         _pool = GetComponent<Pool>();
         _direction = transform.right;//logro lo mismo disparando a transform. right
     }
@@ -40,17 +36,17 @@ public class TripleGun : MonoBehaviour, IGun
     public void Create()
     {
         Bullet e0 = _pool.Use().GetComponent<Bullet>();
-        e0.transform.parent = GameManager.instance.bullets;//To avoid Filling up base Hierarchy with bullets
+        e0.transform.parent = GameManager.instance.bullets.transform;//To avoid Filling up base Hierarchy with bullets
         _direction = transform.right;
         e0.InitData(_direction.normalized,transform.position,_pool,_bulletLifeTime);       
         
         Bullet e1 = _pool.Use().GetComponent<Bullet>();
-        e1.transform.parent = GameManager.instance.bullets;
+        e1.transform.parent = GameManager.instance.bullets.transform;
         _direction = _shootpoint0.transform.right;
         e1.InitData(_direction.normalized, transform.position,_pool,_bulletLifeTime);
         
         Bullet e2 = _pool.Use().GetComponent<Bullet>();
-        e2.transform.parent = GameManager.instance.bullets; 
+        e2.transform.parent = GameManager.instance.bullets.transform; 
         _direction = _shootpoint1.transform.right;
         e2.InitData(_direction.normalized,transform.position,_pool,_bulletLifeTime);
         

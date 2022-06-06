@@ -30,7 +30,7 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     public virtual void Fire()
     {
         Bullet e = _pool.Use().GetComponent<Bullet>();
-        e.transform.parent = GameManager.instance.bullets; //To avoid Filling up base Hierarchy with bullets
+        e.transform.parent = GameManager.instance.bullets.transform; //To avoid Filling up base Hierarchy with bullets
         e.InitData(transform.right ,transform.position,_pool);
     }
 }

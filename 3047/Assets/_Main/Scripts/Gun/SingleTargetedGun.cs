@@ -16,7 +16,7 @@ public class SingleTargetedGun : SingleStraightShotGun
     {
         Vector3 dir = _target.position - transform.position;
         Bullet e = _pool.Use().GetComponent<Bullet>();
-        e.transform.parent = GameManager.instance.bullets; //To avoid Filling up base Hierarchy with bullets
+        e.transform.parent = GameManager.instance.bullets.transform; //To avoid Filling up base Hierarchy with bullets
         e.InitData(dir.normalized ,transform.position, _pool);
     }
 }
