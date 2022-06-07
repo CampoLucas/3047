@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a0689d347426e41a8896e388b656b2, type: 3}
   m_Name: Asteroid
   m_EditorClassIdentifier: 
-  _maxLife: 20
-  _speed: 3
-  _slowSpeed: 1
+  _id: Asteroid
+  _life: 50
+  _speed: 4
   _damage: 10

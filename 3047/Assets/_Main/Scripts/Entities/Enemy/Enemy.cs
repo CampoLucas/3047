@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Enemy : Ship
 {
+    public SinValuesSO SineData => _sineStats;
+    [SerializeField] private SinValuesSO _sineStats;
+    
     [SerializeField] private float points = 2f;
     [SerializeField] private float addedMultiplier = 0.02f;
     protected override void Awake()
@@ -22,8 +25,4 @@ public class Enemy : Ship
         Destroy(gameObject);
     }
 
-    private void Update()
-    {
-        //Move(-Vector3.right);;
-    }
 }

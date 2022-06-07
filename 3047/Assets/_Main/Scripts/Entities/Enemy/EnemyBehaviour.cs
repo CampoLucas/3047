@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    private Enemy _enemy;
+    [SerializeField] private Enemy _enemy;
     void Awake()
     {
         _enemy = GetComponent<Enemy>();

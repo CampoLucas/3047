@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
-  _bulletPrefab: {fileID: 4263982148611847167, guid: 3324cccd34ec45945af8e091b550f5ba, type: 3}
 --- !u!114 &1388601963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +268,6 @@ GameObject:
   - component: {fileID: 2006118217843719665}
   - component: {fileID: 228539279}
   - component: {fileID: 3427715473676651839}
-  - component: {fileID: 1660539873091336209}
   - component: {fileID: 1701291627}
   - component: {fileID: 8392344571747284965}
   m_Layer: 7
@@ -321,6 +319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
+  _sineStats: {fileID: 11400000, guid: 8b2e820b04675f34b82ffd7307ed663d, type: 2}
+  points: 2
+  addedMultiplier: 0.02
 --- !u!114 &2006118217843719665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e149149d83430d49bf5e1f5b86bf3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 0}
 --- !u!114 &228539279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 0}
+  _sineStats: {fileID: 0}
 --- !u!114 &3427715473676651839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,18 +366,6 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1660539873091336209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194284572166838158}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40df2f9af483182489c5a07e745923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1701291627
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour, IMovable
     private void Update()
     {
         if (_player.IsBoosting)
-            _currentSpeed = _stats.SlowSpeed;
+            _currentSpeed = (_stats.Speed/2) * _player._moveAmount;
         else
             _currentSpeed = _stats.Speed * _player._moveAmount;
     }

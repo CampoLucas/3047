@@ -19,6 +19,20 @@ public class InputHandler : MonoBehaviour
 
     private Vector2 _movementInput;
 
+    private void OnEnable()
+    {
+        if (_inputActions == null)
+        {
+            _inputActions = new PlayerControls();
+            _inputActions.PlayerMovements.Movement.performed += inputActions => _movementInput = inputActions.ReadValue<Vector2>();
+
+            _inputActions.PlayerActions.Boost.started += i => boost_Input = true;
+            _inputActions.PlayerActions.Boost.canceled += i => boost_Input = false;
+
+        }
+        _inputActions.Enable();
+    }
+    private void OnDisable() => _inputActions.Disable();
     private void Awake()
     {
         _player = GetComponent<Player>();
@@ -48,20 +62,6 @@ public class InputHandler : MonoBehaviour
         dodge_Input = false;
     }
 
-    private void OnEnable()
-    {
-        if (_inputActions == null)
-        {
-            _inputActions = new PlayerControls();
-            _inputActions.PlayerMovements.Movement.performed += inputActions => _movementInput = inputActions.ReadValue<Vector2>();
-
-            _inputActions.PlayerActions.Boost.started += i => boost_Input = true;
-            _inputActions.PlayerActions.Boost.canceled += i => boost_Input = false;
-
-        }
-        _inputActions.Enable();
-    }
-    private void OnDisable() => _inputActions.Disable();
 
     private void HandleInput()
     {

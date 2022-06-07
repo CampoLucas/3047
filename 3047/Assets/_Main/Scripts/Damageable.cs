@@ -32,7 +32,7 @@ public class Damageable : MonoBehaviour, IDamageable
     private void InitStats() //privado porque solo se deveria llamar en Awake, por eso el nombre Initialize Stats
     {
         _isDead = false;
-        _currentLife = _stats.MaxLife;
+        _currentLife = _stats.Life;
         _isInvulnerable = false;
     }
 
@@ -64,8 +64,8 @@ public class Damageable : MonoBehaviour, IDamageable
         if(_isDead) return;
         
         _currentLife += HP;
-        if (_currentLife >= _stats.MaxLife)
-            _currentLife = _stats.MaxLife;
+        if (_currentLife >= _stats.Life)
+            _currentLife = _stats.Life;
         OnLifeUpdate?.Invoke(_currentLife);
     }
 
@@ -83,7 +83,7 @@ public class Damageable : MonoBehaviour, IDamageable
         _isDead = true;
         OnDie?.Invoke();
     }
-    public int GetLifePercentage() => _currentLife / _stats.MaxLife;
+    public int GetLifePercentage() => _currentLife / _stats.Life;
 
     public void ResetValues()
     {

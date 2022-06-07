@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5dc1e245cbf7d49a3a5bf93a6edce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: 7c76572d6f5dc264b9e139213b7ebb1c, type: 2}
   _timeToRecycle: 2
-  _stats: {fileID: 11400000, guid: 7fbcf2bc1166a8c49b117a89e72e3acc, type: 2}
+  _bulletStats: {fileID: 11400000, guid: 7c76572d6f5dc264b9e139213b7ebb1c, type: 2}
   _moveDirection: {x: 0, y: 0, z: 0}
   _Pool: {fileID: 0}
 --- !u!65 &4135459005358353772
