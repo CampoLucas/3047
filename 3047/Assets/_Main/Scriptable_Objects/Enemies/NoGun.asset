@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a0689d347426e41a8896e388b656b2, type: 3}
   m_Name: NoGun
   m_EditorClassIdentifier: 
-  _maxLife: 30
+  _id: enemy_nogun
+  _life: 20
   _speed: 3
-  _slowSpeed: 1
   _damage: 10

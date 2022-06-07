@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : Ship
 {
     private IAnimation _anim;
-    private IFuel _fuel;
     private Animator _animator;
     public bool IsBoosting => _isBoosting;
     public bool IsDead => _damagable.IsDead;
@@ -16,22 +15,12 @@ public class Player : Ship
     {
         base.Awake();
         _anim = GetComponent<IAnimation>();
-        _fuel = GetComponent<IFuel>();
         _animator = GetComponent<Animator>();
     }
 
     public void Boost(bool isBoosting)
     {
-        if (_fuel != null && _fuel.HasFuel)
-        {
-            _isBoosting = isBoosting;
-        }
-        else if (_fuel != null && !_fuel.HasFuel)
-        {
-            _isBoosting = false;
-        }
-        else
-            _isBoosting = isBoosting;
+        
     }
 
     public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
