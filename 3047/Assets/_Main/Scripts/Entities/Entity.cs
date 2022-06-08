@@ -14,6 +14,12 @@ public class Entity : MonoBehaviour
     {
         _movable = GetComponent<IMovable>();
     }
+
+    protected virtual void Start()
+    {
+
+    }
+
     public virtual void Move(Vector3 direction)
     {
         if (_movable != null)

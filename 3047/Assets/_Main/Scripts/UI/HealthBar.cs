@@ -11,10 +11,14 @@ public class HealthBar : MonoBehaviour
     public Damageable Damageable => _damageable;
     [SerializeField] private Damageable _damageable;
 
-    void Start()
+    public float whatever;
+    private void Awake()
     {
-        FillHealthbar();
+        Damageable.OnLifeUpdate += FillHealthbar;
     }
 
-    public void FillHealthbar() => _healthbar.fillAmount = _damageable.GetLifePercentage();
+    public void FillHealthbar(int currentlife)
+    {
+        _healthbar.fillAmount = (float)currentlife/_damageable.Stats.Life;
+    }
 }

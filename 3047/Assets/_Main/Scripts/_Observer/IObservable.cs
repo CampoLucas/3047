@@ -1,18 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class IObservable : MonoBehaviour
+public interface IObservable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<IObserver> Subscribers { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Subscribe(IObserver observer);
+    void Unsubscribe(IObserver observer);
+
+    void NotifyAll(string message, params object[] args);
+
 }

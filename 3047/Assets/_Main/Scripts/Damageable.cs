@@ -1,23 +1,27 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
 
-public class Damageable : MonoBehaviour, IDamageable
+public class Damageable : MonoBehaviour, IDamageable, IObservable
 {
-    public StatsSO Data => _stats;
-    [SerializeField] private StatsSO _stats;
     public int CurrentLife => _currentLife;
     [SerializeField] protected int _currentLife;
+    
+    
     public bool IsDead => _isDead;
     private bool _isDead = false;
     public bool IsInvulnerable => _isInvulnerable; //Quiero que el player tenga unos segundos de inmortalidad cuando le disparen y esquive
     [SerializeField] private bool _isInvulnerable;
 
-    private float _invulnerabilityTime;
-    private float _currentTime;
+    private float _invulnerableTime;
+    private float _currentInvulnerableTime;
+
+    public StatsSO Stats => _stats;
+    [SerializeField] private StatsSO _stats;
+
+    public List<IObserver> Subscribers => _subscribers;
+    private List<IObserver> _subscribers = new List<IObserver>();
 
     //events
 
@@ -39,11 +43,14 @@ public class Damageable : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        _currentTime += Time.deltaTime;
-        if (_isInvulnerable && _currentTime >= _invulnerabilityTime)
+        if (_isInvulnerable)
         {
-            _isInvulnerable = false;
-            _currentTime = 0f;
+            _currentInvulnerableTime += Time.deltaTime;
+            if (_currentInvulnerableTime >= _invulnerableTime)
+            {
+                _isInvulnerable = false;
+                _currentInvulnerableTime = 0f;
+            }
         }
     }
 
@@ -74,9 +81,9 @@ public class Damageable : MonoBehaviour, IDamageable
     {
         if(_isDead) return;
         
-        _invulnerabilityTime = time;
+        _invulnerableTime = time;
         _isInvulnerable = true;
-        _currentTime = 0f;
+        _currentInvulnerableTime = 0f;
     }
 
     public void Die()
@@ -84,11 +91,28 @@ public class Damageable : MonoBehaviour, IDamageable
         _isDead = true;
         OnDie?.Invoke();
     }
-    public int GetLifePercentage() => _currentLife / _stats.Life;
 
     public void ResetValues()
     {
         InitStats();   
+    }
+
+    public void Subscribe(IObserver observer)
+    {
+        if (_subscribers.Contains(observer)) return;
+        _subscribers.Add(observer);
+    }
+
+    public void Unsubscribe(IObserver observer)
+    {
+        if (_subscribers.Contains(observer)) return;
+        _subscribers.Remove(observer);
+    }
+
+    public void NotifyAll(string message, params object[] args)
+    {
+        foreach (var subscriber in _subscribers)
+            subscriber.OnNotify(message, args);
     }
 
 }

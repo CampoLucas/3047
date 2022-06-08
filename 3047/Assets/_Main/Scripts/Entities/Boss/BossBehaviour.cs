@@ -18,7 +18,7 @@ public class BossBehaviour : MonoBehaviour
         }
         else if(_boss.state == BossState.Phase2)
         {
-
+            
         }
         else
         {
