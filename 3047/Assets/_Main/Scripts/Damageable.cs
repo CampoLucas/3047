@@ -14,7 +14,8 @@ public class Damageable : MonoBehaviour, IDamageable
     public bool IsDead => _isDead;
     private bool _isDead = false;
     public bool IsInvulnerable => _isInvulnerable; //Quiero que el player tenga unos segundos de inmortalidad cuando le disparen y esquive
-    private bool _isInvulnerable;
+    [SerializeField] private bool _isInvulnerable;
+
     private float _invulnerabilityTime;
     private float _currentTime;
 

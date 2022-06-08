@@ -41,6 +41,7 @@ public class Player : Ship
     public override void OnDieListener()
     {
         base.OnDieListener();
+        gameObject.SetActive(false);
         //Destroy(gameObject);
         //play deadAnimation but dont destroy
     }
