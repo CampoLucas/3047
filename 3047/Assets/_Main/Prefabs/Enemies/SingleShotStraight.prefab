@@ -99,8 +99,8 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
   _damagable: {fileID: 0}
   _sineStats: {fileID: 0}
-  points: 2
-  addedMultiplier: 0.02
+  points: 5
+  addedMultiplier: 1
 --- !u!114 &4060051476399259342
 MonoBehaviour:
   m_ObjectHideFlags: 0

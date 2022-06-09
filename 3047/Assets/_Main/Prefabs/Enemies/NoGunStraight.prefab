@@ -212,6 +212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 793dfd634198fa54e8f2330dab3692d6, type: 2}
+  _damagable: {fileID: 0}
+  _sineStats: {fileID: 0}
+  points: 5
+  addedMultiplier: 1
 --- !u!114 &905026562532423698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e149149d83430d49bf5e1f5b86bf3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 0}
 --- !u!114 &4075947215713293800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []

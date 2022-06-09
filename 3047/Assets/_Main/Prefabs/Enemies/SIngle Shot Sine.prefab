@@ -321,8 +321,8 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
   _damagable: {fileID: 3427715473676651839}
   _sineStats: {fileID: 11400000, guid: 33f4fb93a7cb9f1499ef6df3d28fe546, type: 2}
-  points: 2
-  addedMultiplier: 0.02
+  points: 5
+  addedMultiplier: 1
 --- !u!114 &2006118217843719665
 MonoBehaviour:
   m_ObjectHideFlags: 0
