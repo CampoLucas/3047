@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Score")]
     public Action<float> OnScoreChange;
-    private float currentScore = 0f;
+    [SerializeField] private float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
     

@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
+  _damagable: {fileID: 0}
+  _sineStats: {fileID: 0}
+  points: 2
+  addedMultiplier: 0.02
 --- !u!114 &4060051476399259342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e149149d83430d49bf5e1f5b86bf3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 0}
 --- !u!114 &6793838210428087095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -177,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6132373518478115643}
   - component: {fileID: 4760864519639660626}
+  - component: {fileID: 4096939312364452128}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
@@ -211,6 +218,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRate: 1
+--- !u!114 &4096939312364452128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132373518478115620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479449e9ceb58e64b80af0170b59bed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inUse: []
+  available: []
+  prefab: {fileID: 414223584255722397, guid: 3324cccd34ec45945af8e091b550f5ba, type: 3}
 --- !u!1 &6416530816856805265
 GameObject:
   m_ObjectHideFlags: 0

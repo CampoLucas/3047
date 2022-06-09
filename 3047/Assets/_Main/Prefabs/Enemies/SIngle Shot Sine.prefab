@@ -319,7 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
-  _sineStats: {fileID: 11400000, guid: 8b2e820b04675f34b82ffd7307ed663d, type: 2}
+  _damagable: {fileID: 3427715473676651839}
+  _sineStats: {fileID: 11400000, guid: 33f4fb93a7cb9f1499ef6df3d28fe546, type: 2}
   points: 2
   addedMultiplier: 0.02
 --- !u!114 &2006118217843719665
@@ -348,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 0}
-  _sineStats: {fileID: 0}
+  _sineStats: {fileID: 11400000, guid: 33f4fb93a7cb9f1499ef6df3d28fe546, type: 2}
 --- !u!114 &3427715473676651839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,8 +362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []

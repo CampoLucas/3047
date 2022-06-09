@@ -11,7 +11,6 @@ public class SingleStraightShotGun : MonoBehaviour,IGun
     
     protected virtual void Awake()
     {
-
         _pool = GetComponent<Pool>();
         _lastShootime = 0f;
     }

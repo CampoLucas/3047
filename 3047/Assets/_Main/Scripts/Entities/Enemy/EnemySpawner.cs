@@ -6,6 +6,7 @@ using UnityEngine.PlayerLoop;
 
 public class EnemySpawner : MonoBehaviour//TODO finish this
 {
+    [Header("Enemy Groups prefabs")]
     public List<GameObject> enemyGroups;
     public float[] timesToSpawn;
     private int i = 0;
@@ -16,18 +17,20 @@ public class EnemySpawner : MonoBehaviour//TODO finish this
 
     private void Update()
     {
-        
-        if (GameManager.instance.currentGameTime >= timesToSpawn[i])
+        if (i<timesToSpawn.Length)
         {
-            SpawnGroup(i);
-            i++;
+            if (GameManager.instance.currentGameTime >= timesToSpawn[i])
+            {
+                SpawnGroup(i);
+                i++;
+            }
         }
     }
 
     private void SpawnGroup(int index)
     {
         if (index>=enemyGroups.Count) return;
-        Instantiate(enemyGroups[index]);
+        Instantiate(enemyGroups[index],transform.position,Quaternion.identity);
     }
 
 }
