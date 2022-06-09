@@ -43,6 +43,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         _moveDirection.z = 0f;
         transform.position = initialPosition;
         _Pool = pool;
+        _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }     
     public virtual void InitData(Vector3 direction,Vector3 initialPosition, Pool pool, float TimeToRecycle)
     {
@@ -51,6 +52,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         _moveDirection.z = 0f;
         transform.position = initialPosition;
         _Pool = pool;
+        _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
 
     public override void Move(Vector3 dir)
@@ -62,7 +64,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
     {
         _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
-
+    //TODO Change this to collisionDamage
     protected void OnTriggerEnter(Collider other)
     {
         Ship ship = other.GetComponent<Ship>();

@@ -4,20 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Player _player;
-    //Score
+    
+    [Header("Score")]
     public Action<float> OnScoreChange;
     private float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
     
-    //GameTime
+    [Header("GameTime")]
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
+    
     
     public string currentLevel;
     public GameObject bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
