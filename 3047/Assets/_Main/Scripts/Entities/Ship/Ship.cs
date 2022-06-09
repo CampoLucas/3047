@@ -5,14 +5,19 @@ using UnityEngine;
 public class Ship : Entity
 {
     private IGun[] _guns;
-    protected Damageable _damagable;
+    [SerializeField] protected Damageable _damagable;
 
     protected override void Awake()
     {
         base.Awake();
         _guns = GetComponentsInChildren<IGun>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
         _damagable = GetComponent<Damageable>();
-        if(_damagable)
+        if (_damagable)
             _damagable.OnDie.AddListener(OnDieListener);
     }
 
@@ -38,7 +43,8 @@ public class Ship : Entity
 
     public virtual void OnDieListener()
     {
-
+        //Intanciar explocion;
+        gameObject.SetActive(false);
     }
 
 
