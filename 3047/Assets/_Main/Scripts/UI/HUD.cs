@@ -19,7 +19,7 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        _gameTime.text = "Time: " + (int)GameManager.instance.currentGameTime;
+        _gameTime.text = "Time: " + Mathf.Round(GameManager.instance.currentGameTime*10f)/10f;
     }
 
     void OnScoreChangeListener(float score)
