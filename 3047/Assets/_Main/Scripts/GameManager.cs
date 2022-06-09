@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -16,11 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
-    
+
     [Header("GameTime")]
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
-    
+    public UnityEvent OnLevelReset = new UnityEvent();
     
     public string currentLevel;
     public GameObject bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+        
     }
 
     public void GameOver()
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
         currentScore = 0f;
         scoreMultiplier = 1f;
         OnScoreChange?.Invoke(currentScore);
+        OnLevelReset.Invoke();
     }
 
     public void LoadNextLevel(string levelName)

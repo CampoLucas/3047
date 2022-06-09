@@ -11,22 +11,23 @@ public class EnemySpawner : MonoBehaviour
     //eg. enemygroup[0] => prefab TargetShotStraight will spawn after timesToSpawn[0]=>30f which is 30seconds
     //in the inspector Element0 of enemyGroups will spawn after Element0 of timesToSpawn in seconds
     //elements must be in order to work properly and be legible
+    [SerializeField]private int _index = 0;
     public List<GameObject> enemyGroups;
     public float[] timesToSpawn;
-    private int i = 0;
-    private void Awake()
+    private void Start()
     {
-         i = 0;
+         _index = 0;
+         GameManager.instance.OnLevelReset.AddListener(ResetSpawner);
     }
-
+    
     private void Update()
     {
-        if (i<timesToSpawn.Length)
+        if (_index<timesToSpawn.Length)
         {
-            if (GameManager.instance.currentGameTime >= timesToSpawn[i])
+            if (GameManager.instance.currentGameTime >= timesToSpawn[_index])
             {
-                SpawnGroup(i);
-                i++;
+                SpawnGroup(_index);
+                _index++;
             }
         }
     }
@@ -37,4 +38,8 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemyGroups[index],transform.position,Quaternion.identity);
     }
 
+    private void ResetSpawner()
+    {
+        _index = 0;
+    }
 }
