@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnGroup(int index)
     {
+        if (enemyGroups.Count==0) return;
         if (index>=enemyGroups.Count) return;
         Instantiate(enemyGroups[index],transform.position,Quaternion.identity);
     }
