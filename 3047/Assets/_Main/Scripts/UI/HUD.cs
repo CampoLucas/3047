@@ -32,6 +32,7 @@ public class HUD : MonoBehaviour
         if (_multiplierBar.fillAmount <= 0)
         {
             _multiplierBar.fillAmount = 0;
+            GameManager.instance.ResetMultiplier();
         }
         else
         {
