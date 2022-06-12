@@ -44,6 +44,7 @@ public class Boss : Ship
         else if (state == BossState.Phase2)
         {
             base.OnDieListener();
+            GameManager.instance.GameCompleted();
         }
     }
 }
