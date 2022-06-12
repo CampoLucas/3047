@@ -1,13 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : Ship
+public class EnemyBehaviour : MonoBehaviour
 {
-    
-    private void Update()
+    [SerializeField] private Enemy _enemy;
+    void Awake()
     {
-        Move(-Vector3.right);;
+        _enemy = GetComponent<Enemy>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _enemy.Move(Vector3.left);
     }
 }
