@@ -44,7 +44,7 @@ public class Player : Ship
        _damagable.SetInvulnerable(_invulnerableTime);
     }
 
-    public void UpdateAnimation(Vector2 direction, bool isBoosting)//TODO preguntar para que esto y why no settrigger / setbool
+    public void UpdateAnimation(Vector2 direction, bool isBoosting)
     {
         if (_anim != null)
             _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);

@@ -75,18 +75,14 @@ public class GameManager : MonoBehaviour
         HUD_Screen.SetActive(false);
         GameOverScreen.SetActive(true);
         //play death animation
-        //show game over screen/scene/UIoverlay
-        //show score
-        
     }
 
-    public void GameCompleted()
+    public void GameCompleted() //llamar al matar a un boss
     {
         //TODO
+        HUD_Screen.SetActive(false);
         Victory_Screen.SetActive(true);
         //play victory animations
-        //show victory screen/scene/UIoverlay
-        //show score
     }
     public void AddScore(float points)
     {

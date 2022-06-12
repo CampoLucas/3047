@@ -57,7 +57,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
 
     public override void Move(Vector3 dir)
     {
-        _movementCommand = new CmdMove(transform, dir, _stats.Speed);
+        // _movementCommand = new CmdMove(transform, dir, _stats.Speed);
         _movementCommand.Do();
     }
     protected virtual void InitCmd()
