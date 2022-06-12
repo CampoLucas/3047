@@ -12,7 +12,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _multiplierNum;
     [SerializeField] private TextMeshProUGUI _gameTime;
     [SerializeField] private Image _multiplierBar;
-    [SerializeField, Range(0, 1)] private float _multiplierSpeed;
+    [SerializeField, Range(0, 1)] private float normalMultiplierSpeed = 0.02f;
+    private float _multiplierBarSpeed;
     private void Start()
     {
         GameManager.instance.OnScoreChange += OnScoreChangeListener;
@@ -24,9 +25,8 @@ public class HUD : MonoBehaviour
     {
         _gameTime.text = "Time: " + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
         SubtractMultiplierBar();
+        _multiplierBarSpeed = normalMultiplierSpeed * GameManager.instance.scoreMultiplier;
     }
-    //TODO finish this
-    //
     void SubtractMultiplierBar()
     {
         if (_multiplierBar.fillAmount <= 0)
@@ -36,7 +36,7 @@ public class HUD : MonoBehaviour
         }
         else
         {
-            _multiplierBar.fillAmount -= _multiplierSpeed * Time.deltaTime;
+            _multiplierBar.fillAmount -= _multiplierBarSpeed * Time.deltaTime;
         }
     }
 
@@ -47,7 +47,7 @@ public class HUD : MonoBehaviour
         if (_multiplierBar.fillAmount >= 1)
         {
             GameManager.instance.AddMultiplier(1);
-            _multiplierBar.fillAmount = 0.4f;
+            _multiplierBar.fillAmount = 0.5f;
         }
     }
 
