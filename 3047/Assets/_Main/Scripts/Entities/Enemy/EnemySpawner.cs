@@ -28,8 +28,7 @@ public class EnemySpawner : MonoBehaviour
          };
          for (int i = 0; i < enemyGroups.Count; i++)
          {
-             GameObject g= Instantiate(enemyGroups[i]);
-             g.transform.SetParent(Enemies.transform);
+             GameObject g= Instantiate(enemyGroups[i], Enemies.transform);
              g.transform.position = transform.position;
              g.transform.rotation=Quaternion.identity;
              g.SetActive(false);
