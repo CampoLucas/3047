@@ -9,7 +9,6 @@ public class CollisionDamage : MonoBehaviour
     //When the player ship collides with a enemy ship both ships should take damage.
     //When the player collides with an asteroid the player should take damage and the asteroid should divide itself into 2 or 3 depending its size and should be destroyed (Maybe)
     //Enemies, bosses and asteroids or other projectiles cannot collide between them, just with the player.
-    //TODO fix this por alguna razon no lo hago hacer andar a este script y ademas es innesesario con las balas pero no con los asteriodes
 
     [SerializeField] private StatsSO _stats;
 
