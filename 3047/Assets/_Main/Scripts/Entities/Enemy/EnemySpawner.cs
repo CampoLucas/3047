@@ -6,9 +6,6 @@ using UnityEngine.PlayerLoop;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //This script spawns a gameobject at a specific time ---- 
-    //enemygroups[0] will spawn at the time: timesToSpawn[0]
-    //eg. enemygroup[0] => prefab TargetShotStraight will spawn after timesToSpawn[0]=>30f which is 30seconds
     //in the inspector Element0 of enemyGroups will spawn after Element0 of timesToSpawn in seconds
     //elements must be in order to work properly and be legible
     [SerializeField] private int _index = 0;

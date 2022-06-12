@@ -8,7 +8,6 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
-    private float _score = 0;
 
     private void Start()
     {

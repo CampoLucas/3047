@@ -1098,14 +1098,6 @@ PrefabInstance:
       propertyPath: _damageable
       value: 
       objectReference: {fileID: 1045649406}
-    - target: {fileID: 3213658346084551649, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3213658346191641510, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3213658346371272245, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1185,10 +1177,6 @@ PrefabInstance:
     - target: {fileID: 3213658346736822830, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3213658347279710574, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
