@@ -23,6 +23,13 @@ public class Player : Ship
         
     }
 
+    public override void TakeDamage(int damage)
+    {
+        GameManager.instance.ResetMultiplier();
+        GameManager.instance._HUD.ResetMultiplierBar();
+        base.TakeDamage(damage);
+    }
+
     public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
     public void Dodge()
     {

@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Player _player;
-    
+    public HUD _HUD;
     [Header("Score")]
     public Action<float> OnScoreChange;
     [SerializeField] private float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
-
+    
     [Header("GameTime")]
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
@@ -86,6 +86,17 @@ public class GameManager : MonoBehaviour
     {
         scoreMultiplier += multiplier ;
         OnMultiplierChange?.Invoke(scoreMultiplier);
+    }
+
+    public void ResetMultiplier()
+    {
+        scoreMultiplier = 1;
+        OnMultiplierChange?.Invoke(scoreMultiplier);
+    }
+
+    public void AddMultiplierCounter(float num)
+    {
+        _HUD.AddMultiplierBar(num);
     }
     public void SubstractScore(float points)
     {

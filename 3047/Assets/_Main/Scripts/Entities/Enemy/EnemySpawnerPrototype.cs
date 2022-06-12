@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemySpawnerPrototype : MonoBehaviour
 {
-    [Header("Groups")]
+    [Header("Groups Spawn")]
     [SerializeField]private int _index = 0;
-    public float timeToSpawnEnemies = 3f;
-    public List<GameObject> enemyToSpawn;
+    public float spawnInterval = 3f;
+    public List<GameObject> PrefabToSpawn;
     private float currentTime;
     
-    [Header("Boss")]
+    [Header("Boss Spawn")]
     public GameObject BossPrefab;
     public float timeToSpawnBoss;
     public Transform bossSpawnPosition;
@@ -24,11 +24,9 @@ public class EnemySpawnerPrototype : MonoBehaviour
         if (bossSpawnPosition == null)
             bossSpawnPosition = transform;
     }
-    
     private void Update()
     {
-        
-        if (currentTime >= timeToSpawnEnemies && !_isBossSpawn)
+        if (currentTime >= spawnInterval && !_isBossSpawn)
         {
             SpawnGroup();
             currentTime = 0f;
@@ -37,18 +35,14 @@ public class EnemySpawnerPrototype : MonoBehaviour
         
         if(GameManager.instance.currentGameTime >= timeToSpawnBoss && !_isBossSpawn)
             SpawnBoss();
-        
-
     }
-
     private void SpawnGroup()
     {
-        if(enemyToSpawn.Count==0) return;
-        if (_index>=enemyToSpawn.Count) _index=0 ;
-        Instantiate(enemyToSpawn[_index],transform.position,Quaternion.identity);
+        if(PrefabToSpawn.Count==0) return;
+        if (_index>=PrefabToSpawn.Count) _index=0 ;
+        Instantiate(PrefabToSpawn[_index],transform.position,Quaternion.identity);
         _index++;
     }
-    
     public void SpawnBoss()
     {
         if (!BossPrefab) return;

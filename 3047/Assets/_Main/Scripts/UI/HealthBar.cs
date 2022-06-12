@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
-{
+{//TODO agregar velocidad de oneshot con valor 2
     [Header("Main HealthBar")]
     [SerializeField] private Image _healthBar;
     [SerializeField] private Color _healthBarColor = new Color(1, 0, 0, 1);

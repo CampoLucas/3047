@@ -21,8 +21,12 @@ public class Enemy : Ship
     {
         base.OnDieListener();
         GameManager.instance.AddScore(points);
-        GameManager.instance.AddMultiplier(addedMultiplier);
+        GameManager.instance.AddMultiplierCounter(addedMultiplier);
         Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        
+    }
 }
