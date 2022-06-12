@@ -12,16 +12,22 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Player _player;
     public HUD _HUD;
+    public GameObject HUD_Screen;
     [Header("Score")]
     public Action<float> OnScoreChange;
-    [SerializeField] private float currentScore = 0f;
+    public float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
     
-    [Header("GameTime")]
+    [Header("Game_Time")]
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
     public UnityEvent OnLevelReset = new UnityEvent();
+
+    [Header("Game_Over_Screen")] 
+    [SerializeField] private GameObject GameOverScreen;    
+    [Header("Victory_Screen")] 
+    [SerializeField] private GameObject Victory_Screen;
     
     public string currentLevel;
     public GameObject bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
@@ -37,6 +43,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         OnScoreChange?.Invoke(currentScore);
         OnMultiplierChange?.Invoke(scoreMultiplier);
+        GameOverScreen.SetActive(false);
+        Victory_Screen.SetActive(false);
     }
     
     private void Awake()
@@ -64,6 +72,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //TODO
+        HUD_Screen.SetActive(false);
+        GameOverScreen.SetActive(true);
         //play death animation
         //show game over screen/scene/UIoverlay
         //show score
@@ -73,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void GameCompleted()
     {
         //TODO
+        Victory_Screen.SetActive(true);
         //play victory animations
         //show victory screen/scene/UIoverlay
         //show score

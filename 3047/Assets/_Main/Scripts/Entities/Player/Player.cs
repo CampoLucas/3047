@@ -18,6 +18,11 @@ public class Player : Ship
         _animator = GetComponent<Animator>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     public void Boost(bool isBoosting)
     {
         
@@ -49,6 +54,7 @@ public class Player : Ship
     {
         base.OnDieListener();
         gameObject.SetActive(false);
+        GameManager.instance.GameOver();
         //Destroy(gameObject);
         //play deadAnimation but dont destroy
     }
