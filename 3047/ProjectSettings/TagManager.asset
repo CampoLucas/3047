@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Asteroid
+  - Boss
   layers:
   - Default
   - TransparentFX

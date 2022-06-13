@@ -14,7 +14,8 @@ public class BossBehaviour : MonoBehaviour
     {
         if(_boss.state == BossState.Phase1)
         {
-
+            _boss.Rotate();
+            //This should go in phase2
         }
         else if(_boss.state == BossState.Phase2)
         {

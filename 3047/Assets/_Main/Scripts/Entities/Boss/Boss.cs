@@ -19,6 +19,14 @@ public class Boss : Ship
 
     public BossState state = BossState.Phase1;
 
+    private Rotation _rotation;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _rotation = GetComponent<Rotation>();
+    }
+
     public void Move(Vector3 dir)
     {
 
@@ -26,7 +34,14 @@ public class Boss : Ship
 
     public void Rotate()
     {
+        if(_rotation)
+            _rotation.Rotate();
+    }
 
+    public void ChangeRotationDirection()
+    {
+        if(_rotation)
+            _rotation.ChangeRotationDirection();
     }
 
     public void ChangeState()
@@ -34,16 +49,17 @@ public class Boss : Ship
 
     }
 
-    public override void OnDieListener()
-    {
-        if (state == BossState.Phase1)
-        {
-            _damagable.ResetValues();
-            state = BossState.Phase2;
-        }
-        else if (state == BossState.Phase2)
-        {
-            base.OnDieListener();
-        }
-    }
+    // public override void OnDieListener()
+    // {
+    //     if (state == BossState.Phase1)
+    //     {
+    //         _damagable.ResetValues();
+    //         state = BossState.Phase2;
+    //     }
+    //     else if (state == BossState.Phase2)
+    //     {
+    //         base.OnDieListener();
+    //     }
+    //     
+    // }
 }
