@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1058839916657201100}
   - component: {fileID: 1452921959957631588}
   - component: {fileID: -4489942390711251455}
+  - component: {fileID: -2046717361032116932}
   m_Layer: 0
   m_Name: NoGunSine
   m_TagString: Untagged
@@ -131,6 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 793dfd634198fa54e8f2330dab3692d6, type: 2}
+  _damagable: {fileID: -4489942390711251455}
+  _sineStats: {fileID: 0}
+  points: 5
+  addedMultiplier: 0.5
 --- !u!114 &152458541800995511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e149149d83430d49bf5e1f5b86bf3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 0}
 --- !u!114 &301539212995206529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 0}
+  _sineStats: {fileID: 11400000, guid: 33f4fb93a7cb9f1499ef6df3d28fe546, type: 2}
 --- !u!65 &1058839916657201100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -197,11 +204,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2046717361032116932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301539212995206528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee69cf6656df8f047ad93e85dea00d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 0}
 --- !u!1 &3814365335182806455
 GameObject:
   m_ObjectHideFlags: 0

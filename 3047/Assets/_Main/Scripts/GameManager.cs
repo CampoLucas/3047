@@ -2,22 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Player _player;
-    //Score
+    public HUD _HUD;
+    public GameObject HUD_Screen;
+    [Header("Score")]
     public Action<float> OnScoreChange;
-    private float currentScore = 0f;
+    public float currentScore = 0f;
     public float scoreMultiplier = 1f;
     public Action<float> OnMultiplierChange;
     
-    //GameTime
+    [Header("Game_Time")]
     public float currentGameTime=0f;
     public float MaxLevelGameTime = 9999f;
+    public UnityEvent OnLevelReset = new UnityEvent();
+
+    [Header("Game_Over_Screen")] 
+    [SerializeField] private GameObject GameOverScreen;    
+    [Header("Victory_Screen")] 
+    [SerializeField] private GameObject Victory_Screen;
     
     public string currentLevel;
     public GameObject bullets; //para no llenar la hierarchy de bullets y no crear un nuevo gameobject
@@ -33,6 +43,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         OnScoreChange?.Invoke(currentScore);
         OnMultiplierChange?.Invoke(scoreMultiplier);
+        GameOverScreen.SetActive(false);
+        Victory_Screen.SetActive(false);
     }
     
     private void Awake()
@@ -54,23 +66,23 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+        
     }
 
     public void GameOver()
     {
         //TODO
+        HUD_Screen.SetActive(false);
+        GameOverScreen.SetActive(true);
         //play death animation
-        //show game over screen/scene/UIoverlay
-        //show score
-        
     }
 
-    public void GameCompleted()
+    public void GameCompleted() //llamar al matar a un boss
     {
         //TODO
+        HUD_Screen.SetActive(false);
+        Victory_Screen.SetActive(true);
         //play victory animations
-        //show victory screen/scene/UIoverlay
-        //show score
     }
     public void AddScore(float points)
     {
@@ -81,6 +93,17 @@ public class GameManager : MonoBehaviour
     {
         scoreMultiplier += multiplier ;
         OnMultiplierChange?.Invoke(scoreMultiplier);
+    }
+
+    public void ResetMultiplier()
+    {
+        scoreMultiplier = 1;
+        OnMultiplierChange?.Invoke(scoreMultiplier);
+    }
+
+    public void AddMultiplierCounter(float num)
+    {
+        _HUD.AddMultiplierBar(num);
     }
     public void SubstractScore(float points)
     {
@@ -93,6 +116,7 @@ public class GameManager : MonoBehaviour
         currentScore = 0f;
         scoreMultiplier = 1f;
         OnScoreChange?.Invoke(currentScore);
+        OnLevelReset.Invoke();
     }
 
     public void LoadNextLevel(string levelName)

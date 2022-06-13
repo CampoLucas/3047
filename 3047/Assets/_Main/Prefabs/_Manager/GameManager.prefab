@@ -44,8 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _HUD: {fileID: 0}
+  HUD_Screen: {fileID: 0}
+  currentScore: 0
   scoreMultiplier: 1
   currentGameTime: 0
   MaxLevelGameTime: 9999
+  OnLevelReset:
+    m_PersistentCalls:
+      m_Calls: []
+  _gameOverScreen: {fileID: 0}
   currentLevel: 
   bullets: {fileID: 0}

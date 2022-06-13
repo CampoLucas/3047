@@ -6,7 +6,6 @@ using UnityEngine;
 public class TripleGun : MonoBehaviour, IGun
 {
     [SerializeField] private float _shootDelay = 0.2f;
-    [SerializeField] private float _fireAngle = 10f;
     [SerializeField] private Transform _shootpoint0;
     [SerializeField] private Transform _shootpoint1;
     [SerializeField] private float _bulletLifeTime = 1f;

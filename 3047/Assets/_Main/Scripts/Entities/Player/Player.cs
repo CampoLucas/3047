@@ -18,9 +18,21 @@ public class Player : Ship
         _animator = GetComponent<Animator>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     public void Boost(bool isBoosting)
     {
         
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        GameManager.instance.ResetMultiplier();
+        GameManager.instance._HUD.ResetMultiplierBar();
+        base.TakeDamage(damage);
     }
 
     public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
@@ -32,7 +44,7 @@ public class Player : Ship
        _damagable.SetInvulnerable(_invulnerableTime);
     }
 
-    public void UpdateAnimation(Vector2 direction, bool isBoosting)//TODO preguntar para que esto y why no settrigger / setbool
+    public void UpdateAnimation(Vector2 direction, bool isBoosting)
     {
         if (_anim != null)
             _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
@@ -42,6 +54,7 @@ public class Player : Ship
     {
         base.OnDieListener();
         gameObject.SetActive(false);
+        GameManager.instance.GameOver();
         //Destroy(gameObject);
         //play deadAnimation but dont destroy
     }

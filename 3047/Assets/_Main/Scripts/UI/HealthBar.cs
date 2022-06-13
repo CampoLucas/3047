@@ -13,6 +13,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image _healthBarDelay;
     [SerializeField] private Color _healthBarDelayColor = new Color(1, 0.8f, 0, 0.8f);
     [SerializeField] private float _loseHealthSpeed= 0.2f;
+    [SerializeField] private float _loseHPSpeedNormal= 0.2f;
+    [SerializeField] private float _loseHealthSpeedOneShot= 2f;
     [Header("Backgorund HealthBar")]
     [SerializeField] private Image _healthBarBackground;
     [SerializeField] private Color _healthBarBackgroundColor = new Color(0.4f, 0, 0, 1);
@@ -40,9 +42,14 @@ public class HealthBar : MonoBehaviour
     public void FillHealthbar(int currentlife)
     {
         _healthBar.fillAmount = (float)currentlife/_damageable.Stats.Life;
+        _loseHealthSpeed = _loseHPSpeedNormal;
     }   
     public void Fill2ndHealthbar()
     {
+        if (_healthBar.fillAmount == 0)
+        {
+            _loseHealthSpeed = _loseHealthSpeedOneShot;
+        }
         if (_healthBarDelay.fillAmount>_healthBar.fillAmount)
         {
             _healthBarDelay.fillAmount -= _loseHealthSpeed  * Time.deltaTime;

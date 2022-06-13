@@ -6,7 +6,7 @@ public class Ship : Entity
 {
     private IGun[] _guns;
     [SerializeField] protected Damageable _damagable;
-
+    public Damageable Damageable => _damagable;
     protected override void Awake()
     {
         base.Awake();
