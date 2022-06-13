@@ -70,8 +70,8 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         Ship ship = other.GetComponent<Ship>();
         if (!other.gameObject.CompareTag(this.tag) && ship)
         {
-                ship.TakeDamage(_stats.Damage);
-                _Pool.Recycle(gameObject);
+            ship.TakeDamage(_stats.Damage);
+            _Pool.Recycle(gameObject);
             
         }
         
