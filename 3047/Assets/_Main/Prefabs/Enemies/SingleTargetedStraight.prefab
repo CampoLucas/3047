@@ -65,6 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b27aad00644bf564f82dd95232b8f270, type: 2}
+  _damagable: {fileID: 0}
+  _sineStats: {fileID: 0}
+  points: 2
+  addedMultiplier: 0.02
 --- !u!114 &8490323622251241820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e149149d83430d49bf5e1f5b86bf3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 0}
 --- !u!114 &8148197985750588817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -389,4 +395,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inUse: []
   available: []
-  prefab: {fileID: 414223584255722397, guid: 3324cccd34ec45945af8e091b550f5ba, type: 3}
+  prefab: {fileID: 9071385084729321609, guid: 53fec94d1547b5647916b9d193c259c3, type: 3}

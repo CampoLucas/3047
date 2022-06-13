@@ -66,9 +66,12 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
     protected void OnTriggerEnter(Collider other)
     {
         Ship ship = other.GetComponent<Ship>();
-            if (!other.gameObject.CompareTag(this.tag) && ship)
+        if (!other.gameObject.CompareTag(this.tag) && ship)
+        {
                 ship.TakeDamage(_stats.Damage);
-        _Pool.Recycle(gameObject);
+                _Pool.Recycle(gameObject);
+            
+        }
         
     }
     

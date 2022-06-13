@@ -14,6 +14,7 @@ public class Bracelets : Ship
     public override void OnDieListener()
     {
         _boss.TakeDamage(_boss.Data.Life / 4);
+        _boss.IncrementRotationSpeed(20);
         _boss.ChangeRotationDirection();
         
         

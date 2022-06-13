@@ -44,6 +44,12 @@ public class Boss : Ship
             _rotation.ChangeRotationDirection();
     }
 
+    public void IncrementRotationSpeed(float pct)
+    {
+        if(_rotation)
+            _rotation.IncrementRotationSpeed(pct);
+    }
+
     public void ChangeState()
     {
 

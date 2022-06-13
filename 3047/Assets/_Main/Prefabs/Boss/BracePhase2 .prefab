@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a34208f4a5858a44bdd8e9be0b23e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0.2
+  _fireRate: 0.1
 --- !u!114 &6837829296765640048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inUse: []
   available: []
-  prefab: {fileID: 414223584255722397, guid: 3324cccd34ec45945af8e091b550f5ba, type: 3}
+  prefab: {fileID: 9071385084729321609, guid: f9829b27b46b75e428ec70fd8b89e7b7, type: 3}
