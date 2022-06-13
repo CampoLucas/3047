@@ -55,17 +55,20 @@ public class Boss : Ship
 
     }
 
-    // public override void OnDieListener()
-    // {
-    //     if (state == BossState.Phase1)
-    //     {
-    //         _damagable.ResetValues();
-    //         state = BossState.Phase2;
-    //     }
-    //     else if (state == BossState.Phase2)
-    //     {
-    //         base.OnDieListener();
-    //     }
-    //     
-    // }
+    public override void OnDieListener()
+    {
+        // if (state == BossState.Phase1)
+        // {
+        //     _damagable.ResetValues();
+        //     state = BossState.Phase2;
+        // }
+        // else if (state == BossState.Phase2)
+        // {
+        //     base.OnDieListener();
+        // }
+        
+        GameManager.instance.GameCompleted();
+        base.OnDieListener();
+        
+    }
 }
