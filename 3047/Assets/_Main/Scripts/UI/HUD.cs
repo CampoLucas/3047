@@ -57,10 +57,10 @@ public class HUD : MonoBehaviour
     }
     void OnScoreChangeListener(float score)
     {
-        _scoreText.text = "Score " + score;
+        _scoreText.text = "" + score;
     }   
     void OnMultiplerChangeListener(float Multiplier)
     {
-        _multiplierNum.text = Multiplier + "X";
+        _multiplierNum.text = "x" + Multiplier;
     }
 }

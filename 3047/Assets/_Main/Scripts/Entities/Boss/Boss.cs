@@ -27,7 +27,7 @@ public class Boss : Ship
         _rotation = GetComponent<Rotation>();
     }
 
-    public void Move(Vector3 dir)
+    public override void Move(Vector3 dir)
     {
 
     }

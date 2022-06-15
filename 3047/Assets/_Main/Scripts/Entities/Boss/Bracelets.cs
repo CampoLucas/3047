@@ -6,7 +6,7 @@ public class Bracelets : Ship
 {
     private Boss _boss;
 
-    private void Awake()
+    protected override void Awake()
     {
         _boss = GetComponentInParent<Boss>();
     }

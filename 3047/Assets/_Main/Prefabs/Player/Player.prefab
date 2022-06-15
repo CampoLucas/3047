@@ -688,6 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 22ad5536911167c4b9f23b8dd273ccb4, type: 2}
+  _damagable: {fileID: 0}
   _isBoosting: 0
   _invulnerableTime: 2
   _moveAmount: 0
@@ -759,8 +760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
   _currentLife: 0
+  _isInvulnerable: 0
+  _stats: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -878,4 +880,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inUse: []
   available: []
-  prefab: {fileID: 414223584255722397, guid: c675c3e6ed1f3cd46ae36e88f6ba3252, type: 3}
+  prefab: {fileID: 9071385084729321609, guid: cc8bcbd16a31e494ab97303a35e2e8da, type: 3}

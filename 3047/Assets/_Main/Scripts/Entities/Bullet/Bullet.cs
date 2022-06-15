@@ -17,7 +17,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
     
     protected ICommand _movementCommand;
 
-    protected virtual void Start()
+    protected override void Start()
     {
         //InitCmd();
         _recycleTime = 0f;
