@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Enemy_Purple_SinValues
   m_EditorClassIdentifier: 
   _amplitude: 1
-  _frequency: 0.5
+  _frequency: 0.3
