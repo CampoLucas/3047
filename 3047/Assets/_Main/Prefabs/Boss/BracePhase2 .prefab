@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 1132909834614345156}
   - component: {fileID: 8317427660077233318}
   - component: {fileID: 5045082205233414083}
+  - component: {fileID: 7694673080772882966}
+  - component: {fileID: 6837829296765640048}
   m_Layer: 0
   m_Name: 'BracePhase2 '
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +148,31 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7694673080772882966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a34208f4a5858a44bdd8e9be0b23e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireRate: 0.2
+--- !u!114 &6837829296765640048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479449e9ceb58e64b80af0170b59bed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inUse: []
+  available: []
+  prefab: {fileID: 9071385084729321609, guid: f9829b27b46b75e428ec70fd8b89e7b7, type: 3}
