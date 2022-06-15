@@ -23,7 +23,7 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        _gameTime.text = "Time: " + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
+        _gameTime.text = "" + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
         SubtractMultiplierBar();
         _multiplierBarSpeed = normalMultiplierSpeed * GameManager.instance.scoreMultiplier;
     }
