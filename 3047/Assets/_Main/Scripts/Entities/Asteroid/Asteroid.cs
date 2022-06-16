@@ -35,7 +35,7 @@ public class Asteroid : Ship
         
     }
     
-    protected void Start()
+    protected override void Start()
     {
         transform.eulerAngles = new Vector3(Random.value * _angle.x, Random.value * _angle.y, Random.value * _angle.z);
         transform.localScale = Vector3.one * _size;

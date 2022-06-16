@@ -23,7 +23,7 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        _gameTime.text = "Time: " + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
+        _gameTime.text = "" + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
         SubtractMultiplierBar();
         _multiplierBarSpeed = normalMultiplierSpeed * GameManager.instance.scoreMultiplier;
     }
@@ -57,10 +57,10 @@ public class HUD : MonoBehaviour
     }
     void OnScoreChangeListener(float score)
     {
-        _scoreText.text = "Score " + score;
+        _scoreText.text = "" + score;
     }   
     void OnMultiplerChangeListener(float Multiplier)
     {
-        _multiplierNum.text = Multiplier + "X";
+        _multiplierNum.text = "x" + Multiplier;
     }
 }
