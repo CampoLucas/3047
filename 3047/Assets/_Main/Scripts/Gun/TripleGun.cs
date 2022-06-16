@@ -9,17 +9,21 @@ public class TripleGun : MonoBehaviour, IGun
     [SerializeField] private Transform _shootpoint0;
     [SerializeField] private Transform _shootpoint1;
     [SerializeField] private float _bulletLifeTime = 1f;
+    [SerializeField] private ParticleSystem _muzzleFlash;
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
 
     private void Awake()
     {
-
         _pool = GetComponent<Pool>();
         _direction = transform.right;//logro lo mismo disparando a transform. right
     }
 
+    private void Start()
+    {
+        _muzzleFlash = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void Update()
     {
@@ -29,6 +33,7 @@ public class TripleGun : MonoBehaviour, IGun
     {
         if (!(_lastShootime + _shootDelay < Time.time)) return;
         _lastShootime = Time.time;
+        _muzzleFlash.Play();
         Create();
     }
 
