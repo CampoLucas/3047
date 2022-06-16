@@ -21,7 +21,7 @@ public class ScreenShake : MonoBehaviour
         }
     }
 
-    public void StartShake(float duration, float magnitude)
+    public void StartShake(float duration, float magnitude)// este metodo es nesesario para el funcionamiento singleton en otras clases
     {
         StartCoroutine(CameraShake(duration, magnitude));
     }
