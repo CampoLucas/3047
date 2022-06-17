@@ -10,45 +10,31 @@ public class HelixGun : MonoBehaviour,IGun
     [SerializeField] private Pool _plusPool;
     [SerializeField] private Pool _minusPool;
     private Vector3 _direction;
-    private GameObject bulletsEmptyObject;// este es para setear el parent de las bullets
     private void Awake()
     {
-        bulletsEmptyObject = new GameObject
-        {
-            name = "Bullets"
-        };
-        _lastShootime = 0f;
         _direction = transform.right;
     }
-
-    private void Update()
-    {
-        _lastShootime += Time.deltaTime;
-    }
-
+    
+    
     public void Fire()
     {
-        if (_lastShootime > _fireRate)
-        {
-            UsePlusPool();
-            UseMinusPool();
-            _lastShootime = 0f;
-        }
+        if (!(_lastShootime + _fireRate < Time.time)) return;
+        _lastShootime = Time.time;
+        UsePlusPool();
+        UseMinusPool();
     }
 
-    private SineBullet UsePlusPool()
+    private void UsePlusPool()
     {
         SineBullet p = _plusPool.Use().GetComponent<SineBullet>();
         p.InitData(_direction, transform.position, _plusPool);
-        p.transform.parent = bulletsEmptyObject.transform;
-        return p;
+        p.transform.parent = GameManager.instance.bullets.transform;
     }
 
-    private SineBullet UseMinusPool()
+    private void UseMinusPool()
     {
         SineBullet m = _minusPool.Use().GetComponent<SineBullet>();
         m.InitData(_direction,transform.position,_minusPool);
-        m.transform.parent = bulletsEmptyObject.transform;
-        return m;
+        m.transform.parent = GameManager.instance.bullets.transform;
     }
 }

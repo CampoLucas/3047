@@ -11,16 +11,23 @@ public class Player : Ship
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
     public float _moveAmount;
+    [SerializeField] private IGun EquippedGun = null;
     protected override void Awake()
     {
         base.Awake();
         _anim = GetComponent<IAnimation>();
         _animator = GetComponent<Animator>();
     }
-
+    
     protected override void Start()
     {
         base.Start();
+        EquippedGun = _guns[0];
+    }
+
+    public override void Fire()
+    {
+        EquippedGun.Fire();
     }
 
     public void Boost(bool isBoosting)
@@ -28,6 +35,11 @@ public class Player : Ship
         
     }
 
+    private void ChangeGun()
+    {
+        
+    }
+    
     public override void TakeDamage(int damage)
     {
         GameManager.instance.ResetMultiplier();

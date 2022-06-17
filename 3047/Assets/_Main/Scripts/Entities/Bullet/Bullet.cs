@@ -65,7 +65,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
     //TODO Change this to collisionDamage
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         Ship ship = other.GetComponent<Ship>();
         if (!other.gameObject.CompareTag(this.tag) && ship)
