@@ -10,6 +10,8 @@ public class HelixGun : MonoBehaviour,IGun
     [SerializeField] private Pool _plusPool;
     [SerializeField] private Pool _minusPool;
     private Vector3 _direction;
+    [SerializeField] private Weapon _type = Weapon.HelixGun;
+    public Weapon type => _type;
     private void Awake()
     {
         _direction = transform.right;

@@ -6,8 +6,10 @@ using UnityEngine;
 public class SingleTargetedGun : SingleStraightShotGun
 {
     [SerializeField] private Player _target;
+    
     protected void Start()
     {
+        _type = Weapon.SingleTargetedGun;
         base.Awake();
         _target = GameManager.instance._player;
     }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : Ship
@@ -12,13 +14,16 @@ public class Player : Ship
     [SerializeField] private float _invulnerableTime = 2f; 
     public float _moveAmount;
     
-    [SerializeField] private IGun EquippedGun = null;
+    private Dictionary<Weapon, IGun> _gunsDictionary;
+    private IGun EquippedGun = null;
     
     [Header("Take Damage ScreenShake")]
     public float ShakeDuration;
     public float ShakeMagnitude;
     protected override void Awake()
     {
+        
+        _gunsDictionary = new Dictionary<Weapon, IGun>();
         base.Awake();
         _anim = GetComponent<IAnimation>();
         _animator = GetComponent<Animator>();
@@ -27,7 +32,13 @@ public class Player : Ship
     protected override void Start()
     {
         base.Start();
-        EquippedGun = _guns[0];
+        foreach (var t in _guns)
+        {
+            _gunsDictionary.Add(t.type, t);
+        }
+        
+        EquippedGun = _gunsDictionary[Weapon.TripleGun];
+
     }
 
     public override void Fire()
@@ -39,10 +50,11 @@ public class Player : Ship
     {
         
     }
-
-    private void ChangeGun()
+    
+    public void ChangeGun(Weapon weapon)
     {
-        
+        if(!_gunsDictionary.ContainsKey(weapon)) return;
+        EquippedGun = _gunsDictionary[weapon];
     }
     
     public override void TakeDamage(int damage)
@@ -82,5 +94,13 @@ public class Player : Ship
     public void ResetValues()
     {
         _damagable.ResetValues();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerUP")) //TODO CAmbiar esto por un getcomponent del powerup
+        {
+            ChangeGun(Weapon.HelixGun);
+        }
     }
 }

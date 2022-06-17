@@ -13,7 +13,8 @@ public class TripleGun : MonoBehaviour, IGun
     private float _lastShootime;
     private Vector3 _direction;
     private Pool _pool;
-
+    [SerializeField] private Weapon _type = Weapon.TripleGun;
+    public Weapon type => _type;
     private void Awake()
     {
         _pool = GetComponent<Pool>();
@@ -24,11 +25,7 @@ public class TripleGun : MonoBehaviour, IGun
     {
         _muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
-
-    private void Update()
-    {
-        //_direction = (transform.localRotation * Vector3.right).normalized;
-    }
+    
     public void Fire()
     {
         if (!(_lastShootime + _shootDelay < Time.time)) return;
