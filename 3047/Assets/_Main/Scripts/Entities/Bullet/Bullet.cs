@@ -71,9 +71,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         if (!other.gameObject.CompareTag(this.tag) && ship)
         {
             ship.TakeDamage(_stats.Damage);
-            ScreenShake.instance.StartShake(0.5f,0.05f);//CameraShake
             _Pool.Recycle(gameObject);
-
         }
         
     }

@@ -11,7 +11,12 @@ public class Player : Ship
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
     public float _moveAmount;
+    
     [SerializeField] private IGun EquippedGun = null;
+    
+    [Header("Take Damage ScreenShake")]
+    public float ShakeDuration;
+    public float ShakeMagnitude;
     protected override void Awake()
     {
         base.Awake();
@@ -44,6 +49,9 @@ public class Player : Ship
     {
         GameManager.instance.ResetMultiplier();
         GameManager.instance._HUD.ResetMultiplierBar();
+        
+        ScreenShake.instance.StartShake(ShakeDuration,ShakeMagnitude);//CameraShake
+        
         base.TakeDamage(damage);
     }
 
