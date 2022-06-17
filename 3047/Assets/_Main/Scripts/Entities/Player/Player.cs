@@ -53,7 +53,7 @@ public class Player : Ship
     
     public void ChangeGun(Weapon weapon)
     {
-        if(!_gunsDictionary.ContainsKey(weapon)) return;
+        if(!_gunsDictionary.ContainsKey(weapon)) return; //si no existe el arma en el diccionario then return
         EquippedGun = _gunsDictionary[weapon];
     }
     
@@ -95,12 +95,5 @@ public class Player : Ship
     {
         _damagable.ResetValues();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PowerUP")) //TODO CAmbiar esto por un getcomponent del powerup
-        {
-            ChangeGun(Weapon.HelixGun);
-        }
-    }
+    
 }

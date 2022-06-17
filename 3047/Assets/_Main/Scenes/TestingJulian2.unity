@@ -196,13 +196,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUP
       objectReference: {fileID: 0}
-    - target: {fileID: 976955701753392852, guid: 68309e2c84026ae44b0a3e074c5d3535, type: 3}
-      propertyPath: m_FlipY
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 976955701753392855, guid: 68309e2c84026ae44b0a3e074c5d3535, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 976955701753392855, guid: 68309e2c84026ae44b0a3e074c5d3535, type: 3}
       propertyPath: m_LocalPosition.x
@@ -696,12 +692,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7535583402478854144, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7535583402478854144, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7535583402478854145, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7535583402478854145, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
       propertyPath: m_LocalPosition.x

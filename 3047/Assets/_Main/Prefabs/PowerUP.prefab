@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 976955701753392852}
   - component: {fileID: 976955701753392853}
   - component: {fileID: 976955701753392850}
+  - component: {fileID: 1327498756}
   m_Layer: 0
   m_Name: PowerUP
   m_TagString: PowerUP
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: b6dea0af9ed2fab40b57d18cbd738363, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1327498756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976955701753392851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068522498876aec428813f469aacd2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUpWeapon: 1
