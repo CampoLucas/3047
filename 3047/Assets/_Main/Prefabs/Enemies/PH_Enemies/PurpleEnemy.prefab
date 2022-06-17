@@ -86,7 +86,7 @@ MonoBehaviour:
   _damagable: {fileID: 9018652542748183737}
   _sineStats: {fileID: 0}
   points: 5
-  addedMultiplier: 0.5
+  addedMultiplier: 0.05
 --- !u!114 &4505167149565245455
 MonoBehaviour:
   m_ObjectHideFlags: 0
