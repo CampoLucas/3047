@@ -14,6 +14,7 @@ public class PowerUp : MonoBehaviour
             if (player)
             {
                 player.ChangeGun(PowerUpWeapon);
+                Destroy(gameObject);
             }
         }
     }
