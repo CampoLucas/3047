@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: helix
   _life: 100
   _speed: 10
-  _damage: 5
+  _damage: 10

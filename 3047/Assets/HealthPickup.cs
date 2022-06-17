@@ -1,19 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class PowerUp : MonoBehaviour
+public class HealthPickup : MonoBehaviour
 {
-    [SerializeField] private Weapon PowerUpWeapon;
+    [SerializeField] private int HP_To_Heal;
     [SerializeField] private float _rotationSpeed = 20f;
     private void Update()
     {
         transform.Rotate(0, _rotationSpeed * Time.deltaTime, 0);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -21,7 +17,7 @@ public class PowerUp : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player)
             {
-                player.ChangeGun(PowerUpWeapon);
+                player.Damageable.AddLife(HP_To_Heal);
                 Destroy(gameObject);
             }
         }
