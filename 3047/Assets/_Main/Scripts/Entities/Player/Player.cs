@@ -61,7 +61,7 @@ public class Player : Ship
         GameManager.instance._HUD.ResetMultiplierBar();
         
         ScreenShake.instance.StartShake(shakeDuration,shakeMagnitude);//CameraShake
-        
+        _anim.ToggleDamage();
         base.TakeDamage(damage);
     }
 

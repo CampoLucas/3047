@@ -13,7 +13,7 @@ Shader "3047/Skyboxes/StarsSkybox"
         _StarTilingY ("StarTiling y", float) = 4
         _Stars ("Stars", float) = 10
         _StarDensity ("Star Density", float) = 50
-        //_MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "white" {}
         
         [Header(Scrolling)]
         _ScrollXSpeed ("X Scroll Speed", Range(0,10)) = 2
@@ -60,8 +60,8 @@ Shader "3047/Skyboxes/StarsSkybox"
             fixed _ScrollXSpeed;
             fixed _ScrollYSpeed;
             
-            //sampler2D _MainTex;
-            //float4 _MainTex_ST;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
 
 
             float2 TilingAndOffset(float2 uv, float2 tilling, float2 offset = float2(0,0))
@@ -122,7 +122,7 @@ Shader "3047/Skyboxes/StarsSkybox"
                 fixed2 scrolledUV = tiling;
                 fixed xScrollValue = _ScrollXSpeed * _Time;
                 fixed yScrollValue = _ScrollYSpeed * _Time;
-
+                
                 scrolledUV += fixed2(xScrollValue, yScrollValue);
 
                 float voronoi;
@@ -133,10 +133,26 @@ Shader "3047/Skyboxes/StarsSkybox"
                 
                 return col;
             }
+
+
+            float2 RotateRadians(float2 uv, float2 center, float rotation)
+            {
+                uv -= center;
+                float s = sin(rotation);
+                float c = cos(rotation);
+                float2x2 rMatrix = float2x2(c, -s, s, c);
+                rMatrix *= 0.5;
+                rMatrix += 0.5;
+                rMatrix = rMatrix * 2 - 1;
+                uv.xy = mul(uv.xy, rMatrix);
+                uv += center;
+                return uv;
+            }
             
             v2f vert (appdata v)
             {
                 v2f o;
+                
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
@@ -146,7 +162,7 @@ Shader "3047/Skyboxes/StarsSkybox"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
+
                 fixed4 col =
                     Gradiant(i.worldPos, _ColorA, _ColorB, _GradiantStrength) +
                         Stars(i.worldPos, float2(_StarTilingX, _StarTilingY), _Stars, _StarDensity, _StarColor);
