@@ -780,10 +780,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 7709078412683225669, guid: 727a0c8dc0259b345bdf5184ec9b078a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7709078412683225670, guid: 727a0c8dc0259b345bdf5184ec9b078a, type: 3}
       propertyPath: m_RootOrder
       value: 6

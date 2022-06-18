@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Player : Ship
 {
-    private IAnimation _anim;
-    private Animator _animator;
+    private AnimationHandler _anim;
     public bool IsBoosting => _isBoosting;
     public bool IsDead => _damagable.IsDead;
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
-    public float _moveAmount;
+    public float moveAmount;
     protected override void Awake()
     {
         base.Awake();
-        _anim = GetComponent<IAnimation>();
-        _animator = GetComponent<Animator>();
+        _anim = GetComponent<AnimationHandler>();
     }
 
     protected override void Start()
@@ -32,16 +30,21 @@ public class Player : Ship
     {
         GameManager.instance.ResetMultiplier();
         GameManager.instance._HUD.ResetMultiplierBar();
+        
         base.TakeDamage(damage);
+        
+        if(_anim)
+            _anim.ToggleDamage();
     }
 
-    public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
+    public void SetMoveAmount(float amount) => moveAmount = amount;
     public void Dodge()
     {
-       //play dodge anim
-       _animator.SetTrigger("Dodge");//si queres sacarlo no hay problema
+       if(_anim)
+           _anim.ToggleDodge();
        //set invulnerable for a time in seconds
-       _damagable.SetInvulnerable(_invulnerableTime);
+       if(_damagable)
+           _damagable.SetInvulnerable(_invulnerableTime);
     }
 
     public void UpdateAnimation(Vector2 direction, bool isBoosting)

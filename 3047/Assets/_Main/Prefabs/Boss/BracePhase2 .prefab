@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5045082205233414083}
   - component: {fileID: 7694673080772882966}
   - component: {fileID: 6837829296765640048}
+  - component: {fileID: 8606430360448874056}
   m_Layer: 0
   m_Name: 'BracePhase2 '
   m_TagString: Boss
@@ -176,3 +177,22 @@ MonoBehaviour:
   inUse: []
   available: []
   prefab: {fileID: 9071385084729321609, guid: f9829b27b46b75e428ec70fd8b89e7b7, type: 3}
+--- !u!95 &8606430360448874056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b43c1ba056ec9649b6fa19264b93a03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
