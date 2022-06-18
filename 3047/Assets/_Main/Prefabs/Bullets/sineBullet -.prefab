@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4020257048772548955}
   - component: {fileID: -7582149324166719665}
+  - component: {fileID: 518309302297315294}
+  - component: {fileID: 2318122532596250126}
   m_Layer: 6
   m_Name: sineBullet -
   m_TagString: Player
@@ -44,11 +46,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c901253c8652744b60611669a87ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 11400000, guid: fbc01c74b6b2390408dbef35362edad7, type: 2}
   _timeToRecycle: 2
-  _stats: {fileID: 11400000, guid: 4f4ae410582f0da4a8b80089ba10bf75, type: 2}
   _moveDirection: {x: 0, y: 0, z: 0}
   _Pool: {fileID: 0}
   _sinValues: {fileID: 11400000, guid: 156dacebc06953144b43eec42ea25800, type: 2}
+--- !u!54 &518309302297315294
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208084801301290792}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &2318122532596250126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208084801301290792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4655655776851581040
 GameObject:
   m_ObjectHideFlags: 0

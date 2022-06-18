@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ship : Entity
 {
-    private IGun[] _guns;
+    protected IGun[] _guns;
     
     public Damageable Damageable => _damagable;
     [SerializeField] protected Damageable _damagable;

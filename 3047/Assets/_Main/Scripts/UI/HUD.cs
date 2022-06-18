@@ -43,7 +43,7 @@ public class HUD : MonoBehaviour
     public void AddMultiplierBar(float num)
     {
         if (num > 1f) num = 1f;
-        _multiplierBar.fillAmount += num;
+        _multiplierBar.fillAmount += num / GameManager.instance.scoreMultiplier;
         if (_multiplierBar.fillAmount >= 1)
         {
             GameManager.instance.AddMultiplier(1);
