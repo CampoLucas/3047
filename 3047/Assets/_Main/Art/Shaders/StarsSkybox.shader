@@ -14,6 +14,10 @@ Shader "3047/Skyboxes/StarsSkybox"
         _Stars ("Stars", float) = 10
         _StarDensity ("Star Density", float) = 50
         //_MainTex ("Texture", 2D) = "white" {}
+        
+        [Header(Scrolling)]
+        _ScrollXSpeed ("X Scroll Speed", Range(0,10)) = 2
+        _ScrollYSpeed ("Y Scroll Speed", Range(0,10)) = 0
     }
     SubShader
     {
@@ -52,6 +56,9 @@ Shader "3047/Skyboxes/StarsSkybox"
             float _StarTilingY;
             float _Stars;
             float _StarDensity;
+
+            fixed _ScrollXSpeed;
+            fixed _ScrollYSpeed;
             
             //sampler2D _MainTex;
             //float4 _MainTex_ST;
@@ -108,12 +115,21 @@ Shader "3047/Skyboxes/StarsSkybox"
 
             float4 Stars(float4 worldPos, float2 starTiling, float stars, float starDencity, float4 color)
             {
+
                 float2 tiling = TilingAndOffset(normalize(worldPos), starTiling);
+
+
+                fixed2 scrolledUV = tiling;
+                fixed xScrollValue = _ScrollXSpeed * _Time;
+                fixed yScrollValue = _ScrollYSpeed * _Time;
+
+                scrolledUV += fixed2(xScrollValue, yScrollValue);
+
                 float voronoi;
                 float cells;
-                Voronoi(tiling, 100, stars, voronoi, cells);
+                Voronoi(scrolledUV, 100, stars, voronoi, cells);
 
-                float4 col = pow(1 - saturate(voronoi), starDencity);
+                float4 col = pow(1 - saturate(voronoi), starDencity) * color;
                 
                 return col;
             }
