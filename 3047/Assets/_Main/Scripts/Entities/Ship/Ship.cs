@@ -6,8 +6,11 @@ public class Ship : Entity
 {
     protected IGun[] _guns;
     
-    [SerializeField] protected Damageable _damagable;
     public Damageable Damageable => _damagable;
+    [SerializeField] protected Damageable _damagable;
+
+    
+    
     protected override void Awake()
     {
         base.Awake();
@@ -26,7 +29,8 @@ public class Ship : Entity
     {
         if(_damagable)
             _damagable.TakeDamage(damage);
-        //Debug.Log("damage" + gameObject.name);
+        
+        
     }
 
     public virtual void AddLife(int life)

@@ -6,27 +6,25 @@ using UnityEngine;
 
 public class Player : Ship
 {
-    private IAnimation _anim;
-    private Animator _animator;
+    private AnimationHandler _anim;
     public bool IsBoosting => _isBoosting;
     public bool IsDead => _damagable.IsDead;
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
-    public float _moveAmount;
+    public float moveAmount;
     
     private Dictionary<Weapon, IGun> _gunsDictionary;
-    private IGun EquippedGun = null;
+    private IGun _equippedGun = null;
     
     [Header("Take Damage ScreenShake")]
-    public float ShakeDuration;
-    public float ShakeMagnitude;
+    public float shakeDuration;
+    public float shakeMagnitude;
     protected override void Awake()
     {
         
         _gunsDictionary = new Dictionary<Weapon, IGun>();
         base.Awake();
-        _anim = GetComponent<IAnimation>();
-        _animator = GetComponent<Animator>();
+        _anim = GetComponent<AnimationHandler>();
     }
     
     protected override void Start()
@@ -37,13 +35,13 @@ public class Player : Ship
             _gunsDictionary.Add(t.type, t);
         }
         
-        EquippedGun = _gunsDictionary[Weapon.TripleGun];
+        _equippedGun = _gunsDictionary[Weapon.TripleGun];
 
     }
 
     public override void Fire()
     {
-        EquippedGun.Fire();
+        _equippedGun.Fire();
     }
 
     public void Boost(bool isBoosting)
@@ -54,7 +52,7 @@ public class Player : Ship
     public void ChangeGun(Weapon weapon)
     {
         if(!_gunsDictionary.ContainsKey(weapon)) return; //si no existe el arma en el diccionario then return
-        EquippedGun = _gunsDictionary[weapon];
+        _equippedGun = _gunsDictionary[weapon];
     }
     
     public override void TakeDamage(int damage)
@@ -62,23 +60,25 @@ public class Player : Ship
         GameManager.instance.ResetMultiplier();
         GameManager.instance._HUD.ResetMultiplierBar();
         
-        ScreenShake.instance.StartShake(ShakeDuration,ShakeMagnitude);//CameraShake
-        
+        ScreenShake.instance.StartShake(shakeDuration,shakeMagnitude);//CameraShake
+        _anim.ToggleDamage();
         base.TakeDamage(damage);
     }
 
-    public void SetMoveAmount(float moveAmount) => _moveAmount = moveAmount;
+    public void SetMoveAmount(float amount) => moveAmount = amount;
     public void Dodge()
     {
        //play dodge anim
-       _animator.SetTrigger("Dodge");//si queres sacarlo no hay problema
+       if(_anim)
+           _anim.ToggleDodge();
        //set invulnerable for a time in seconds
+       //ToDo: Dodge animation were at the begining calls to a SetInvulnerable(true) an at the end SetInvulnerable(false)
        _damagable.SetInvulnerable(_invulnerableTime);
     }
 
     public void UpdateAnimation(Vector2 direction, bool isBoosting)
     {
-        if (_anim != null)
+        if (_anim)
             _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
     }
 
