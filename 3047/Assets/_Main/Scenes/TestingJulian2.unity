@@ -634,6 +634,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2014375883, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
+      propertyPath: m_Name
+      value: PowerUP cooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090942132, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
+      propertyPath: m_Name
+      value: cooldown text
+      objectReference: {fileID: 0}
     - target: {fileID: 7535583402478854144, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
       propertyPath: m_Name
       value: Player
