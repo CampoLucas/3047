@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Player : Ship
@@ -14,17 +15,21 @@ public class Player : Ship
     public float moveAmount;
     
     private Dictionary<Weapon, IGun> _gunsDictionary;
+    [SerializeField] private Weapon MainGun = Weapon.TripleGun;//arma principal de este player
+    private float _currentTime;
     private IGun _equippedGun = null;
-    
+    private bool _isPowerUP;
+    [SerializeField] private TextMeshProUGUI _coolDownNumUI;
     [Header("Take Damage ScreenShake")]
     public float shakeDuration;
     public float shakeMagnitude;
     protected override void Awake()
     {
-        
+        _isPowerUP = false;
         _gunsDictionary = new Dictionary<Weapon, IGun>();
         base.Awake();
         _anim = GetComponent<AnimationHandler>();
+        _coolDownNumUI.gameObject.SetActive(false);
     }
     
     protected override void Start()
@@ -35,13 +40,35 @@ public class Player : Ship
             _gunsDictionary.Add(t.type, t);
         }
         
-        _equippedGun = _gunsDictionary[Weapon.TripleGun];
+        ChangeGun(MainGun);
 
     }
 
     public override void Fire()
     {
         _equippedGun.Fire();
+    }
+
+    private void Update()
+    {
+        if(!_isPowerUP) return;
+        _coolDownNumUI.text = _currentTime.ToString("0");
+        _currentTime -= Time.deltaTime;
+        if (_currentTime <= 0f)
+        {
+            ChangeGun(MainGun);
+            _currentTime = 0f;
+            _isPowerUP = false;
+            _coolDownNumUI.gameObject.SetActive(false);
+        }
+    }
+
+    public void PowerUp(Weapon weapon, float coolDown)
+    {
+        _isPowerUP = true;
+        _currentTime = coolDown;
+        _coolDownNumUI.gameObject.SetActive(true);
+        ChangeGun(weapon);
     }
 
     public void Boost(bool isBoosting)

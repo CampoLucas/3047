@@ -8,6 +8,7 @@ using UnityEngine.PlayerLoop;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField] private Weapon PowerUpWeapon;
+    [SerializeField] private float _coolDown = 10f;
     [SerializeField] private float _rotationSpeed = 20f;
     private void Update()
     {
@@ -21,7 +22,7 @@ public class PowerUp : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player)
             {
-                player.ChangeGun(PowerUpWeapon);
+                player.PowerUp(PowerUpWeapon,_coolDown);
                 Destroy(gameObject);
             }
         }
