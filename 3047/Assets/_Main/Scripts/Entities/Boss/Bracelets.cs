@@ -7,8 +7,8 @@ public class Bracelets : Ship
     private Boss _boss;
     private Animator _anim;
     private SingleStraightShotGun _gun;
-    
-    
+
+    [SerializeField] private ParticleSystem _explotion;
 
     protected override void Awake()
     {
@@ -17,13 +17,19 @@ public class Bracelets : Ship
         _gun = GetComponent<SingleStraightShotGun>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        _explotion = GetComponentInChildren<ParticleSystem>();
+    }
+
     public override void OnDieListener()
     {
         _boss.TakeDamage(_boss.Data.Life / 4);
         _boss.IncrementRotationSpeed(20);
         _boss.ChangeRotationDirection();
         DeactivateBracelet();
-        
+        //_explotion.Play();
         //base.OnDieListener();
     }
 

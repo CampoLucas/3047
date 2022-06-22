@@ -36,6 +36,7 @@ public class TripleGun : MonoBehaviour, IGun
 
     public void Create()
     {
+        //ToDo: No podes poner esto en un for y que desde el inspector le digas cuantas balas va a disparar? de esa manera tenemos 1 script para dos tipos de arma, (la cantidad de balas, el offset en "y" y el angulo)
         Bullet e0 = _pool.Use().GetComponent<Bullet>();
         e0.transform.parent = GameManager.instance.bullets.transform;//To avoid Filling up base Hierarchy with bullets
         _direction = transform.right;
