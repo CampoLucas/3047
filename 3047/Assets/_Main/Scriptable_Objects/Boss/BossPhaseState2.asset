@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BossPhaseState2
   m_EditorClassIdentifier: 
   _id: def
-  _life: 100
-  _speed: 0
+  _life: 70
+  _speed: 4
   _damage: 0
