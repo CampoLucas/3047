@@ -5,7 +5,7 @@ Shader "Planets/Transparent"
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _DotProduct("Rim effect", Range(-1,1)) = 0.25
-        _Transparency("Transparency", range(0.0, 0.5)) = 0.25
+        _Transparency("Transparency", range(0.0, 1)) = 0.25
     }
     SubShader
     {

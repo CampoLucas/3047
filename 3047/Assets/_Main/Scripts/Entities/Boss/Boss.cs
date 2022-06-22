@@ -67,6 +67,7 @@ public class Boss : Ship
         //     base.OnDieListener();
         // }
         
+        state = BossState.Dead;
         GameManager.instance.GameCompleted();
         base.OnDieListener();
         
