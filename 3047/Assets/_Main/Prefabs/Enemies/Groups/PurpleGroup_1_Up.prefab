@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4923010720100950318}
   m_Layer: 0
-  m_Name: PurpleGroupTwo
+  m_Name: PurpleGroup_1_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
