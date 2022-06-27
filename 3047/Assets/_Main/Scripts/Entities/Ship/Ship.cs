@@ -30,7 +30,7 @@ public class Ship : Entity
         if(_damageable)
             _damageable.TakeDamage(damage);
         
-        
+        //AudioManager.instance.Play("Hit");
     }
 
     public virtual void AddLife(int life)
