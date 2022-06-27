@@ -445,8 +445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 766c618e8c66e044b837bb58c64ab142, type: 2}
-  _damagable: {fileID: 0}
+  _damageable: {fileID: 0}
   state: 0
+  _bracelets: []
+  OnDestroyedBracelet:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2566630566053073445
 MonoBehaviour:
   m_ObjectHideFlags: 0
