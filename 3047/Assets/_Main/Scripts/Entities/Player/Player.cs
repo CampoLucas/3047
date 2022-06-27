@@ -9,7 +9,7 @@ public class Player : Ship
 {
     private AnimationHandler _anim;
     public bool IsBoosting => _isBoosting;
-    public bool IsDead => _damagable.IsDead;
+    public bool IsDead => _damageable.IsDead;
     [SerializeField] private bool _isBoosting; 
     [SerializeField] private float _invulnerableTime = 2f; 
     public float moveAmount;
@@ -100,7 +100,7 @@ public class Player : Ship
            _anim.ToggleDodge();
        //set invulnerable for a time in seconds
        //ToDo: Dodge animation were at the begining calls to a SetInvulnerable(true) an at the end SetInvulnerable(false)
-       _damagable.SetInvulnerable(_invulnerableTime);
+       _damageable.SetInvulnerable(_invulnerableTime);
     }
 
     public void UpdateAnimation(Vector2 direction, bool isBoosting)
@@ -120,7 +120,7 @@ public class Player : Ship
 
     public void ResetValues()
     {
-        _damagable.ResetValues();
+        _damageable.ResetValues();
     }
     
 }

@@ -6,8 +6,8 @@ public class Ship : Entity
 {
     protected IGun[] _guns;
     
-    public Damageable Damageable => _damagable;
-    [SerializeField] protected Damageable _damagable;
+    public Damageable Damageable => _damageable;
+    [SerializeField] protected Damageable _damageable;
 
     
     
@@ -20,23 +20,23 @@ public class Ship : Entity
     protected override void Start()
     {
         base.Start();
-        _damagable = GetComponent<Damageable>();
-        if (_damagable)
-            _damagable.OnDie.AddListener(OnDieListener);
+        _damageable = GetComponent<Damageable>();
+        if (_damageable)
+            _damageable.OnDie.AddListener(OnDieListener);
     }
 
     public virtual void TakeDamage(int damage)
     {
-        if(_damagable)
-            _damagable.TakeDamage(damage);
+        if(_damageable)
+            _damageable.TakeDamage(damage);
         
         
     }
 
     public virtual void AddLife(int life)
     {
-        if(_damagable)
-            _damagable.AddLife(life);
+        if(_damageable)
+            _damageable.AddLife(life);
     }
 
     public virtual void Fire()

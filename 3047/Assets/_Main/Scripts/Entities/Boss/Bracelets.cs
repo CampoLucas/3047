@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bracelets : Ship
 {
     private Boss _boss;
     private Animator _anim;
-    private SingleStraightShotGun _gun;
+    private BossGun _gun;
 
     [SerializeField] private GameObject _explosion;
 
@@ -14,21 +15,30 @@ public class Bracelets : Ship
     {
         _boss = GetComponentInParent<Boss>();
         _anim = GetComponent<Animator>();
-        _gun = GetComponent<SingleStraightShotGun>();
+        _gun = GetComponent<BossGun>();
     }
 
     protected override void Start()
     {
         base.Start();
+        if(_boss)
+            _boss.OnDestroyedBracelet.AddListener(OnDestroyedBraceletListener);
     }
 
     public override void OnDieListener()
     {
+        _boss.OnDestroyedBracelet?.Invoke();
         _boss.TakeDamage(_boss.Data.Life / 4);
-        _boss.IncrementRotationSpeed(20);
+        _boss.IncrementRotationSpeed(30);
         _boss.ChangeRotationDirection();
         Instantiate(_explosion, transform.position, Quaternion.identity);
         base.OnDieListener();
+    }
+
+    private void OnDestroyedBraceletListener()
+    {
+        _damageable.ResetValues();
+        _gun.ChangeFireRate(30);
     }
 
     public override void TakeDamage(int damage)
@@ -37,5 +47,7 @@ public class Bracelets : Ship
         _anim.SetTrigger("Damage");
     }
 
-    
+    public void ChangeFireRate(float rate) => _gun.ChangeFireRate(rate);
+
+
 }
