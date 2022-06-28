@@ -12,12 +12,18 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> enemyGroups;
     public List<GameObject> InactiveObjects;
     public List<GameObject> ActiveObjects;
-    public float[] timesToSpawn;
+    [Range(0,5)]public float[] timesToSpawn;
     private void Start()
     {
          _index = 0;
          GameManager.instance.OnLevelReset.AddListener(ResetSpawner);
          InitObjects();
+
+         for (int i = 0; i < timesToSpawn.Length; i++)
+         {
+             if (i != 0)
+                 timesToSpawn[i] = timesToSpawn[i-1] + timesToSpawn[i];
+         }
     }
 
     private void InitObjects()

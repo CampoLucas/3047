@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy_Yellow
   m_EditorClassIdentifier: 
   _id: Enemy_Purple
-  _life: 20
-  _speed: 4
+  _life: 10
+  _speed: 5
   _damage: 10
