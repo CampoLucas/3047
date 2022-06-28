@@ -15,6 +15,8 @@ public class SineMovement : MonoBehaviour,IMovable
     //[SerializeField] private float Amplitude;
     //[SerializeField] private float Frequency;
 
+    [SerializeField] private bool _isInverted;
+ 
     private void Awake()
     {
         if (!_stats)
@@ -36,7 +38,7 @@ public class SineMovement : MonoBehaviour,IMovable
          //float y = Mathf.Sin(transform.position.x * _sineStats.Frequency) * _sineStats.Amplitude *Time.deltaTime;
          //transform.position = pos + Vector3.up * (y * _stats.Speed);
          
-         float sin = Mathf.Sin(pos.x * _sineStats.Frequency) * _sineStats.Amplitude;
+         float sin = Mathf.Sin(pos.x * (!_isInverted ? _sineStats.Frequency : _sineStats.Frequency * -1)) * _sineStats.Amplitude;
          pos.y = _startPosY + sin;
 
          transform.position = pos;
