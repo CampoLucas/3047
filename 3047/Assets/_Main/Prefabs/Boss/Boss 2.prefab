@@ -1113,6 +1113,7 @@ GameObject:
   - component: {fileID: 3205038624996304026}
   - component: {fileID: 1664369534023448966}
   - component: {fileID: 1656944222}
+  - component: {fileID: 435396962}
   m_Layer: 0
   m_Name: Wall 2
   m_TagString: Boss
@@ -1257,6 +1258,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &435396962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835478740537606}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835478744825991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1293,7 @@ GameObject:
   - component: {fileID: 5894078299528953820}
   - component: {fileID: 4042057162340737429}
   - component: {fileID: 1627613151}
+  - component: {fileID: 1259961132}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Boss
@@ -1417,6 +1438,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &1259961132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835478744825991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835478806827177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1473,7 @@ GameObject:
   - component: {fileID: 4982859247872415602}
   - component: {fileID: 1259437052172982496}
   - component: {fileID: 1727100929}
+  - component: {fileID: 643416816}
   m_Layer: 0
   m_Name: Wall 2
   m_TagString: Boss
@@ -1577,6 +1618,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &643416816
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835478806827177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835478926794192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1923,7 @@ GameObject:
   - component: {fileID: 1935509695057118053}
   - component: {fileID: 5100410320146195071}
   - component: {fileID: 666512592}
+  - component: {fileID: 81278625}
   m_Layer: 0
   m_Name: Wall 3
   m_TagString: Boss
@@ -2007,6 +2068,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &81278625
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835479858891672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835479878547274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,6 +2103,7 @@ GameObject:
   - component: {fileID: 3895136904441027571}
   - component: {fileID: 6118046729385524099}
   - component: {fileID: 647385122}
+  - component: {fileID: 453989673}
   m_Layer: 0
   m_Name: Wall 1
   m_TagString: Boss
@@ -2167,6 +2248,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &453989673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835479878547274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835479909858357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,6 +2283,7 @@ GameObject:
   - component: {fileID: 1083701779084512402}
   - component: {fileID: 191481234697647302}
   - component: {fileID: 615553901}
+  - component: {fileID: 1956057698}
   m_Layer: 0
   m_Name: Wall 3
   m_TagString: Boss
@@ -2327,6 +2428,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &1956057698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835479909858357}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835480104237321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2463,7 @@ GameObject:
   - component: {fileID: 5032377590447522933}
   - component: {fileID: 8822382964251458744}
   - component: {fileID: 270179937}
+  - component: {fileID: 1922704610}
   m_Layer: 0
   m_Name: Wall 4
   m_TagString: Boss
@@ -2487,6 +2608,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &1922704610
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835480104237321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835480119166326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2643,7 @@ GameObject:
   - component: {fileID: 4626305177979804292}
   - component: {fileID: 1466165984919052344}
   - component: {fileID: 389980718}
+  - component: {fileID: 67682263}
   m_Layer: 0
   m_Name: Wall 4
   m_TagString: Boss
@@ -2647,6 +2788,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 57afb19493a261745bf74e940d2e292f, type: 2}
   _damageable: {fileID: 0}
+--- !u!95 &67682263
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504835480119166326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7118e4b8c8cd6469cc9e1a570fe478, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4504835480396908699
 GameObject:
   m_ObjectHideFlags: 0
