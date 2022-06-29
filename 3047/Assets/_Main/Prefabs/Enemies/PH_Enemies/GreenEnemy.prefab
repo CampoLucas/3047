@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a34208f4a5858a44bdd8e9be0b23e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 1.5
+  _fireRate: 1
   _type: 2
 --- !u!114 &2810563999447515953
 MonoBehaviour:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: bcfd713db1b2bb5429ac926b75b99548, type: 2}
-  _damagable: {fileID: 617151610305195109}
+  _damageable: {fileID: 0}
   _sineStats: {fileID: 11400000, guid: d20cd74d74932ed429835fadb6124336, type: 2}
   points: 5
   addedMultiplier: 0.05

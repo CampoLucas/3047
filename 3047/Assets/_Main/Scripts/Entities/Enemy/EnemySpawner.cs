@@ -12,7 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> enemyGroups;
     public List<GameObject> InactiveObjects;
     public List<GameObject> ActiveObjects;
-    [Range(0,5)]public float[] timesToSpawn;
+    public float[] timesToSpawn;
+
+    
     private void Start()
     {
          _index = 0;
@@ -24,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
              if (i != 0)
                  timesToSpawn[i] = timesToSpawn[i-1] + timesToSpawn[i];
          }
+
     }
 
     private void InitObjects()
@@ -51,6 +54,10 @@ public class EnemySpawner : MonoBehaviour
                 _index++;
             }
         }
+
+        
+            
+        
     }
 
     private void SpawnGroup(int index)

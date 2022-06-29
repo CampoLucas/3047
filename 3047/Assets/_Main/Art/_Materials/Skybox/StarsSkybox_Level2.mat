@@ -32,7 +32,7 @@ Material:
     - _StarTilingY: 4
     - _Stars: 5
     m_Colors:
-    - _ColorA: {r: 0.09802477, g: 0, b: 0.3301887, a: 1}
+    - _ColorA: {r: 0.32941177, g: 0, b: 0.05882353, a: 1}
     - _ColorB: {r: 0, g: 0, b: 0, a: 1}
     - _StarColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

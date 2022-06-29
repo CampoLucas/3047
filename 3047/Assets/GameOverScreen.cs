@@ -9,6 +9,7 @@ public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _firstButtonText;
+    [SerializeField] private GameObject _firstButton;
     [SerializeField] private bool _isWinner;
 
     private int _levelIndex;
@@ -17,26 +18,38 @@ public class GameOverScreen : MonoBehaviour
     {
         _scoreText.text = "Score: " + GameManager.instance.currentScore;
         _levelIndex = SceneManager.GetActiveScene().buildIndex;
-        if (_isWinner && _levelIndex < SceneManager.sceneCountInBuildSettings)
+        if (_isWinner)
         {
-            _firstButtonText.text = "CONTINUE";
+            if (_levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                _firstButtonText.text = "CONTINUE";
+            }
+            else
+            {
+                _firstButton.SetActive(false);
+            }
         }
-        else if (_isWinner && _levelIndex >= SceneManager.sceneCountInBuildSettings || !_isWinner)
+        else
         {
-            _firstButtonText.text = "RESTART";
+            _firstButton.SetActive(true);
         }
+        
     }
 
     public void FirstButton()
     {
-        if (_isWinner && _levelIndex < SceneManager.sceneCountInBuildSettings)
+        if (_isWinner)
         {
-            SceneManager.LoadScene(_levelIndex + 1);
+            if (_levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(_levelIndex + 1);
+            }
         }
         else
         {
             SceneManager.LoadScene(_levelIndex);
         }
+        
     }
 
     public void MenuButton()

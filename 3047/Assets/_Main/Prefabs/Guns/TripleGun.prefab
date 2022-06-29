@@ -48,7 +48,7 @@ MonoBehaviour:
   _shootDelay: 0.2
   _shootpoint0: {fileID: 0}
   _shootpoint1: {fileID: 0}
-  _bulletLifeTime: 1
+  _bulletLifeTime: 0.65
   _muzzleFlash: {fileID: 0}
   _type: 0
 --- !u!114 &8775930974312331030
