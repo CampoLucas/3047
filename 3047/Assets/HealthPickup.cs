@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class HealthPickup : PickUP
 {
     [SerializeField] private int HP_To_Heal;
-    [SerializeField] private float _rotationSpeed = 20f;
-    private void Update()
-    {
-        transform.Rotate(0, _rotationSpeed * Time.deltaTime, 0);
-    }
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
