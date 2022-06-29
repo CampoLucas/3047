@@ -172,7 +172,6 @@ MonoBehaviour:
   - {fileID: 3433604613272425097, guid: 0331ee215cec89b4bb9648fd5d6e0ea2, type: 3}
   - {fileID: 3433604613272425097, guid: d3925374a9ed65a40926b8a6423ebd04, type: 3}
   - {fileID: 3433604613272425097, guid: 1b0a97b4aaabc0d4297126899b695cc6, type: 3}
-  - {fileID: 7709078412683225669, guid: 727a0c8dc0259b345bdf5184ec9b078a, type: 3}
   InactiveObjects: []
   ActiveObjects: []
   timesToSpawn:
@@ -194,7 +193,6 @@ MonoBehaviour:
   - 3
   - 0.5
   - 0.5
-  - 4
 --- !u!4 &154727350
 Transform:
   m_ObjectHideFlags: 0
