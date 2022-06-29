@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarsSkybox_Level1
+  m_Name: StarsSkybox_Menu
   m_Shader: {fileID: 4800000, guid: e7583913aa9b8ae4cbf27e595bec4d66, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,14 +25,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _GradiantStrength: 1.7
-    - _ScrollXSpeed: 0.1
+    - _ScrollXSpeed: 0.001
     - _ScrollYSpeed: 0
-    - _StarDensity: 150
+    - _StarDensity: 200
     - _StarTilingX: 8
     - _StarTilingY: 4
-    - _Stars: 4.07
+    - _Stars: 8
     m_Colors:
-    - _ColorA: {r: 0.041963324, g: 0.21698111, b: 0.09854864, a: 1}
-    - _ColorB: {r: 0.004901961, g: 0.019607844, b: 0, a: 1}
-    - _StarColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _ColorA: {r: 0.1470273, g: 0.012983031, b: 0, a: 1}
+    - _ColorB: {r: 0.014828431, g: 0.009252451, b: 0, a: 1}
+    - _StarColor: {r: 1, g: 0.93975216, b: 0, a: 1}
   m_BuildTextureStacks: []

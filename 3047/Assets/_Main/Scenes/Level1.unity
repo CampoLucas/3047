@@ -176,6 +176,7 @@ MonoBehaviour:
   - {fileID: 3686182015093520191, guid: 96b216d42dcdfd4499278fbc7e36a646, type: 3}
   - {fileID: 8455742090892313063, guid: e9e7be8cf81d8eb4a87e178782549073, type: 3}
   - {fileID: 531812322360003735, guid: f072069279edb974b9f987090f73cf1e, type: 3}
+  - {fileID: 1248769776389285471, guid: cc0bd3f7eb18eda4c912425548410e93, type: 3}
   InactiveObjects: []
   ActiveObjects: []
   timesToSpawn:
@@ -196,7 +197,7 @@ MonoBehaviour:
   - 2.76
   - 2.28
   - 1.06
-  _hasBoss: 0
+  - 5
 --- !u!4 &154727350
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +326,6 @@ MonoBehaviour:
   - {fileID: 1248769776389285471, guid: c1979110f60e8d9478161c7620300edc, type: 3}
   - {fileID: 5254168315704464515, guid: 68309e2c84026ae44b0a3e074c5d3535, type: 3}
   - {fileID: 1248769776389285471, guid: c1979110f60e8d9478161c7620300edc, type: 3}
-  - {fileID: 1248769776389285471, guid: c1979110f60e8d9478161c7620300edc, type: 3}
   InactiveObjects: []
   ActiveObjects: []
   timesToSpawn:
@@ -333,8 +333,6 @@ MonoBehaviour:
   - 10
   - 10
   - 10
-  - 5
-  _hasBoss: 0
 --- !u!4 &1449926728
 Transform:
   m_ObjectHideFlags: 0
