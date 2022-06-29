@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             name = "Bullets"
         };
         currentLevel = SceneManager.GetActiveScene().name;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         OnScoreChange?.Invoke(currentScore);
         OnMultiplierChange?.Invoke(scoreMultiplier);
         GameOverScreen.SetActive(false);
