@@ -171,6 +171,7 @@ MonoBehaviour:
   - 15
   - 18
   - 21
+  _hasBoss: 0
 --- !u!4 &154727350
 Transform:
   m_ObjectHideFlags: 0
@@ -855,7 +856,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
 --- !u!1 &3213658346302635499 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3213658346191641510, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1793921615247526862, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
   m_PrefabInstance: {fileID: 3213658346302635498}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3213658346302635500 stripped

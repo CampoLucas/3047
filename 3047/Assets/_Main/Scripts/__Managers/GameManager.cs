@@ -9,6 +9,11 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    public bool IsGameOver => _isGameOver;
+    private bool _isGameOver;
+    
+    
+    //ToDo factorizar, que no utilize referencias
     public static GameManager instance;
     public Player _player;
     public HUD _HUD;
@@ -75,6 +80,7 @@ public class GameManager : MonoBehaviour
         HUD_Screen.SetActive(false);
         GameOverScreen.SetActive(true);
         //play death animation
+        _isGameOver = true;
     }
 
     public void GameCompleted() //llamar al matar a un boss
@@ -83,6 +89,7 @@ public class GameManager : MonoBehaviour
         HUD_Screen.SetActive(false);
         Victory_Screen.SetActive(true);
         //play victory animations
+        _isGameOver = true;
     }
     public void AddScore(float points)
     {

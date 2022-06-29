@@ -27,12 +27,12 @@ Material:
     - _GradiantStrength: 1.7
     - _ScrollXSpeed: 0.1
     - _ScrollYSpeed: 0
-    - _StarDensity: 100
+    - _StarDensity: 150
     - _StarTilingX: 8
     - _StarTilingY: 4
-    - _Stars: 4
+    - _Stars: 4.07
     m_Colors:
-    - _ColorA: {r: 0.041963324, g: 0.21698111, b: 0.09854864, a: 1}
-    - _ColorB: {r: 0.004901961, g: 0.019607844, b: 0, a: 1}
+    - _ColorA: {r: 0.011213952, g: 0.24935131, b: 0.26415098, a: 1}
+    - _ColorB: {r: 0, g: 0.008222468, b: 0.019607844, a: 1}
     - _StarColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []

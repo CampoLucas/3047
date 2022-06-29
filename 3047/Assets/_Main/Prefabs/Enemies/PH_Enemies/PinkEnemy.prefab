@@ -209,6 +209,10 @@ MonoBehaviour:
   _fireRate: 0.75
   _type: 2
   _target: {fileID: 0}
+  _range: 8
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5960499043107140693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +426,7 @@ Transform:
   m_GameObject: {fileID: 4639305093378082501}
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 8283112001753810075}
   - {fileID: 122577772758897152}

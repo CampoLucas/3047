@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: helix
   _life: 100
-  _speed: 10
-  _damage: 10
+  _speed: 12.5
+  _damage: 20
