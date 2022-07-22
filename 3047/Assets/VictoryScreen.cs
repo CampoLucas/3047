@@ -6,7 +6,6 @@ using UnityEngine;
 public class VictoryScreen : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
-    private float _score = 0;
 
     private void Start()
     {

@@ -48,6 +48,7 @@ MonoBehaviour:
   _fireRate: 0.2
   _plusPool: {fileID: 4818065440885315909}
   _minusPool: {fileID: -3250558272639008246}
+  _type: 1
 --- !u!114 &4818065440885315909
 MonoBehaviour:
   m_ObjectHideFlags: 0

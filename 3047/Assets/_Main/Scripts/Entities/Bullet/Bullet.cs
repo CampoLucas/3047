@@ -17,7 +17,7 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
     
     protected ICommand _movementCommand;
 
-    protected virtual void Start()
+    protected override void Start()
     {
         //InitCmd();
         _recycleTime = 0f;
@@ -65,12 +65,14 @@ public class Bullet : Entity //, IProduct<StatsSO> Por que IProduct? asta donde 
         _movementCommand = new CmdMove(transform, _moveDirection, _stats.Speed);
     }
     //TODO Change this to collisionDamage
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         Ship ship = other.GetComponent<Ship>();
-            if (!other.gameObject.CompareTag(this.tag) && ship)
-                ship.TakeDamage(_stats.Damage);
-        _Pool.Recycle(gameObject);
+        if (!other.gameObject.CompareTag(this.tag) && ship)
+        {
+            ship.TakeDamage(_stats.Damage);
+            _Pool.Recycle(gameObject);
+        }
         
     }
     

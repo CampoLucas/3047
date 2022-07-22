@@ -15,9 +15,12 @@ GameObject:
   - component: {fileID: 1132909834614345156}
   - component: {fileID: 8317427660077233318}
   - component: {fileID: 5045082205233414083}
+  - component: {fileID: 6837829296765640048}
+  - component: {fileID: 8606430360448874056}
+  - component: {fileID: 4662537672559078414}
   m_Layer: 0
   m_Name: 'BracePhase2 '
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 3a3e902433ca1ad498440fd67909c74b, type: 2}
   _damagable: {fileID: 0}
+  _explosion: {fileID: 6820638283708274520, guid: f8552854dac82f74985d7513e0bef639, type: 3}
 --- !u!114 &5045082205233414083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +150,51 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6837829296765640048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479449e9ceb58e64b80af0170b59bed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inUse: []
+  available: []
+  prefab: {fileID: 9071385084729321609, guid: f9829b27b46b75e428ec70fd8b89e7b7, type: 3}
+--- !u!95 &8606430360448874056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b43c1ba056ec9649b6fa19264b93a03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4662537672559078414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608845156756533963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b195832f87332544085a6fefc4a95725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireRate: 0.2
+  _type: 2
