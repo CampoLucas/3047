@@ -39,7 +39,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -221,12 +220,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Bullet_SpriteSheet_0: 6806501074259472029
-      Bullet_SpriteSheet_4: 772403632102618414
-      Bullet_SpriteSheet_3: -3320638572439408033
-      Bullet_SpriteSheet_2: -780063044065684185
-      Bullet_SpriteSheet_1: 2122107062371038220
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
