@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public enum BossState
 {
@@ -19,52 +18,15 @@ public class Boss : Ship
     // Tien 6 brazaletes 2 en la primera face y 4 en la segunda, 2 barras de vida y cuando le destrullen los brazaletes se le disminulle la vida 50 porciento en la primera face y 25 en la segunda.
 
     public BossState state = BossState.Phase1;
-    [SerializeField] private Bracelets[] _bracelets;
 
-    private Rotation _rotation;
-
-    //[SerializeField] private float _fireRateIncrementPercentage = 20f;
-
-    public UnityEvent OnDestroyedBracelet = new UnityEvent();
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        _rotation = GetComponent<Rotation>();
-        _bracelets = GetComponentsInChildren<Bracelets>();
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        // foreach (Bracelets bracelet in _bracelets)
-        // {
-        //     if (bracelet)
-        //         bracelet.Damageable.OnDie.AddListener(OnBraceletDieListener);
-        // }
-    }
-
-    public override void Move(Vector3 dir)
+    public void Move(Vector3 dir)
     {
 
     }
 
     public void Rotate()
     {
-        if(_rotation)
-            _rotation.Rotate();
-    }
 
-    public void ChangeRotationDirection()
-    {
-        if(_rotation)
-            _rotation.ChangeRotationDirection();
-    }
-
-    public void IncrementRotationSpeed(float pct)
-    {
-        if(_rotation)
-            _rotation.IncrementRotationSpeed(pct);
     }
 
     public void ChangeState()
@@ -74,27 +36,14 @@ public class Boss : Ship
 
     public override void OnDieListener()
     {
-        // if (state == BossState.Phase1)
-        // {
-        //     _damagable.ResetValues();
-        //     state = BossState.Phase2;
-        // }
-        // else if (state == BossState.Phase2)
-        // {
-        //     base.OnDieListener();
-        // }
-        
-        state = BossState.Dead;
-        GameManager.instance.GameCompleted();
-        base.OnDieListener();
-        
+        if (state == BossState.Phase1)
+        {
+            _damagable.ResetValues();
+            state = BossState.Phase2;
+        }
+        else if (state == BossState.Phase2)
+        {
+            base.OnDieListener();
+        }
     }
-
-    // public void OnBraceletDieListener()
-    // {
-    //     foreach (Bracelets bracelet in _bracelets)
-    //     {
-    //         bracelet.ChangeFireRate(_fireRateIncrementPercentage);
-    //     }
-    // }
 }

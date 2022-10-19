@@ -4,24 +4,51 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour, IAnimation
 {
-    private Animator _anim;
-    private int _vertical;
-    private int _horizontal;
-    private int _dodge;
-    private int _damage;
-    
+    public Animator anim;
+    int vertical;
+    int horizontal;
 
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
-        _vertical = Animator.StringToHash("Vertical");
-        _horizontal = Animator.StringToHash("Horizontal");
-        _dodge = Animator.StringToHash("Dodge");
-        _damage = Animator.StringToHash("Damage");
+        anim = GetComponent<Animator>();
+        vertical = Animator.StringToHash("Vertical");
+        horizontal = Animator.StringToHash("Horizontal");
     }
 
     public void UpdateAnimValues(float horizontal, float vertical, bool isBoosting)
     {
+        //float h = 0;
+
+        //if (horizontal > 0 && horizontal < .55f)
+        //    h = .5f;
+        //else if (horizontal > .55f)
+        //    h = 1;
+        //else if (horizontal < 0 && horizontal > -.55f)
+        //    h = -.5f;
+        //else if (horizontal < -.55f)
+        //    h = -1;
+        //else
+        //    h = 0;
+
+        //float v = 0;
+
+        //if (vertical > 0 && vertical < .55f)
+        //    v = .5f;
+        //else if (vertical > .55f)
+        //    v = 1;
+        //else if (vertical < 0 && vertical > -.55f)
+        //    v = -.5f;
+        //else if (vertical < -.55f)
+        //    v = -1;
+        //else 
+        //    v = 0;
+
+        //if (isBoosting)
+        //{
+        //    if(horizontal > .55f)
+        //    h = 2;
+        //}
+
         float h = horizontal;
         float v = vertical;
 
@@ -30,11 +57,7 @@ public class AnimationHandler : MonoBehaviour, IAnimation
         else if (horizontal < -.55f && isBoosting)
             h = -2;
 
-        _anim.SetFloat(_vertical, v, 0.1f, Time.deltaTime);
-        _anim.SetFloat(_horizontal, h, 0.1f, Time.deltaTime);
+        anim.SetFloat(this.vertical, v, 0.1f, Time.deltaTime);
+        anim.SetFloat(this.horizontal, h, 0.1f, Time.deltaTime);
     }
-
-    public void ToggleDamage() => _anim.SetTrigger(_damage);
-
-    public void ToggleDodge() => _anim.SetTrigger(_dodge);
 }

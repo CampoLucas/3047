@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Enemy : Ship
@@ -11,16 +10,12 @@ public class Enemy : Ship
     
     [SerializeField] private float points = 2f;
     [SerializeField] private float addedMultiplier = 0.02f;
-    
     protected override void Awake()
     {
         base.Awake();
         //if(_damagable)
         //    _damagable.OnDie.AddListener(OnDieListener);
-        
-        
     }
-
 
     public override void OnDieListener()
     {

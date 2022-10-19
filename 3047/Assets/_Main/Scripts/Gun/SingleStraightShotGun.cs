@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class SingleStraightShotGun : MonoBehaviour,IGun
 {
-    [SerializeField] protected float _fireRate = 0.2f;
+    [SerializeField] private float _fireRate = 0.2f;
     private float _lastShootime;
     protected Pool _pool;
-    [SerializeField] protected Weapon _type = Weapon.SingleStraightShotGun;
-    public Weapon type => _type;
+    
     protected virtual void Awake()
     {
         _pool = GetComponent<Pool>();

@@ -9,14 +9,10 @@ public class SineMovement : MonoBehaviour,IMovable
     public StatsSO Stats => _stats;
     [SerializeField] private StatsSO _stats;
     public SinValuesSO SineStats => _sineStats;
-    [SerializeField] private SinValuesSO _sineStats;
-
-    private float _startPosY;
+    [SerializeField] private SinValuesSO _sineStats;    
     //[SerializeField] private float Amplitude;
     //[SerializeField] private float Frequency;
 
-    [SerializeField] private bool _isInverted;
- 
     private void Awake()
     {
         if (!_stats)
@@ -25,23 +21,11 @@ public class SineMovement : MonoBehaviour,IMovable
             _sineStats = GetComponent<Enemy>().SineData;
     }
 
-    private void Start()
-    {
-        _startPosY = transform.position.y;
-    }
-
     public void Move(Vector3 direction)//movimiento sin() se mueve solo para arriva
     {
          Vector3 pos = transform.position;
          pos += direction * (_stats.Speed * Time.deltaTime);
-
-         //float y = Mathf.Sin(transform.position.x * _sineStats.Frequency) * _sineStats.Amplitude *Time.deltaTime;
-         //transform.position = pos + Vector3.up * (y * _stats.Speed);
-         
-         float sin = Mathf.Sin(pos.x * (!_isInverted ? _sineStats.Frequency : _sineStats.Frequency * -1)) * _sineStats.Amplitude;
-         pos.y = _startPosY + sin;
-
-         transform.position = pos;
-
+         float y = Mathf.Sin(transform.position.x * _sineStats.Frequency) * _sineStats.Amplitude *Time.deltaTime;
+         transform.position = pos + Vector3.up * (y * _stats.Speed);
     }
 }

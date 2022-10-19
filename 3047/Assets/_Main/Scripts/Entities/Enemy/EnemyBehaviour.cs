@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] protected Enemy _enemy;
-    protected virtual void Awake()
+    [SerializeField] private Enemy _enemy;
+    void Awake()
     {
         _enemy = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
         _enemy.Move(Vector3.left);
     }

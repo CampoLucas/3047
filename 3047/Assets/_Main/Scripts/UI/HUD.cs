@@ -23,7 +23,7 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        _gameTime.text = "" + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
+        _gameTime.text = "Time: " + Mathf.Round(GameManager.instance.currentGameTime*10f) / 10f;
         SubtractMultiplierBar();
         _multiplierBarSpeed = normalMultiplierSpeed * GameManager.instance.scoreMultiplier;
     }
@@ -43,7 +43,7 @@ public class HUD : MonoBehaviour
     public void AddMultiplierBar(float num)
     {
         if (num > 1f) num = 1f;
-        _multiplierBar.fillAmount += num / GameManager.instance.scoreMultiplier;
+        _multiplierBar.fillAmount += num;
         if (_multiplierBar.fillAmount >= 1)
         {
             GameManager.instance.AddMultiplier(1);
@@ -57,10 +57,10 @@ public class HUD : MonoBehaviour
     }
     void OnScoreChangeListener(float score)
     {
-        _scoreText.text = "" + score;
+        _scoreText.text = "Score " + score;
     }   
     void OnMultiplerChangeListener(float Multiplier)
     {
-        _multiplierNum.text = "x" + Multiplier;
+        _multiplierNum.text = Multiplier + "X";
     }
 }
