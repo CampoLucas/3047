@@ -54,10 +54,6 @@ public class EnemySpawner : MonoBehaviour
                 _index++;
             }
         }
-
-        
-            
-        
     }
 
     private void SpawnGroup(int index)
