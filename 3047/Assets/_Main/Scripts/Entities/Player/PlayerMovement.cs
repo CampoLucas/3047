@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour, IMovable
 
     private Player _player;
     private StatsSO _stats;
-    private CmdPlayerMove _cmdPlayerMovememt;
+    private CmdMoveSensibility _cmdMovememt;
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour, IMovable
 
     public void Move(Vector3 direction)
     {
-        _cmdPlayerMovememt = new CmdPlayerMove(transform, direction, _stats.Speed, _player.GetMoveAmount());
-        _cmdPlayerMovememt.Do();
+        _cmdMovememt = new CmdMoveSensibility(transform, direction, _stats.Speed, _player.GetMoveAmount());
+        _cmdMovememt.Do();
     }
 }
