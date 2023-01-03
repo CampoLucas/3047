@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAnimation
 {
-    void UpdateAnimValues(float horizontal, float vertical, bool isBoosting);
+    void UpdateMovementAnim(Vector2 moveDir);
 }

@@ -16,7 +16,7 @@ public class Player : Ship
     [SerializeField] private TextMeshProUGUI _coolDownNumUI;// No creo que deveria estar aca
     
     private PlayerInputs _inputs;
-    private AnimationHandler _anim;
+    private PlayerAnimaion _anim;
     private Dictionary<Weapon, IGun> _gunsDictionary;// No creo que deveria estar aca
     private float _currentTime;// No creo que deveria estar aca
     private IGun _equippedGun = null;// No creo que deveria estar aca
@@ -28,7 +28,7 @@ public class Player : Ship
         _gunsDictionary = new Dictionary<Weapon, IGun>();
         base.Awake();
         _inputs = GetComponent<PlayerInputs>();
-        _anim = GetComponent<AnimationHandler>();
+        _anim = GetComponent<PlayerAnimaion>();
         _coolDownNumUI.gameObject.SetActive(false);
     }
     
@@ -43,6 +43,7 @@ public class Player : Ship
         ChangeGun(MainGun);
         if (!_inputs) return;
         _inputs.OnMovementInput += Move;
+        _inputs.OnMovementInput += UpdateMovementAnim;
         _inputs.OnFireInput += Fire;
         _inputs.OnDodgeInput += Dodge;
 
@@ -52,6 +53,7 @@ public class Player : Ship
     {
         if (!_inputs) return;
         _inputs.OnMovementInput -= Move;
+        _inputs.OnMovementInput -= UpdateMovementAnim;
         _inputs.OnFireInput -= Fire;
         _inputs.OnDodgeInput -= Dodge;
     }
@@ -74,6 +76,8 @@ public class Player : Ship
             _coolDownNumUI.gameObject.SetActive(false);
         }
     }
+
+    public float GetMoveAmount() => _inputs.MoveAmount;
 
     public void PowerUp(Weapon weapon, float coolDown)
     {
@@ -113,10 +117,10 @@ public class Player : Ship
        _damageable.SetInvulnerable(_invulnerableTime);
     }
 
-    public void UpdateAnimation(Vector2 direction, bool isBoosting)
+    public void UpdateMovementAnim(Vector3 direction)
     {
         if (_anim)
-            _anim.UpdateAnimValues(direction.x, direction.y, isBoosting);
+            _anim.UpdateMovementAnim(direction);
     }
 
     public override void OnDieListener()

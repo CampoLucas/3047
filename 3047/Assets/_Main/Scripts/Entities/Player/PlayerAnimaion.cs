@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationHandler : MonoBehaviour, IAnimation
+public class PlayerAnimaion : MonoBehaviour, IAnimation
 {
     private Animator _anim;
     private int _vertical;
@@ -20,16 +21,11 @@ public class AnimationHandler : MonoBehaviour, IAnimation
         _damage = Animator.StringToHash("Damage");
     }
 
-    public void UpdateAnimValues(float horizontal, float vertical, bool isBoosting)
+    public void UpdateMovementAnim(Vector2 moveDir)
     {
-        float h = horizontal;
-        float v = vertical;
-
-        if (horizontal > .55f && isBoosting)
-            h = 2;
-        else if (horizontal < -.55f && isBoosting)
-            h = -2;
-
+        var h = moveDir.x;
+        var v = moveDir.y;
+        
         _anim.SetFloat(_vertical, v, 0.1f, Time.deltaTime);
         _anim.SetFloat(_horizontal, h, 0.1f, Time.deltaTime);
     }
