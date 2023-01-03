@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to move an object
+/// </summary>
 public class CmdMove : ICommand
 {
     private Transform _transform;
@@ -15,6 +16,9 @@ public class CmdMove : ICommand
         _speed = speed;
     }
 
+    /// <summary>
+    /// Moves the object using transform
+    /// </summary>
     public virtual void Do()
     {
         _transform.position += Time.deltaTime * _speed * _direction;

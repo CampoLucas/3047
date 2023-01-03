@@ -20,7 +20,7 @@ public class CmdMoveSensibility : ICommand
     }
     
     /// <summary>
-    /// moves the target using transform, the speed is multiplied with the move amount
+    /// moves the object using transform, the speed is multiplied with the move amount
     /// </summary>
     public virtual void Do()
     {
