@@ -7,27 +7,27 @@ using UnityEngine;
 
 public class Player : Ship
 {
-    private AnimationHandler _anim;
-    public bool IsBoosting => _isBoosting;
-    public bool IsDead => _damageable.IsDead;
-    [SerializeField] private bool _isBoosting; 
-    [SerializeField] private float _invulnerableTime = 2f; 
-    public float moveAmount;
+    public float shakeDuration;// No creo que deveria estar aca
+    public float shakeMagnitude;// No creo que deveria estar aca
+    public bool IsDead => _damageable.IsDead;// No creo que deveria estar aca
     
-    private Dictionary<Weapon, IGun> _gunsDictionary;
-    [SerializeField] private Weapon MainGun = Weapon.TripleGun;//arma principal de este player
-    private float _currentTime;
-    private IGun _equippedGun = null;
-    private bool _isPowerUP;
-    [SerializeField] private TextMeshProUGUI _coolDownNumUI;
-    [Header("Take Damage ScreenShake")]
-    public float shakeDuration;
-    public float shakeMagnitude;
+    [SerializeField] private float _invulnerableTime = 2f; 
+    [SerializeField] private Weapon MainGun = Weapon.TripleGun;// arma principal de este player
+    [SerializeField] private TextMeshProUGUI _coolDownNumUI;// No creo que deveria estar aca
+    
+    private PlayerInputs _inputs;
+    private AnimationHandler _anim;
+    private Dictionary<Weapon, IGun> _gunsDictionary;// No creo que deveria estar aca
+    private float _currentTime;// No creo que deveria estar aca
+    private IGun _equippedGun = null;// No creo que deveria estar aca
+    private bool _isPowerUP;// No creo que deveria estar aca
+    
     protected override void Awake()
     {
         _isPowerUP = false;
         _gunsDictionary = new Dictionary<Weapon, IGun>();
         base.Awake();
+        _inputs = GetComponent<PlayerInputs>();
         _anim = GetComponent<AnimationHandler>();
         _coolDownNumUI.gameObject.SetActive(false);
     }
@@ -41,7 +41,19 @@ public class Player : Ship
         }
         
         ChangeGun(MainGun);
+        if (!_inputs) return;
+        _inputs.OnMovementInput += Move;
+        _inputs.OnFireInput += Fire;
+        _inputs.OnDodgeInput += Dodge;
 
+    }
+
+    private void OnDisable()
+    {
+        if (!_inputs) return;
+        _inputs.OnMovementInput -= Move;
+        _inputs.OnFireInput -= Fire;
+        _inputs.OnDodgeInput -= Dodge;
     }
 
     public override void Fire()
@@ -91,8 +103,6 @@ public class Player : Ship
         _anim.ToggleDamage();
         base.TakeDamage(damage);
     }
-
-    public void SetMoveAmount(float amount) => moveAmount = amount;
     public void Dodge()
     {
        //play dodge anim

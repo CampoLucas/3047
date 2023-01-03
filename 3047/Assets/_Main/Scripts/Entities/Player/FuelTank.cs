@@ -37,10 +37,7 @@ public class FuelTank : MonoBehaviour, IFuel
     // Update is called once per frame
     void Update()
     {
-        if (_player.IsBoosting)
-            CombustFuel();
-        else
-            RefillFuel();
+        
     }
 
     public void CombustFuel()

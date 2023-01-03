@@ -230,7 +230,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7725350473370659607, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
   m_PrefabInstance: {fileID: 656305748}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1978591794}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e4a72e5334a2c8478210fc81257f020, type: 3}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 604229024421387991, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
   m_PrefabInstance: {fileID: 656305748}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1978591794}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0b077229efd3494382870731206e36c, type: 3}
@@ -730,7 +730,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7535583402478854146, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
 --- !u!1 &936002138
 GameObject:
@@ -1246,6 +1247,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1978591794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7535583402478854144, guid: d2f46585b0a98f14881203eebe283ace, type: 3}
+  m_PrefabInstance: {fileID: 656305748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1978591800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978591794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c999f43ed4667ab4da892ce00f275c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115311367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213658346084551649, guid: 1a085a2c456144a4da1d174d0506afe6, type: 3}
