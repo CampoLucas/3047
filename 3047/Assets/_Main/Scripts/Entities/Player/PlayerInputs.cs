@@ -34,6 +34,7 @@ public class PlayerInputs : MonoBehaviour
     {
         _inputActions.Disable();
         _inputActions.Player.Movement.performed -= MovementPerformedHandler;
+        _inputActions.Player.Movement.canceled -= MovementCanceledHandler;
         _inputActions.Player.Fire.performed -= FirePerformedHandler;
         _inputActions.Player.Fire.canceled -= FireCanceledHandler;
         _inputActions.Player.Dodge.performed -= DodgePerformedHandler;
@@ -47,6 +48,7 @@ public class PlayerInputs : MonoBehaviour
 
     #region InputEvents
 
+    
     private void MovementPerformedHandler(InputAction.CallbackContext context)
     {
         if (!_canUseInputs) return;
@@ -57,6 +59,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (!_canUseInputs) return;
         MoveDir = Vector2.zero;
+        OnMovementInput?.Invoke(MoveDir);
     }
     
     private void DodgePerformedHandler(InputAction.CallbackContext context)
@@ -64,9 +67,15 @@ public class PlayerInputs : MonoBehaviour
         if (!_canUseInputs) return;
         OnDodgeInput?.Invoke();
     }
-    
-    private void FirePerformedHandler(InputAction.CallbackContext context) => _fireInput = _canUseInputs;
-    private void FireCanceledHandler(InputAction.CallbackContext context) => _fireInput = false;
+
+    private void FirePerformedHandler(InputAction.CallbackContext context)
+    {
+        _fireInput = _canUseInputs;
+    }
+    private void FireCanceledHandler(InputAction.CallbackContext context)
+    {
+        _fireInput = false;
+    }
 
 
     #endregion

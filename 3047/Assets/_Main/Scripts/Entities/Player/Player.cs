@@ -41,7 +41,7 @@ public class Player : Ship
         ChangeGun(MainGun);
         if (!_inputs) return;
         _inputs.OnMovementInput += Move;
-        _inputs.OnMovementInput += UpdateMovementAnim;
+        //_inputs.OnMovementInput += UpdateMovementAnim;
         _inputs.OnFireInput += Fire;
         _inputs.OnDodgeInput += Dodge;
 
@@ -51,7 +51,7 @@ public class Player : Ship
     {
         if (!_inputs) return;
         _inputs.OnMovementInput -= Move;
-        _inputs.OnMovementInput -= UpdateMovementAnim;
+        //_inputs.OnMovementInput -= UpdateMovementAnim;
         _inputs.OnFireInput -= Fire;
         _inputs.OnDodgeInput -= Dodge;
     }
@@ -63,6 +63,8 @@ public class Player : Ship
 
     private void Update()
     {
+        UpdateMovementAnim(_inputs.MoveDir);
+        
         if(!_isPowerUP) return;
         _coolDownNumUI.text = _currentTime.ToString("0");
         _currentTime -= Time.deltaTime;
@@ -73,6 +75,8 @@ public class Player : Ship
             _isPowerUP = false;
             _coolDownNumUI.gameObject.SetActive(false);
         }
+        
+        
     }
 
     public float GetMoveAmount() => _inputs.MoveAmount;
