@@ -9,9 +9,7 @@ public class Player : Ship
 {
     public float shakeDuration;// No creo que deveria estar aca
     public float shakeMagnitude;// No creo que deveria estar aca
-    public bool IsDead => _damageable.IsDead;// No creo que deveria estar aca
-    
-    [SerializeField] private float _invulnerableTime = 2f; 
+
     [SerializeField] private Weapon MainGun = Weapon.TripleGun;// arma principal de este player
     [SerializeField] private TextMeshProUGUI _coolDownNumUI;// No creo que deveria estar aca
     
@@ -86,11 +84,6 @@ public class Player : Ship
         _coolDownNumUI.gameObject.SetActive(true);
         ChangeGun(weapon);
     }
-
-    public void Boost(bool isBoosting)
-    {
-        
-    }
     
     public void ChangeGun(Weapon weapon)
     {
@@ -114,7 +107,6 @@ public class Player : Ship
            _anim.ToggleDodge();
        //set invulnerable for a time in seconds
        //ToDo: Dodge animation were at the begining calls to a SetInvulnerable(true) an at the end SetInvulnerable(false)
-       _damageable.SetInvulnerable(_invulnerableTime);
     }
 
     public void UpdateMovementAnim(Vector3 direction)
@@ -123,9 +115,9 @@ public class Player : Ship
             _anim.UpdateMovementAnim(direction);
     }
 
-    public override void OnDieListener()
+    public override void DieHandler()
     {
-        base.OnDieListener();
+        base.DieHandler();
         gameObject.SetActive(false);
         GameManager.instance.GameOver();
         //Destroy(gameObject);
@@ -134,7 +126,7 @@ public class Player : Ship
 
     public void ResetValues()
     {
-        _damageable.ResetValues();
+        Damageable.Reset();
     }
     
 }

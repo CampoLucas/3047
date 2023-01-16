@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Ship : Entity
 {
+    public IDamageable Damageable { get; private set; }
     protected IGun[] _guns;
-    
-    public Damageable Damageable => _damageable;
-    [SerializeField] protected Damageable _damageable;
-
-    
-    
     protected override void Awake()
     {
         base.Awake();
@@ -20,23 +15,21 @@ public class Ship : Entity
     protected override void Start()
     {
         base.Start();
-        _damageable = GetComponent<Damageable>();
-        if (_damageable)
-            _damageable.OnDie.AddListener(OnDieListener);
+        Damageable = GetComponent<IDamageable>();
+        if (Damageable == null) return;
+        Damageable.OnDie += DieHandler;
     }
 
     public virtual void TakeDamage(int damage)
     {
-        if(_damageable)
-            _damageable.TakeDamage(damage);
+        Damageable?.TakeDamage(damage);
         
         //AudioManager.instance.Play("Hit");
     }
 
     public virtual void AddLife(int life)
     {
-        if(_damageable)
-            _damageable.AddLife(life);
+        Damageable?.AddLife(life);
     }
 
     public virtual void Fire()
@@ -46,7 +39,7 @@ public class Ship : Entity
                 gun.Fire();
     }
 
-    public virtual void OnDieListener()
+    public virtual void DieHandler()
     {
         //Intanciar explocion;
         gameObject.SetActive(false);

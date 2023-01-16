@@ -9,13 +9,13 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image _healthBar;
     [SerializeField] private Color _healthBarColor = new Color(1, 0, 0, 1);
 
-    [Header("Sub HealhBar")]
+    [Header("Sub HealthBar")]
     [SerializeField] private Image _healthBarDelay;
     [SerializeField] private Color _healthBarDelayColor = new Color(1, 0.8f, 0, 0.8f);
     [SerializeField] private float _loseHealthSpeed= 0.2f;
     [SerializeField] private float _loseHPSpeedNormal= 0.2f;
     [SerializeField] private float _loseHealthSpeedOneShot= 2f;
-    [Header("Backgorund HealthBar")]
+    [Header("Background HealthBar")]
     [SerializeField] private Image _healthBarBackground;
     [SerializeField] private Color _healthBarBackgroundColor = new Color(0.4f, 0, 0, 1);
 
@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
 
     private void Awake()
     {
-        _damageable.OnLifeUpdate += FillHealthbar;
+        _damageable.OnLivesUpdated += FillHealthBar;
         InitHealthBarColor();
     }
 
@@ -37,14 +37,14 @@ public class HealthBar : MonoBehaviour
     }
     private void Update()
     {
-        Fill2ndHealthbar();
+        FillSecondHealthBar();
     }
-    public void FillHealthbar(int currentlife)
+    public void FillHealthBar(float currentLife, float maxLife)
     {
-        _healthBar.fillAmount = (float)currentlife/_damageable.Stats.Life;
+        _healthBar.fillAmount = currentLife/maxLife;
         _loseHealthSpeed = _loseHPSpeedNormal;
     }   
-    public void Fill2ndHealthbar()
+    public void FillSecondHealthBar()
     {
         if (_healthBar.fillAmount == 0)
         {

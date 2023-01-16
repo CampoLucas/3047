@@ -6,10 +6,10 @@ public class Boss_2 : Ship
 {
 
     [SerializeField] private GameObject Boss_2_object;
-    public override void OnDieListener()
+    public override void DieHandler()
     {
         Boss_2_object.SetActive(false);
         GameManager.instance.GameCompleted();
-        base.OnDieListener();
+        base.DieHandler();
     }
 }

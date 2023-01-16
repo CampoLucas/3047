@@ -22,9 +22,9 @@ public class Enemy : Ship
     }
 
 
-    public override void OnDieListener()
+    public override void DieHandler()
     {
-        base.OnDieListener();
+        base.DieHandler();
         GameManager.instance.AddScore(points);
         GameManager.instance.AddMultiplierCounter(addedMultiplier);
         Destroy(gameObject);

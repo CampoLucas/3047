@@ -72,7 +72,7 @@ public class Boss : Ship
 
     }
 
-    public override void OnDieListener()
+    public override void DieHandler()
     {
         // if (state == BossState.Phase1)
         // {
@@ -86,7 +86,7 @@ public class Boss : Ship
         
         state = BossState.Dead;
         GameManager.instance.GameCompleted();
-        base.OnDieListener();
+        base.DieHandler();
         
     }
 

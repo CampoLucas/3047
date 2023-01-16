@@ -25,19 +25,19 @@ public class Bracelets : Ship
             _boss.OnDestroyedBracelet.AddListener(OnDestroyedBraceletListener);
     }
 
-    public override void OnDieListener()
+    public override void DieHandler()
     {
         _boss.OnDestroyedBracelet?.Invoke();
         _boss.TakeDamage(_boss.Data.Life / 4);
         _boss.IncrementRotationSpeed(30);
         _boss.ChangeRotationDirection();
         Instantiate(_explosion, transform.position, Quaternion.identity);
-        base.OnDieListener();
+        base.DieHandler();
     }
 
     private void OnDestroyedBraceletListener()
     {
-        _damageable.ResetValues();
+        Damageable.Reset();
         _gun.ChangeFireRate(30);
     }
 

@@ -41,9 +41,9 @@ public class Asteroid : Ship
         transform.localScale = Vector3.one * _size;
     }
 
-    public override void OnDieListener()
+    public override void DieHandler()
     {
-        base.OnDieListener();
+        base.DieHandler();
         //Duplicates into anumber between 2 and 3 half of the size of the asteroid, if it is 3 asteroids 3 times smaller
         Destroy(gameObject);
     }

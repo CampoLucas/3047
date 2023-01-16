@@ -38,7 +38,7 @@ public class SingleTargetedGun : SingleStraightShotGun
     public override void Fire()
     {
         if (!_target) return;
-        if(_target.IsDead) return;
+        if(_target.Damageable.IsAlive()) return;
         Vector3 dir = _target.transform.position - transform.position;
         Bullet e = _pool.Use().GetComponent<Bullet>();
         e.transform.parent = GameManager.instance.bullets.transform; //To avoid Filling up base Hierarchy with bullets

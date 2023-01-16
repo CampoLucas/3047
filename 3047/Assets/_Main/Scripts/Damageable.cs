@@ -1,117 +1,91 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
+/// <summary>
+/// A script that handles the life of an objects.
+/// </summary>
 public class Damageable : MonoBehaviour, IDamageable, IObservable
 {
-    public int CurrentLife => _currentLife;
-    [SerializeField] protected int _currentLife;
+    public List<IObserver> Subscribers { get; private set; }
+    private StatsSO _stats;
     
+    public event DieDelegate OnDie;
+    public event LivesUpdatedDelegate OnLivesUpdated;
     
-    public bool IsDead => _isDead;
-    private bool _isDead = false;
-    public bool IsInvulnerable => _isInvulnerable; //Quiero que el player tenga unos segundos de inmortalidad cuando le disparen y esquive
-    [SerializeField] private bool _isInvulnerable;
-
-    private float _invulnerableTime;
+    [SerializeField] private float invulnerableTime = 2;
+    private int _currentLife;
+    private bool _isInvulnerable;
     private float _currentInvulnerableTime;
 
-    public StatsSO Stats => _stats;
-    [SerializeField] private StatsSO _stats;
-
-    public List<IObserver> Subscribers => _subscribers;
-    private List<IObserver> _subscribers = new List<IObserver>();
-
-    //events
-
-    public Action<int> OnLifeUpdate;
-    public UnityEvent OnDie = new UnityEvent();
     
     protected virtual void Awake()
     {
-        if (_stats == null)
-            _stats = GetComponent<Entity>().Data;
+        _stats = GetComponent<Entity>().Data;
         InitStats();
     }
+
+    private void Start()
+    {
+        Subscribers = new List<IObserver>();
+    }
+
     private void InitStats() //privado porque solo se deveria llamar en Awake, por eso el nombre Initialize Stats
     {
-        _isDead = false;
         _currentLife = _stats.Life;
         _isInvulnerable = false;
     }
 
     private void Update()
     {
-        if (_isInvulnerable)
-        {
-            _currentInvulnerableTime += Time.deltaTime;
-            if (_currentInvulnerableTime >= _invulnerableTime)
-            {
-                _isInvulnerable = false;
-                _currentInvulnerableTime = 0f;
-            }
-        }
+        if (!_isInvulnerable) return;
+        _currentInvulnerableTime += Time.deltaTime;
+        if (!(_currentInvulnerableTime >= invulnerableTime)) return;
+        _isInvulnerable = false;
+        _currentInvulnerableTime = 0f;
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int amount)
     {
-        if(_isInvulnerable) return;
-        if (_isDead) return;
+        if (_isInvulnerable) return;
+        if (!IsAlive()) return;
         
-        _currentLife -= damage;
-        if(_currentLife <= 0)
+        _currentLife -= amount;
+        if (_currentLife <= 0)
         {
             _currentLife = 0;
-            Die();
+            OnDie?.Invoke();
         }
-        OnLifeUpdate?.Invoke(_currentLife);
+        OnLivesUpdated?.Invoke(_currentLife, _stats.Life);
     }
     public virtual void AddLife(int HP)
     {
-        if(_isDead) return;
+        if(!IsAlive()) return;
         
         _currentLife += HP;
         if (_currentLife >= _stats.Life)
             _currentLife = _stats.Life;
-        OnLifeUpdate?.Invoke(_currentLife);
+        OnLivesUpdated?.Invoke(_currentLife, _stats.Life);
     }
 
-    public virtual void SetInvulnerable(float time)
-    {
-        if(_isDead) return;
-        
-        _invulnerableTime = time;
-        _isInvulnerable = true;
-        _currentInvulnerableTime = 0f;
-    }
+    public bool IsAlive() => _currentLife > 0;
+    public void Reset() => InitStats();
 
-    public void Die()
-    {
-        _isDead = true;
-        OnDie?.Invoke();
-    }
-
-    public void ResetValues()
-    {
-        InitStats();   
-    }
-
+    //Not uses yet
     public void Subscribe(IObserver observer)
     {
-        if (_subscribers.Contains(observer)) return;
-        _subscribers.Add(observer);
+        if (Subscribers.Contains(observer)) return;
+        Subscribers.Add(observer);
     }
 
     public void Unsubscribe(IObserver observer)
     {
-        if (_subscribers.Contains(observer)) return;
-        _subscribers.Remove(observer);
+        if (Subscribers.Contains(observer)) return;
+        Subscribers.Remove(observer);
     }
 
     public void NotifyAll(string message, params object[] args)
     {
-        foreach (var subscriber in _subscribers)
+        foreach (var subscriber in Subscribers)
             subscriber.OnNotify(message, args);
     }
 

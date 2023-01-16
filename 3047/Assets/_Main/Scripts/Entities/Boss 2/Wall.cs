@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Wall : Ship
 {
-    public override void OnDieListener()
+    public override void DieHandler()
     {
-        base.OnDieListener();
+        base.DieHandler();
     }
 }
